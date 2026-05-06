@@ -5,7 +5,7 @@ import { handleHashAnchorClick, scrollToHash } from "../lib/scrollToHash";
 import Container from "./Container";
 import Button from "./Button";
 
-export default function Navbar({ navigation, activeSection, isScrolled, progressScale }) {
+export default function Navbar({ navigation, activeSection, isScrolled }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleAnchorClick = (event, href, shouldCloseMenu = false) => {
@@ -33,17 +33,16 @@ export default function Navbar({ navigation, activeSection, isScrolled, progress
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative overflow-hidden rounded-[1.6rem] border px-4 py-3 transition duration-500 md:px-6 ${
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className={`relative overflow-hidden rounded-[1.6rem] border px-4 py-3 transition duration-300 md:px-6 ${
             isScrolled
-              ? "border-white/10 bg-ink shadow-soft backdrop-blur-2xl"
-              : "border-white/[0.08] bg-slate-950/88 shadow-soft backdrop-blur-2xl md:bg-white/[0.03] md:shadow-none md:backdrop-blur-xl"
+              ? "border-white/10 bg-ink shadow-soft backdrop-blur-lg md:backdrop-blur-xl"
+              : "border-white/[0.08] bg-slate-950/88 shadow-soft backdrop-blur-lg md:bg-white/[0.03] md:shadow-none md:backdrop-blur-xl"
           }`}
         >
-          <motion.div
+          <div
             aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-px origin-left bg-gradient-to-r from-cyan-300 via-white to-cyan-300"
-            style={{ scaleX: progressScale }}
+            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-cyan-300 via-white to-cyan-300 opacity-70"
           />
 
           <div className="flex items-center justify-between gap-4">
@@ -107,7 +106,7 @@ export default function Navbar({ navigation, activeSection, isScrolled, progress
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden md:hidden"
               >
                 <div className="mt-4 grid gap-2 border-t border-white/[0.08] pt-4">

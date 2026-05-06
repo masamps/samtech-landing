@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useScroll, useSpring } from "framer-motion";
+import { MotionConfig } from "framer-motion";
 import BackgroundDecor from "./components/BackgroundDecor";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -17,12 +17,6 @@ import { scrollToHash } from "./lib/scrollToHash";
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const progressScale = useSpring(scrollYProgress, {
-    stiffness: 140,
-    damping: 25,
-    mass: 0.2,
-  });
 
   const sectionIds = useMemo(
     () => ["hero", "autoridade", ...navigation.map((item) => item.href.replace("#", "")), "impacto"],
@@ -88,27 +82,28 @@ export default function App() {
   }, [sectionIds]);
 
   return (
-    <div className="app-shell relative overflow-hidden">
-      <BackgroundDecor />
-      <Navbar
-        navigation={navigation}
-        activeSection={activeSection}
-        isScrolled={isScrolled}
-        progressScale={progressScale}
-      />
+    <MotionConfig reducedMotion="user">
+      <div className="app-shell relative overflow-hidden">
+        <BackgroundDecor />
+        <Navbar
+          navigation={navigation}
+          activeSection={activeSection}
+          isScrolled={isScrolled}
+        />
 
-      <main className="relative z-10">
-        <HeroSection />
-        <AuthoritySection />
-        <ServicesSection />
-        <DifferentialsSection />
-        <ProcessSection />
-        <ImpactSection />
-        <PortfolioSection />
-        <FinalCTASection />
-      </main>
+        <main className="relative z-10">
+          <HeroSection />
+          <AuthoritySection />
+          <ServicesSection />
+          <DifferentialsSection />
+          <ProcessSection />
+          <ImpactSection />
+          <PortfolioSection />
+          <FinalCTASection />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </MotionConfig>
   );
 }

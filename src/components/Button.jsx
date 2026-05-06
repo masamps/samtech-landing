@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { handleHashAnchorClick } from "../lib/scrollToHash";
 
@@ -23,15 +22,13 @@ export default function Button({
   };
 
   return (
-    <motion.a
+    <a
       href={href}
       onClick={handleClick}
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.98 }}
-      className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold tracking-[0.01em] transition duration-500 ${variants[variant]} ${className}`}
+      className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold tracking-[0.01em] transition duration-300 hover:-translate-y-0.5 active:scale-[0.99] ${variants[variant]} ${className}`}
     >
       <span className="relative z-10">{children}</span>
-      {Icon && <Icon className="relative z-10 h-4 w-4 transition duration-500 group-hover:translate-x-0.5" />}
-    </motion.a>
+      {Icon && <Icon className="relative z-10 h-4 w-4 transition duration-300 group-hover:translate-x-0.5" />}
+    </a>
   );
 }

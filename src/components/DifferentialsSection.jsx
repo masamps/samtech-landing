@@ -54,13 +54,13 @@ export default function DifferentialsSection() {
                 <motion.article
                   key={item.title}
                   {...scaleIn(index * 0.07)}
-                  className="group flex min-h-[15.5rem] flex-col rounded-lg border border-white/10 bg-white/[0.04] p-6 shadow-soft backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:border-cyan-300/18 hover:bg-white/[0.06]"
+                  className="group flex min-h-[15rem] flex-col rounded-lg border border-white/10 bg-white/[0.04] p-5 shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/18 hover:bg-white/[0.06] sm:p-6 md:backdrop-blur-xl"
                 >
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/45 text-cyan-200 transition duration-500 group-hover:border-cyan-300/20 group-hover:bg-cyan-300/10">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/45 text-cyan-200 transition duration-300 group-hover:border-cyan-300/20 group-hover:bg-cyan-300/10">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="flex flex-1 flex-col">
-                    <h3 className="min-h-[3.25rem] font-display text-xl font-semibold leading-snug text-white">
+                    <h3 className="font-display text-lg font-semibold leading-snug text-white sm:min-h-[3.25rem] sm:text-xl">
                       {item.title}
                     </h3>
                     <p className="mt-3 text-sm leading-7 text-slate-300">{item.description}</p>

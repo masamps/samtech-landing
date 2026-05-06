@@ -20,7 +20,7 @@ export default function AuthoritySection() {
 
             <Reveal delay={0.12}>
               <div className="glass-panel relative overflow-hidden p-8">
-                <div className="absolute right-[-8%] top-0 h-24 w-80 rotate-12 bg-gradient-to-r from-transparent via-cyan-300/12 to-transparent blur-3xl" />
+                <div className="absolute right-[-8%] top-0 hidden h-24 w-80 rotate-12 bg-gradient-to-r from-transparent via-cyan-300/10 to-transparent blur-2xl md:block" />
                 <div className="relative flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
                   <div className="max-w-xl space-y-4">
                     <span className="eyebrow">Direção clara</span>
@@ -42,9 +42,9 @@ export default function AuthoritySection() {
               <motion.div
                 key={item.title}
                 {...scaleIn(index * 0.08)}
-                className="group glass-panel p-6 transition duration-500 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-white/[0.06]"
+                className="group glass-panel p-5 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/[0.06] sm:p-6"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-lg font-semibold text-white transition duration-500 group-hover:border-cyan-300/20 group-hover:text-cyan-200">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-lg font-semibold text-white transition duration-300 group-hover:border-cyan-300/20 group-hover:text-cyan-200">
                   0{index + 1}
                 </div>
                 <h3 className="font-display text-xl font-semibold text-white">{item.title}</h3>

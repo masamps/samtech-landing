@@ -1,6 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Layers3 } from "lucide-react";
-import { useRef } from "react";
 
 function MetricBar({ value, className = "" }) {
   return (
@@ -14,29 +12,14 @@ function MetricBar({ value, className = "" }) {
 }
 
 export default function HeroVisual() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const lightY = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const dashboardY = useTransform(scrollYProgress, [0, 1], [14, -22]);
-
   return (
-    <div ref={ref} className="relative mx-auto w-full max-w-[580px] sm:h-[560px] lg:h-[620px]">
-      <motion.div
-        style={{ y: lightY }}
-        className="absolute left-1/2 top-[12%] hidden h-40 w-[28rem] -translate-x-1/2 -rotate-6 bg-gradient-to-r from-transparent via-cyan-300/18 to-transparent blur-[90px] sm:block"
-      />
+    <div className="relative mx-auto w-full max-w-[580px] sm:h-[560px] lg:h-[620px]">
+      <div className="absolute left-1/2 top-[12%] hidden h-40 w-[28rem] -translate-x-1/2 -rotate-6 bg-gradient-to-r from-transparent via-cyan-300/14 to-transparent blur-[72px] sm:block" />
 
       <div className="hero-grid absolute inset-0 hidden rounded-[2.75rem] sm:block" />
       <div className="absolute inset-x-12 bottom-6 hidden h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent sm:block" />
 
-      <motion.div
-        style={{ y: dashboardY }}
-        className="glass-panel panel-glow relative z-20 p-4 sm:absolute sm:inset-x-10 sm:bottom-4 sm:p-6"
-      >
+      <div className="glass-panel panel-glow relative z-20 p-4 sm:absolute sm:inset-x-10 sm:bottom-4 sm:p-6">
         <div className="mb-5 flex flex-col gap-3">
           <div className="min-w-0">
             <div className="mb-1 flex items-center gap-2">
@@ -86,7 +69,7 @@ export default function HeroVisual() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

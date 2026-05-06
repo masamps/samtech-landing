@@ -23,10 +23,10 @@ export default function PortfolioSection() {
             <motion.article
               key={item.title}
               {...scaleIn(index * 0.08)}
-              className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] shadow-soft backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:border-cyan-300/18 hover:bg-white/[0.06]"
+              className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/18 hover:bg-white/[0.06] md:backdrop-blur-xl"
             >
               <div className="relative overflow-hidden border-b border-white/[0.08] p-6">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/10 via-transparent to-white/[0.03] opacity-0 transition duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/10 via-transparent to-white/[0.03] opacity-0 transition duration-300 group-hover:opacity-100" />
                 <div className="relative">
                   <PortfolioMockup type={item.type} />
                 </div>
@@ -35,7 +35,7 @@ export default function PortfolioSection() {
               <div className="p-6">
                 <div className="mb-4 flex items-center justify-between">
                   <span className="eyebrow">Case conceitual</span>
-                  <ArrowUpRight className="h-5 w-5 text-slate-500 transition duration-500 group-hover:text-cyan-200" />
+                  <ArrowUpRight className="h-5 w-5 text-slate-500 transition duration-300 group-hover:text-cyan-200" />
                 </div>
                 <h3 className="font-display text-2xl font-semibold text-white">{item.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-300">{item.description}</p>
