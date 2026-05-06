@@ -24,26 +24,28 @@ export default function HeroVisual() {
   const dashboardY = useTransform(scrollYProgress, [0, 1], [14, -22]);
 
   return (
-    <div ref={ref} className="relative mx-auto h-[560px] w-full max-w-[580px] lg:h-[620px]">
+    <div ref={ref} className="relative mx-auto w-full max-w-[580px] sm:h-[560px] lg:h-[620px]">
       <motion.div
         style={{ y: lightY }}
-        className="absolute left-1/2 top-[12%] h-40 w-[28rem] -translate-x-1/2 -rotate-6 bg-gradient-to-r from-transparent via-cyan-300/18 to-transparent blur-[90px]"
+        className="absolute left-1/2 top-[12%] hidden h-40 w-[28rem] -translate-x-1/2 -rotate-6 bg-gradient-to-r from-transparent via-cyan-300/18 to-transparent blur-[90px] sm:block"
       />
 
-      <div className="hero-grid absolute inset-0 rounded-[2.75rem]" />
-      <div className="absolute inset-x-12 bottom-6 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent" />
+      <div className="hero-grid absolute inset-0 hidden rounded-[2.75rem] sm:block" />
+      <div className="absolute inset-x-12 bottom-6 hidden h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent sm:block" />
 
       <motion.div
         style={{ y: dashboardY }}
-        className="glass-panel panel-glow absolute inset-x-0 bottom-4 z-20 p-4 sm:inset-x-10 sm:p-6"
+        className="glass-panel panel-glow relative z-20 p-4 sm:absolute sm:inset-x-10 sm:bottom-4 sm:p-6"
       >
         <div className="mb-5 flex flex-col gap-3">
           <div className="min-w-0">
             <div className="mb-1 flex items-center gap-2">
               <Layers3 className="h-4 w-4 text-cyan-300" />
-              <span className="text-[11px] uppercase tracking-[0.26em] text-slate-400">Samtech Suite</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-[11px] sm:tracking-[0.26em]">
+                Samtech Suite
+              </span>
             </div>
-            <h3 className="text-balance font-display text-lg font-semibold leading-snug text-white">
+            <h3 className="text-balance font-display text-base font-semibold leading-snug text-white sm:text-lg">
               Soluções digitais com presença e precisão.
             </h3>
           </div>
@@ -54,11 +56,13 @@ export default function HeroVisual() {
         </div>
 
         <div className="grid gap-4">
-          <div className="rounded-[1.8rem] border border-white/[0.08] bg-slate-950/60 p-4">
-            <div className="mb-4 flex items-start justify-between gap-4">
+          <div className="rounded-[1.35rem] border border-white/[0.08] bg-slate-950/60 p-3 sm:rounded-[1.8rem] sm:p-4">
+            <div className="mb-4 flex items-start justify-between gap-3 sm:gap-4">
               <div className="space-y-1">
-                <span className="text-xs uppercase tracking-[0.22em] text-slate-400">Painel central</span>
-                <p className="max-w-sm text-sm leading-6 text-slate-300">
+                <span className="text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-xs sm:tracking-[0.22em]">
+                  Painel central
+                </span>
+                <p className="max-w-sm text-xs leading-6 text-slate-300 sm:text-sm">
                   Visibilidade, ritmo e controle em uma interface precisa.
                 </p>
               </div>
@@ -67,16 +71,16 @@ export default function HeroVisual() {
                 <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
               </div>
             </div>
-            <div className="rounded-[1.4rem] bg-white/[0.04] p-4">
-              <div className="mb-5 h-20 rounded-[1.2rem] bg-gradient-to-br from-cyan-300/20 via-sky-400/10 to-transparent" />
+            <div className="rounded-[1.2rem] bg-white/[0.04] p-3 sm:rounded-[1.4rem] sm:p-4">
+              <div className="mb-4 h-16 rounded-[1rem] bg-gradient-to-br from-cyan-300/20 via-sky-400/10 to-transparent sm:mb-5 sm:h-20 sm:rounded-[1.2rem]" />
               <MetricBar value="86%" className="h-2.5" />
             </div>
           </div>
 
           <div className="grid gap-3">
             {["Arquitetura", "UX", "Escala"].map((label, index) => (
-              <div key={label} className="rounded-[1.2rem] bg-white/[0.04] p-3">
-                <div className="mb-2 text-xs uppercase tracking-[0.18em] text-slate-400">{label}</div>
+              <div key={label} className="rounded-[1rem] bg-white/[0.04] p-3 sm:rounded-[1.2rem]">
+                <div className="mb-2 text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-xs sm:tracking-[0.18em]">{label}</div>
                 <MetricBar value={`${70 + index * 10}%`} className="h-2.5" />
               </div>
             ))}

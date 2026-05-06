@@ -9,7 +9,7 @@ export default function ImpactSection() {
   return (
     <section id="impacto" data-section className="section-shell scroll-mt-28 md:scroll-mt-32">
       <Container>
-        <div className="glass-panel overflow-hidden p-8 md:p-10">
+        <div className="glass-panel overflow-hidden p-4 sm:p-8 md:p-10">
           <SectionHeading
             eyebrow="Impacto"
             title="Valor percebido nasce da soma entre estratégia, experiência e execução."
@@ -24,7 +24,7 @@ export default function ImpactSection() {
                 {...scaleIn(index * 0.08)}
                 className="rounded-lg border border-white/10 bg-slate-950/45 p-6"
               >
-                <div className="mb-6 text-5xl font-semibold leading-none text-white md:text-6xl">
+                <div className="mb-6 text-4xl font-semibold leading-none text-white sm:text-5xl md:text-6xl">
                   <ImpactCounter value={metric.value} suffix={metric.suffix} />
                 </div>
                 <h3 className="font-display text-xl font-semibold text-white">{metric.label}</h3>

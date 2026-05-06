@@ -20,10 +20,10 @@ export default function HeroSection() {
     <section
       id="hero"
       data-section
-      className="relative scroll-mt-28 overflow-hidden px-0 pb-20 pt-32 md:scroll-mt-32 md:pb-28 md:pt-40"
+      className="relative scroll-mt-28 overflow-hidden px-0 pb-16 pt-28 md:scroll-mt-32 md:pb-28 md:pt-40"
     >
       <Container>
-        <div className="grid gap-20 lg:grid-cols-[1.03fr_0.97fr] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[1.03fr_0.97fr] lg:items-center lg:gap-20">
           <div className="relative z-10 max-w-2xl">
             <motion.span {...heroReveal()} className="eyebrow">
               <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
@@ -32,7 +32,7 @@ export default function HeroSection() {
 
             <motion.h1
               {...heroReveal(0.04)}
-              className="mt-8 font-display text-5xl font-semibold leading-[1.02] text-white md:text-6xl lg:text-[5rem]"
+              className="mt-6 font-display text-4xl font-semibold leading-[1.08] text-white sm:text-5xl md:mt-8 md:text-6xl md:leading-[1.02] lg:text-[5rem]"
             >
               <span className="text-balance">
                 Desenvolvimento de sistemas, apps e sites com{" "}
@@ -44,23 +44,25 @@ export default function HeroSection() {
 
             <motion.p
               {...heroReveal(0.08)}
-              className="mt-8 max-w-xl text-base leading-8 text-slate-300 md:text-lg"
+              className="mt-6 max-w-xl text-base leading-7 text-slate-300 md:mt-8 md:text-lg md:leading-8"
             >
               A Samtech cria soluções digitais sob medida para empresas que precisam de
               tecnologia com performance, design e escalabilidade. Você contrata uma frente
               específica ou combina frentes quando isso fizer sentido.
             </motion.p>
 
-            <motion.div {...heroReveal(0.12)} className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button href={heroButtons.primary.href}>{heroButtons.primary.label}</Button>
-              <Button href={heroButtons.secondary.href} variant="secondary">
+            <motion.div {...heroReveal(0.12)} className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 md:gap-4">
+              <Button href={heroButtons.primary.href} className="w-full sm:w-auto">
+                {heroButtons.primary.label}
+              </Button>
+              <Button href={heroButtons.secondary.href} variant="secondary" className="w-full sm:w-auto">
                 {heroButtons.secondary.label}
               </Button>
             </motion.div>
 
             <motion.div
               {...heroReveal(0.16)}
-              className="mt-10 grid gap-3 sm:grid-cols-3 lg:max-w-none"
+              className="mt-8 grid gap-3 sm:grid-cols-3 md:mt-10 lg:max-w-none"
             >
               {heroHighlights.map((item) => (
                 <div
@@ -83,7 +85,7 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          <motion.div {...heroReveal(0.1)} className="relative mt-8 lg:mt-0">
+          <motion.div {...heroReveal(0.1)} className="relative mt-2 lg:mt-0">
             <HeroVisual />
           </motion.div>
         </div>

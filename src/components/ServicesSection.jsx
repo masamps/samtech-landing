@@ -53,7 +53,7 @@ export default function ServicesSection() {
                     </div>
                   </div>
 
-                  <h3 className="font-display text-2xl font-semibold text-white">{service.title}</h3>
+                  <h3 className="font-display text-xl font-semibold leading-snug text-white sm:text-2xl">{service.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-slate-300">{service.description}</p>
                 </div>
               </motion.article>
