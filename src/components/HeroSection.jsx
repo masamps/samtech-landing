@@ -25,9 +25,9 @@ export default function HeroSection() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.03fr_0.97fr] lg:items-center lg:gap-20">
           <div className="relative z-10 max-w-2xl">
-            <motion.span {...heroReveal()} className="eyebrow">
-              <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
-              Desenvolvimento sob demanda para marcas que querem mais
+            <motion.span {...heroReveal()} className="eyebrow flex-nowrap items-start text-left leading-snug">
+              <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-300" />
+              <span className="min-w-0">Desenvolvimento sob demanda para marcas que querem mais</span>
             </motion.span>
 
             <motion.h1
