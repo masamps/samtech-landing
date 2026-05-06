@@ -26,7 +26,7 @@ export default function ProcessSection() {
                 <motion.article
                   key={step.title}
                   {...scaleIn(index * 0.06)}
-                  className="relative rounded-lg border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md md:backdrop-blur-xl"
+                  className="motion-card relative rounded-lg border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md md:backdrop-blur-xl"
                 >
                   <div className="mb-5 flex items-center justify-between">
                     <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/45 text-cyan-200">
@@ -50,7 +50,7 @@ export default function ProcessSection() {
               <motion.article
                 key={step.title}
                 {...scaleIn(index * 0.06)}
-                className="relative rounded-lg border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md md:backdrop-blur-xl"
+                className="motion-card relative rounded-lg border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md md:backdrop-blur-xl"
               >
                 <div className="mb-5 flex items-center justify-between">
                   <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/45 text-cyan-200">

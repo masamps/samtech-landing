@@ -25,7 +25,7 @@ export default function ServicesSection() {
               <motion.article
                 key={service.title}
                 {...scaleIn(index * 0.08)}
-                className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] p-5 shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/18 hover:bg-white/[0.06] sm:p-6 md:backdrop-blur-xl"
+                className="motion-card group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] p-5 shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/18 hover:bg-white/[0.06] sm:p-6 md:backdrop-blur-xl"
               >
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
                 <div className="absolute right-[-20%] top-0 hidden h-20 w-72 rotate-12 bg-gradient-to-r from-transparent via-cyan-300/10 to-transparent blur-2xl opacity-0 transition duration-300 group-hover:opacity-100 md:block" />

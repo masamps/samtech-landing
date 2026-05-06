@@ -1,13 +1,6 @@
-import { Github, Instagram, Linkedin } from "lucide-react";
 import { footerDetails, navigation } from "../data/siteContent";
 import { handleHashAnchorClick } from "../lib/scrollToHash";
 import Container from "./Container";
-
-const socialLinks = [
-  { label: "LinkedIn", icon: Linkedin, href: "#" },
-  { label: "Instagram", icon: Instagram, href: "#" },
-  { label: "GitHub", icon: Github, href: "#" },
-];
 
 export default function Footer() {
   return (
@@ -31,6 +24,9 @@ export default function Footer() {
                 </div>
               </a>
               <p className="mt-6 max-w-md text-sm leading-8 text-slate-300">{footerDetails.description}</p>
+              <div className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs font-medium text-slate-300">
+                Responsável técnico: Matheus Sampaio
+              </div>
             </div>
 
             <div>
@@ -66,27 +62,11 @@ export default function Footer() {
                 })}
               </div>
 
-              <div className="mt-6 flex gap-3">
-                {socialLinks.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      aria-label={item.label}
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] text-slate-300 transition hover:border-cyan-300/18 hover:bg-white/[0.06] hover:text-white"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  );
-                })}
-              </div>
             </div>
           </div>
 
           <div className="mt-10 border-t border-white/[0.08] pt-6 text-sm text-slate-500">
-            Samtech © 2026. Projetos digitais com direção criativa, solidez técnica e acabamento premium.
+            Samtech © 2026. Marca de desenvolvimento digital conduzida por Matheus Sampaio.
           </div>
         </div>
       </Container>

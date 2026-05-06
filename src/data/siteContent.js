@@ -1,6 +1,7 @@
 import {
   ArrowUpRight,
   Blocks,
+  CheckCircle2,
   ClipboardCheck,
   Code2,
   Compass,
@@ -9,14 +10,17 @@ import {
   Layers3,
   Mail,
   MapPin,
+  MessageCircle,
   Palette,
   PenTool,
   Phone,
   Rocket,
+  Send,
   ShieldCheck,
   Smartphone,
   Sparkles,
   Users2,
+  UserCheck,
   Waypoints,
 } from "lucide-react";
 
@@ -24,7 +28,7 @@ export const navigation = [
   { label: "Serviços", href: "#servicos" },
   { label: "Diferenciais", href: "#diferenciais" },
   { label: "Processo", href: "#processo" },
-  { label: "Portfólio", href: "#portfolio" },
+  { label: "Exemplos", href: "#portfolio" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -111,6 +115,34 @@ export const differentials = [
   },
 ];
 
+export const trustPoints = [
+  {
+    icon: UserCheck,
+    title: "Atendimento direto com Matheus Sampaio",
+    description:
+      "Você conversa com quem entende o escopo, orienta a solução e acompanha as decisões importantes do projeto.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Escopo claro antes de desenvolver",
+    description:
+      "Antes de qualquer execução, a prioridade é entender objetivo, contexto, limites e melhor caminho para o projeto.",
+  },
+  {
+    icon: Blocks,
+    title: "Operação boutique e sob medida",
+    description:
+      "A Samtech atua de forma enxuta, técnica e próxima para entregar sistemas, apps ou sites com padrão profissional.",
+  },
+];
+
+export const firstConversationSteps = [
+  "Você envia a ideia, desafio ou escopo inicial.",
+  "A necessidade é analisada com clareza técnica e visão de produto.",
+  "Definimos se faz sentido sistema, app, site ou uma combinação planejada.",
+  "Você recebe um próximo passo objetivo para avançar com segurança.",
+];
+
 export const processSteps = [
   {
     icon: Compass,
@@ -177,34 +209,59 @@ export const portfolioCases = [
     type: "dashboard",
     title: "Sistema de gestão empresarial",
     description:
-      "Plataforma conceitual para centralizar operações, indicadores e acompanhamento estratégico em tempo real.",
+      "Modelo de solução para centralizar operações, indicadores e acompanhamento estratégico em tempo real.",
     highlights: ["Painel executivo", "Automação operacional", "Escala para múltiplas equipes"],
   },
   {
     type: "mobile",
     title: "Aplicativo mobile para serviços",
     description:
-      "Fluxo mobile pensado para agilidade, recorrência de uso e uma experiência simples em cada interação.",
+      "Modelo de experiência mobile para agilidade, recorrência de uso e uma jornada simples em cada interação.",
     highlights: ["Jornadas intuitivas", "Acompanhamento ao vivo", "Design mobile premium"],
   },
   {
     type: "website",
     title: "Site institucional com foco em conversão",
     description:
-      "Presença digital de alto padrão para comunicar valor, gerar confiança e acelerar novos contatos.",
+      "Modelo de presença digital para comunicar valor, gerar confiança e acelerar novos contatos.",
     highlights: ["Narrativa visual forte", "Estrutura comercial clara", "Experiência rápida e responsiva"],
   },
 ];
 
 export const footerDetails = {
   description:
-    "Samtech desenvolve sistemas, aplicativos e experiências web sob demanda, com direção de produto, design refinado e base técnica pronta para crescer.",
+    "Samtech é uma marca boutique de desenvolvimento digital conduzida por Matheus Sampaio, com foco em sistemas, apps e experiências web sob demanda.",
   contacts: [
-    { icon: Mail, label: "contato@samtech.dev" },
-    { icon: Phone, label: "+55 (11) 99999-0000" },
+    { icon: Mail, label: "matheuslemos98@gmail.com" },
+    { icon: Phone, label: "+55 (15) 98177-7690" },
     { icon: MapPin, label: "Atendimento remoto para todo o Brasil" },
   ],
 };
+
+export const contactChannels = [
+  {
+    icon: Mail,
+    title: "Enviar briefing por e-mail",
+    description: "Ideal para explicar contexto, escopo e prioridade com calma.",
+    label: "matheuslemos98@gmail.com",
+    href: "mailto:matheuslemos98@gmail.com?subject=Quero%20falar%20sobre%20um%20projeto%20digital",
+  },
+  {
+    icon: MessageCircle,
+    title: "Falar direto com Matheus Sampaio",
+    description: "Para uma primeira conversa rápida sobre sistema, app ou site.",
+    label: "WhatsApp comercial",
+    href: "https://wa.me/5515981777690?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20projeto%20digital%20com%20a%20Samtech.",
+  },
+];
+
+export const leadFormOptions = [
+  "Desenvolvimento de sistema",
+  "Aplicativo mobile",
+  "Site profissional",
+  "Combinação sob medida",
+  "Ainda quero entender a melhor frente",
+];
 
 export const heroButtons = {
   primary: {
@@ -220,10 +277,28 @@ export const heroButtons = {
 export const closingStatement = {
   title: "Seu projeto pode começar com um sistema, um app ou um site.",
   description:
-    "O importante é começar com a solução certa. A Samtech entrega a frente ideal para o seu momento, com espaço para expandir o projeto quando fizer sentido.",
+    "O importante é começar com a solução certa. O atendimento é direto com Matheus Sampaio para entender seu contexto e definir a melhor frente antes de desenvolver.",
   button: {
-    label: "Falar com a Samtech",
-    href: "mailto:contato@samtech.dev?subject=Quero%20falar%20sobre%20um%20projeto%20digital",
-    icon: ArrowUpRight,
+    label: "Enviar briefing",
+    href: "mailto:matheuslemos98@gmail.com?subject=Quero%20falar%20sobre%20um%20projeto%20digital",
+    icon: Send,
   },
 };
+
+export const conversionPoints = [
+  {
+    icon: CheckCircle2,
+    title: "Resposta direta",
+    description: "Primeiro retorno feito por Matheus Sampaio, com foco no que faz sentido para o seu momento.",
+  },
+  {
+    icon: Blocks,
+    title: "Escopo flexível",
+    description: "Sistema, app ou site podem ser tratados separadamente.",
+  },
+  {
+    icon: ArrowUpRight,
+    title: "Próximo passo claro",
+    description: "Briefing, direção técnica e proposta com prioridade definida.",
+  },
+];

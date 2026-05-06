@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionTemplate, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { handleHashAnchorClick, scrollToHash } from "../lib/scrollToHash";
 import Container from "./Container";
 import Button from "./Button";
 
-export default function Navbar({ navigation, activeSection, isScrolled }) {
+export default function Navbar({ navigation, activeSection, isScrolled, progressScale }) {
   const [isOpen, setIsOpen] = useState(false);
+  const progressAngle = useTransform(progressScale, [0, 1], ["0deg", "360deg"]);
+  const progressBorder = useMotionTemplate`conic-gradient(from -90deg, rgba(103, 232, 249, 0.95) 0deg, rgba(255, 255, 255, 0.86) ${progressAngle}, transparent ${progressAngle}, transparent 360deg)`;
 
   const handleAnchorClick = (event, href, shouldCloseMenu = false) => {
     if (shouldCloseMenu) {
@@ -40,12 +42,13 @@ export default function Navbar({ navigation, activeSection, isScrolled }) {
               : "border-white/[0.08] bg-slate-950/88 shadow-soft backdrop-blur-lg md:bg-white/[0.03] md:shadow-none md:backdrop-blur-xl"
           }`}
         >
-          <div
+          <motion.div
             aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-cyan-300 via-white to-cyan-300 opacity-70"
+            className="nav-progress-frame pointer-events-none absolute inset-0 rounded-[1.6rem]"
+            style={{ background: progressBorder }}
           />
 
-          <div className="flex items-center justify-between gap-4">
+          <div className="relative flex items-center justify-between gap-4">
             <a
               href="#hero"
               onClick={(event) => handleAnchorClick(event, "#hero")}
@@ -100,39 +103,42 @@ export default function Navbar({ navigation, activeSection, isScrolled }) {
             </button>
           </div>
 
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-                className="overflow-hidden md:hidden"
-              >
-                <div className="mt-4 grid gap-2 border-t border-white/[0.08] pt-4">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={(event) => handleAnchorClick(event, item.href, true)}
-                      className="rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/[0.06]"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                  <Button
-                    href="#contato"
-                    className="mt-2 w-full"
-                    variant="primary"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Solicitar orçamento
-                  </Button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </motion.div>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.985 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.985 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-x-0 top-full mt-3 overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#070b18] p-4 shadow-[0_24px_80px_rgba(0,0,0,0.55)] backdrop-blur-xl md:hidden"
+            >
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/45 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.045] to-transparent" />
+              <div className="relative grid gap-2">
+                {navigation.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(event) => handleAnchorClick(event, item.href, true)}
+                    className="rounded-2xl border border-white/[0.1] bg-white/[0.055] px-4 py-3 text-sm font-medium text-slate-100 transition hover:bg-white/[0.08]"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <Button
+                  href="#contato"
+                  className="mt-2 w-full"
+                  variant="primary"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Solicitar orçamento
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Container>
     </header>
   );

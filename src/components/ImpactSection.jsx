@@ -22,7 +22,7 @@ export default function ImpactSection() {
               <motion.article
                 key={metric.label}
                 {...scaleIn(index * 0.08)}
-                className="rounded-lg border border-white/10 bg-slate-950/45 p-6"
+                className="motion-card rounded-lg border border-white/10 bg-slate-950/45 p-6"
               >
                 <div className="mb-6 text-4xl font-semibold leading-none text-white sm:text-5xl md:text-6xl">
                   <ImpactCounter value={metric.value} suffix={metric.suffix} />

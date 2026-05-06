@@ -1,15 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import { MotionConfig } from "framer-motion";
+import { MotionConfig, useScroll, useSpring } from "framer-motion";
 import BackgroundDecor from "./components/BackgroundDecor";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AuthoritySection from "./components/AuthoritySection";
 import ServicesSection from "./components/ServicesSection";
 import DifferentialsSection from "./components/DifferentialsSection";
+import TrustSection from "./components/TrustSection";
 import ProcessSection from "./components/ProcessSection";
 import ImpactSection from "./components/ImpactSection";
 import PortfolioSection from "./components/PortfolioSection";
 import FinalCTASection from "./components/FinalCTASection";
+import FloatingCTA from "./components/FloatingCTA";
 import Footer from "./components/Footer";
 import { navigation } from "./data/siteContent";
 import { scrollToHash } from "./lib/scrollToHash";
@@ -17,6 +19,12 @@ import { scrollToHash } from "./lib/scrollToHash";
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progressScale = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 32,
+    mass: 0.18,
+  });
 
   const sectionIds = useMemo(
     () => ["hero", "autoridade", ...navigation.map((item) => item.href.replace("#", "")), "impacto"],
@@ -89,6 +97,7 @@ export default function App() {
           navigation={navigation}
           activeSection={activeSection}
           isScrolled={isScrolled}
+          progressScale={progressScale}
         />
 
         <main className="relative z-10">
@@ -96,6 +105,7 @@ export default function App() {
           <AuthoritySection />
           <ServicesSection />
           <DifferentialsSection />
+          <TrustSection />
           <ProcessSection />
           <ImpactSection />
           <PortfolioSection />
@@ -103,6 +113,7 @@ export default function App() {
         </main>
 
         <Footer />
+        <FloatingCTA />
       </div>
     </MotionConfig>
   );

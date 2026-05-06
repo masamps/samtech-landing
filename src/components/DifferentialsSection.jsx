@@ -54,7 +54,7 @@ export default function DifferentialsSection() {
                 <motion.article
                   key={item.title}
                   {...scaleIn(index * 0.07)}
-                  className="group flex min-h-[15rem] flex-col rounded-lg border border-white/10 bg-white/[0.04] p-5 shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/18 hover:bg-white/[0.06] sm:p-6 md:backdrop-blur-xl"
+                  className="motion-card group flex min-h-[15rem] flex-col rounded-lg border border-white/10 bg-white/[0.04] p-5 shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/18 hover:bg-white/[0.06] sm:p-6 md:backdrop-blur-xl"
                 >
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/45 text-cyan-200 transition duration-300 group-hover:border-cyan-300/20 group-hover:bg-cyan-300/10">
                     <Icon className="h-5 w-5" />

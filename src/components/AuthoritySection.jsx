@@ -42,7 +42,7 @@ export default function AuthoritySection() {
               <motion.div
                 key={item.title}
                 {...scaleIn(index * 0.08)}
-                className="group glass-panel p-5 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/[0.06] sm:p-6"
+                className="motion-card group glass-panel p-5 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/[0.06] sm:p-6"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-lg font-semibold text-white transition duration-300 group-hover:border-cyan-300/20 group-hover:text-cyan-200">
                   0{index + 1}
