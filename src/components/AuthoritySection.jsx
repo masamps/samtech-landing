@@ -15,7 +15,7 @@ export default function AuthoritySection() {
             <SectionHeading
               eyebrow="Autoridade"
               title="Tecnologia pensada como produto, não apenas como entrega."
-              description="A Samtech desenvolve soluções digitais sob medida com foco em performance, design, usabilidade e escalabilidade. Cada projeto pode começar por uma frente específica e evoluir com consistência conforme a necessidade do negócio."
+              description="A Samcore desenvolve soluções digitais sob medida com foco em performance, design, usabilidade e escalabilidade. Cada projeto pode começar por uma frente específica e evoluir com consistência conforme a necessidade do negócio."
             />
 
             <Reveal delay={0.12}>

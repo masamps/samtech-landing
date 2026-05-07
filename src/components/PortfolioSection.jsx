@@ -12,7 +12,7 @@ export default function PortfolioSection() {
       <Container>
         <SectionHeading
           eyebrow="Exemplos de soluções"
-          title="Modelos de projeto para visualizar como a Samtech pode atuar."
+          title="Modelos de projeto para visualizar como a Samcore pode atuar."
           description="Estes exemplos mostram possibilidades de escopo. Cada entrega real é definida conforme o objetivo, orçamento e momento do cliente."
           align="center"
           className="mb-14"

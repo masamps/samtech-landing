@@ -59,7 +59,7 @@ export default function Navbar({ navigation, activeSection, isScrolled, progress
                 <span className="relative font-display text-sm font-semibold tracking-[0.2em] text-white">S</span>
               </span>
               <div className="leading-tight">
-                <span className="block font-display text-base font-semibold text-white">Samtech</span>
+                <span className="block font-display text-base font-semibold text-white">Samcore</span>
                 <span className="block text-[11px] uppercase tracking-[0.26em] text-slate-400">
                   Digital Premium
                 </span>

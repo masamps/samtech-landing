@@ -13,7 +13,7 @@ export default function DifferentialsSection() {
       <Container>
         <SectionHeading
           eyebrow="Diferenciais"
-          title="Por que escolher a Samtech"
+          title="Por que escolher a Samcore"
           description="A proposta é simples: unir visão estratégica, execução técnica e acabamento visual de alto nível em soluções que realmente sustentam crescimento."
           className="mb-12"
         />
@@ -26,7 +26,7 @@ export default function DifferentialsSection() {
                 <div>
                   <span className="eyebrow">Foco em valor</span>
                   <p className="mt-5 text-2xl leading-10 text-white">
-                    A Samtech combina racionalidade técnica com sensibilidade de design para que cada
+                    A Samcore combina racionalidade técnica com sensibilidade de design para que cada
                     entrega pareça tão consistente quanto funciona.
                   </p>
                 </div>

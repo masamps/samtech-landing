@@ -15,7 +15,7 @@ export default function LeadForm() {
 
   const mailtoHref = useMemo(() => {
     const body = [
-      "Olá, Samtech.",
+      "Olá, Samcore.",
       "",
       "Quero falar sobre um projeto digital.",
       "",
@@ -29,7 +29,7 @@ export default function LeadForm() {
     ].join("\n");
 
     return `mailto:matheuslemos98@gmail.com?subject=${encodeURIComponent(
-      "Novo briefing pelo site Samtech",
+      "Novo briefing pelo site Samcore",
     )}&body=${encodeURIComponent(body)}`;
   }, [form]);
 

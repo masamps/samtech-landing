@@ -25,7 +25,7 @@ export default function HeroVisual() {
             <div className="mb-1 flex items-center gap-2">
               <Layers3 className="h-4 w-4 text-cyan-300" />
               <span className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-[11px] sm:tracking-[0.26em]">
-                Samtech Suite
+                Samcore Suite
               </span>
             </div>
             <h3 className="text-balance font-display text-base font-semibold leading-snug text-white sm:text-lg">

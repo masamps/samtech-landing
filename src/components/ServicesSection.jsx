@@ -12,7 +12,7 @@ export default function ServicesSection() {
         <SectionHeading
           eyebrow="Serviços"
           title="Escolha a frente certa para o seu momento, com o mesmo padrão premium de entrega."
-          description="A Samtech desenvolve sistemas, aplicativos mobile e sites profissionais sob demanda. Cada frente pode ser contratada de forma independente ou combinada conforme o escopo do projeto."
+          description="A Samcore desenvolve sistemas, aplicativos mobile e sites profissionais sob demanda. Cada frente pode ser contratada de forma independente ou combinada conforme o escopo do projeto."
           align="center"
           className="mb-14"
         />

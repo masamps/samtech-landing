@@ -46,7 +46,7 @@ export default function HeroSection() {
               {...heroReveal(0.08)}
               className="mt-6 max-w-xl text-base leading-7 text-slate-300 md:mt-8 md:text-lg md:leading-8"
             >
-              A Samtech cria soluções digitais sob medida para empresas que precisam de
+              A Samcore cria soluções digitais sob medida para empresas que precisam de
               tecnologia com performance, design e escalabilidade. Você contrata uma frente
               específica ou combina frentes quando isso fizer sentido.
             </motion.p>

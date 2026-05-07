@@ -14,7 +14,7 @@ export default function TrustSection() {
             <SectionHeading
               eyebrow="Confiança"
               title="Uma marca boutique com atendimento direto e responsabilidade técnica."
-              description="A Samtech não tenta parecer maior do que precisa. A proposta é ser próxima, clara e exigente com cada decisão do projeto."
+              description="A Samcore não tenta parecer maior do que precisa. A proposta é ser próxima, clara e exigente com cada decisão do projeto."
               className="mb-0"
             />
 

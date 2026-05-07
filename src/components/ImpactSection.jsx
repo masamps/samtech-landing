@@ -13,7 +13,7 @@ export default function ImpactSection() {
           <SectionHeading
             eyebrow="Impacto"
             title="Valor percebido nasce da soma entre estratégia, experiência e execução."
-            description="Indicadores conceituais que resumem a forma como a Samtech pensa, estrutura e entrega cada projeto."
+            description="Indicadores conceituais que resumem a forma como a Samcore pensa, estrutura e entrega cada projeto."
             className="mb-12"
           />
 

@@ -19,7 +19,7 @@ export default function Footer() {
                   <span className="relative font-display text-sm font-semibold tracking-[0.2em] text-white">S</span>
                 </span>
                 <div>
-                  <div className="font-display text-xl font-semibold text-white">Samtech</div>
+                  <div className="font-display text-xl font-semibold text-white">Samcore</div>
                   <div className="text-xs uppercase tracking-[0.22em] text-slate-400">Sistemas, apps e sites</div>
                 </div>
               </a>
@@ -66,7 +66,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-10 border-t border-white/[0.08] pt-6 text-sm text-slate-500">
-            Samtech © 2026. Marca de desenvolvimento digital conduzida por Matheus Sampaio.
+            Samcore © 2026. Marca de desenvolvimento digital conduzida por Matheus Sampaio.
           </div>
         </div>
       </Container>

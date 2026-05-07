@@ -132,7 +132,7 @@ export const trustPoints = [
     icon: Blocks,
     title: "Operação boutique e sob medida",
     description:
-      "A Samtech atua de forma enxuta, técnica e próxima para entregar sistemas, apps ou sites com padrão profissional.",
+      "A Samcore atua de forma enxuta, técnica e próxima para entregar sistemas, apps ou sites com padrão profissional.",
   },
 ];
 
@@ -230,7 +230,7 @@ export const portfolioCases = [
 
 export const footerDetails = {
   description:
-    "Samtech é uma marca boutique de desenvolvimento digital conduzida por Matheus Sampaio, com foco em sistemas, apps e experiências web sob demanda.",
+    "Samcore é uma marca boutique de desenvolvimento digital conduzida por Matheus Sampaio, com foco em sistemas, apps e experiências web sob demanda.",
   contacts: [
     { icon: Mail, label: "matheuslemos98@gmail.com" },
     { icon: Phone, label: "+55 (15) 98177-7690" },
@@ -251,7 +251,7 @@ export const contactChannels = [
     title: "Falar direto com Matheus Sampaio",
     description: "Para uma primeira conversa rápida sobre sistema, app ou site.",
     label: "WhatsApp comercial",
-    href: "https://wa.me/5515981777690?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20projeto%20digital%20com%20a%20Samtech.",
+    href: "https://wa.me/5515981777690?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20projeto%20digital%20com%20a%20Samcore.",
   },
 ];
 
