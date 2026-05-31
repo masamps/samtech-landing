@@ -1,93 +1,88 @@
 import { motion } from "framer-motion";
-import { ChevronRight, Sparkles } from "lucide-react";
-import { heroButtons, heroHighlights } from "../data/siteContent";
-import Button from "./Button";
-import Container from "./Container";
-import HeroVisual from "./HeroVisual";
-
-const heroReveal = (delay = 0) => ({
-  initial: { opacity: 0, y: 14 },
-  animate: { opacity: 1, y: 0 },
-  transition: {
-    duration: 0.46,
-    delay,
-    ease: [0.22, 1, 0.36, 1],
-  },
-});
+import { ArrowRight, Star } from "lucide-react";
+import Container from "./Container.jsx";
+import Button from "./Button.jsx";
+import HeroVisual from "./HeroVisual.jsx";
+import { stagger, fadeUp } from "../lib/motion.js";
+import { whatsappLink } from "../data/site.js";
 
 export default function HeroSection() {
   return (
     <section
-      id="hero"
-      data-section
-      className="relative scroll-mt-28 overflow-hidden px-0 pb-16 pt-28 md:scroll-mt-32 md:pb-28 md:pt-40"
+      id="inicio"
+      className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28"
     >
+      {/* fundo decorativo */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-grid-fade [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
+        <div className="absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-500/20 blur-[120px]" />
+        <div className="absolute top-20 right-0 h-72 w-72 rounded-full bg-accent-500/10 blur-[120px]" />
+      </div>
+
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1.03fr_0.97fr] lg:items-center lg:gap-20">
-          <div className="relative z-10 max-w-2xl">
-            <motion.span {...heroReveal()} className="eyebrow flex-nowrap items-start text-left leading-snug">
-              <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-300" />
-              <span className="min-w-0">Desenvolvimento sob demanda para marcas que querem mais</span>
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <motion.div variants={stagger} initial="hidden" animate="visible">
+            <motion.span
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 px-4 py-1.5 text-xs font-medium text-mist"
+            >
+              <span className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={12} className="fill-accent-400 text-accent-400" />
+                ))}
+              </span>
+              Software sob medida para empresas que querem crescer
             </motion.span>
 
             <motion.h1
-              {...heroReveal(0.04)}
-              className="mt-6 font-display text-4xl font-semibold leading-[1.08] text-white sm:text-5xl md:mt-8 md:text-6xl md:leading-[1.02] lg:text-[5rem]"
+              variants={fadeUp}
+              className="mt-6 text-4xl font-bold leading-[1.1] text-white sm:text-5xl md:text-6xl"
             >
-              <span className="text-balance">
-                Desenvolvimento de sistemas, apps e sites com{" "}
-                <span className="text-gradient">
-                  padrão profissional.
-                </span>
-              </span>
+              Criamos{" "}
+              <span className="text-gradient">sistemas, sites e aplicativos</span>{" "}
+              que impulsionam o seu negócio
             </motion.h1>
 
             <motion.p
-              {...heroReveal(0.08)}
-              className="mt-6 max-w-xl text-base leading-7 text-slate-300 md:mt-8 md:text-lg md:leading-8"
+              variants={fadeUp}
+              className="mt-6 max-w-xl text-lg leading-relaxed text-mist"
             >
-              A Samcore cria soluções digitais sob medida para empresas que precisam de
-              tecnologia com performance, design e escalabilidade. Você contrata uma frente
-              específica ou combina frentes quando isso fizer sentido.
+              A Samps Projetos transforma ideias em produtos digitais de verdade —
+              com design moderno, performance e código de qualidade do primeiro
+              clique à publicação.
             </motion.p>
 
-            <motion.div {...heroReveal(0.12)} className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 md:gap-4">
-              <Button href={heroButtons.primary.href} className="w-full sm:w-auto">
-                {heroButtons.primary.label}
+            <motion.div
+              variants={fadeUp}
+              className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+            >
+              <Button as="a" href="#contato">
+                Solicitar orçamento
+                <ArrowRight size={18} />
               </Button>
-              <Button href={heroButtons.secondary.href} variant="secondary" className="w-full sm:w-auto">
-                {heroButtons.secondary.label}
+              <Button as="a" href="#projetos" variant="secondary">
+                Ver projetos
               </Button>
             </motion.div>
 
             <motion.div
-              {...heroReveal(0.16)}
-              className="mt-8 grid gap-3 sm:grid-cols-3 md:mt-10 lg:max-w-none"
+              variants={fadeUp}
+              className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-mist"
             >
-              {heroHighlights.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-slate-200 backdrop-blur-xl"
-                >
-                  {item}
-                </div>
-              ))}
+              {["Sistemas Web", "Sites & Landing Pages", "Apps Android & iOS"].map(
+                (item) => (
+                  <span key={item} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand-gradient" />
+                    {item}
+                  </span>
+                )
+              )}
             </motion.div>
-
-            <motion.div
-              {...heroReveal(0.2)}
-              className="mt-12 hidden items-center gap-3 text-sm text-slate-400 lg:inline-flex"
-            >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.05]">
-                <ChevronRight className="h-4 w-4 text-cyan-300" />
-              </span>
-              Sistema, app, site ou uma combinação sob medida para o seu projeto.
-            </motion.div>
-          </div>
-
-          <motion.div {...heroReveal(0.1)} className="relative mt-2 lg:mt-0">
-            <HeroVisual />
           </motion.div>
+
+          <div className="order-first lg:order-last">
+            <HeroVisual />
+          </div>
         </div>
       </Container>
     </section>

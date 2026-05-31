@@ -1,73 +1,73 @@
-import { footerDetails, navigation } from "../data/siteContent";
-import { handleHashAnchorClick } from "../lib/scrollToHash";
-import Container from "./Container";
+import Container from "./Container.jsx";
+import Logo from "./Logo.jsx";
+import { company, navLinks, services, whatsappLink } from "../data/site.js";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="pb-10 pt-10">
-      <Container>
-        <div className="glass-panel rounded-[2.2rem] p-8 md:p-10">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.7fr_0.9fr]">
-            <div>
-              <a
-                href="#hero"
-                onClick={(event) => handleHashAnchorClick(event, "#hero")}
-                className="inline-flex items-center gap-3"
-              >
-                <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05]">
-                  <span className="absolute inset-1 rounded-[0.95rem] bg-gradient-to-br from-cyan-300/70 via-sky-400/45 to-transparent blur-md" />
-                  <span className="relative font-display text-sm font-semibold tracking-[0.2em] text-white">S</span>
-                </span>
-                <div>
-                  <div className="font-display text-xl font-semibold text-white">Samcore</div>
-                  <div className="text-xs uppercase tracking-[0.22em] text-slate-400">Sistemas, apps e sites</div>
-                </div>
-              </a>
-              <p className="mt-6 max-w-md text-sm leading-8 text-slate-300">{footerDetails.description}</p>
-              <div className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs font-medium text-slate-300">
-                Responsável técnico: Matheus Sampaio
-              </div>
-            </div>
+    <footer className="border-t border-line bg-ink">
+      <Container className="py-14">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <a href="#inicio" className="flex items-center gap-2.5">
+              <Logo className="h-9 w-9" />
+              <span className="font-display text-lg font-bold text-white">
+                Samps<span className="text-brand-400"> Projetos</span>
+              </span>
+            </a>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-mist">
+              {company.description}
+            </p>
+          </div>
 
-            <div>
-              <h3 className="font-display text-lg font-semibold text-white">Navegação</h3>
-              <div className="mt-5 grid gap-3">
-                {navigation.map((item) => (
+          <div>
+            <h3 className="text-sm font-semibold text-white">Navegação</h3>
+            <ul className="mt-4 space-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.href}>
                   <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={(event) => handleHashAnchorClick(event, item.href)}
-                    className="text-sm text-slate-300 transition hover:text-white"
+                    href={link.href}
+                    className="text-sm text-mist transition-colors hover:text-white"
                   >
-                    {item.label}
+                    {link.label}
                   </a>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-display text-lg font-semibold text-white">Contato</h3>
-              <div className="mt-5 grid gap-4">
-                {footerDetails.contacts.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <div key={item.label} className="flex items-start gap-3 text-sm text-slate-300">
-                      <span className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-cyan-200">
-                        <Icon className="h-4 w-4" />
-                      </span>
-                      <span className="leading-7">{item.label}</span>
-                    </div>
-                  );
-                })}
-              </div>
-
-            </div>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="mt-10 border-t border-white/[0.08] pt-6 text-sm text-slate-500">
-            Samcore © 2026. Marca de desenvolvimento digital conduzida por Matheus Sampaio.
+          <div>
+            <h3 className="text-sm font-semibold text-white">Serviços</h3>
+            <ul className="mt-4 space-y-2.5">
+              {services.map((s) => (
+                <li key={s.id}>
+                  <a
+                    href="#servicos"
+                    className="text-sm text-mist transition-colors hover:text-white"
+                  >
+                    {s.title}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener"
+                  className="text-sm text-mist transition-colors hover:text-white"
+                >
+                  {company.email}
+                </a>
+              </li>
+            </ul>
           </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-line pt-6 text-sm text-mist sm:flex-row">
+          <p>
+            © {year} {company.name}. Todos os direitos reservados.
+          </p>
+          <p>Desenvolvido com tecnologia de ponta.</p>
         </div>
       </Container>
     </footer>

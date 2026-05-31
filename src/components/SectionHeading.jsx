@@ -1,28 +1,28 @@
-import { motion } from "framer-motion";
-import { fadeUp } from "../lib/motion";
+import Reveal from "./Reveal.jsx";
 
 export default function SectionHeading({
   eyebrow,
   title,
   description,
-  align = "left",
-  className = "",
+  align = "center",
 }) {
-  const alignment = align === "center" ? "mx-auto text-center items-center" : "text-left items-start";
-
+  const alignment =
+    align === "left" ? "text-left items-start" : "text-center items-center mx-auto";
   return (
-    <motion.div
-      {...fadeUp()}
-      className={`flex max-w-3xl flex-col gap-5 ${alignment} ${className}`}
-    >
-      <span className="eyebrow">{eyebrow}</span>
-      <div className="space-y-4">
-        <h2 className="font-display text-3xl font-semibold leading-tight text-white md:text-5xl">
-          <span className="text-balance">{title}</span>
-        </h2>
-        <p className="max-w-2xl text-base leading-8 text-slate-300 md:text-lg">{description}</p>
-      </div>
-    </motion.div>
+    <Reveal className={`flex max-w-2xl flex-col gap-4 ${alignment}`}>
+      {eyebrow && (
+        <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
+          {eyebrow}
+        </span>
+      )}
+      <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl md:text-[2.75rem]">
+        {title}
+      </h2>
+      {description && (
+        <p className="text-base leading-relaxed text-mist sm:text-lg">
+          {description}
+        </p>
+      )}
+    </Reveal>
   );
 }
-

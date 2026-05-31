@@ -1,11 +1,26 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../lib/motion";
+import { fadeUp } from "../lib/motion.js";
 
-export default function Reveal({ children, className = "", delay = 0 }) {
+// Wrapper que revela o conteúdo ao entrar na viewport.
+export default function Reveal({
+  children,
+  variants = fadeUp,
+  className = "",
+  as = "div",
+  delay = 0,
+  amount = 0.2,
+}) {
+  const MotionTag = motion[as] || motion.div;
   return (
-    <motion.div {...fadeUp(delay)} className={className}>
+    <MotionTag
+      className={className}
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount }}
+      transition={{ delay }}
+    >
       {children}
-    </motion.div>
+    </MotionTag>
   );
 }
-

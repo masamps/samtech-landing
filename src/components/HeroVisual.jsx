@@ -1,75 +1,95 @@
-import { ArrowUpRight, Layers3 } from "lucide-react";
+import { motion } from "framer-motion";
+import { Activity, CheckCircle2, Smartphone } from "lucide-react";
 
-function MetricBar({ value, className = "" }) {
-  return (
-    <div className={`overflow-hidden rounded-full bg-white/[0.04] ${className}`}>
-      <div
-        className="h-full rounded-full bg-gradient-to-r from-cyan-300/90 via-sky-400/80 to-white/90"
-        style={{ width: value }}
-      />
-    </div>
-  );
-}
-
+// Mockup decorativo: um "dashboard" e um card de app flutuante.
 export default function HeroVisual() {
   return (
-    <div className="relative mx-auto w-full max-w-[580px] sm:h-[560px] lg:h-[620px]">
-      <div className="absolute left-1/2 top-[12%] hidden h-40 w-[28rem] -translate-x-1/2 -rotate-6 bg-gradient-to-r from-transparent via-cyan-300/14 to-transparent blur-[72px] sm:block" />
+    <div className="relative mx-auto w-full max-w-lg">
+      {/* glow de fundo */}
+      <div className="absolute -inset-8 -z-10 rounded-full bg-brand-500/20 blur-3xl" />
 
-      <div className="hero-grid absolute inset-0 hidden rounded-[2.75rem] sm:block" />
-      <div className="absolute inset-x-12 bottom-6 hidden h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent sm:block" />
-
-      <div className="glass-panel panel-glow relative z-20 p-4 sm:absolute sm:inset-x-10 sm:bottom-4 sm:p-6">
-        <div className="mb-5 flex flex-col gap-3">
-          <div className="min-w-0">
-            <div className="mb-1 flex items-center gap-2">
-              <Layers3 className="h-4 w-4 text-cyan-300" />
-              <span className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-[11px] sm:tracking-[0.26em]">
-                Samcore Suite
-              </span>
-            </div>
-            <h3 className="text-balance font-display text-base font-semibold leading-snug text-white sm:text-lg">
-              Soluções digitais com presença e precisão.
-            </h3>
-          </div>
-          <span className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-100">
-            Deploy premium
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </span>
+      {/* janela do navegador / dashboard */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="card-surface overflow-hidden shadow-card"
+      >
+        <div className="flex items-center gap-2 border-b border-line bg-ink/60 px-4 py-3">
+          <span className="h-3 w-3 rounded-full bg-red-400/70" />
+          <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
+          <span className="h-3 w-3 rounded-full bg-green-400/70" />
+          <span className="ml-3 h-5 flex-1 rounded-md bg-surface" />
         </div>
 
-        <div className="grid gap-4">
-          <div className="rounded-[1.35rem] border border-white/[0.08] bg-slate-950/60 p-3 sm:rounded-[1.8rem] sm:p-4">
-            <div className="mb-4 flex items-start justify-between gap-3 sm:gap-4">
-              <div className="space-y-1">
-                <span className="text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-xs sm:tracking-[0.22em]">
-                  Painel central
-                </span>
-                <p className="max-w-sm text-xs leading-6 text-slate-300 sm:text-sm">
-                  Visibilidade, ritmo e controle em uma interface precisa.
-                </p>
-              </div>
-              <div className="mt-1 flex shrink-0 gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-cyan-300" />
-                <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-              </div>
+        <div className="space-y-4 p-5">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="h-2.5 w-24 rounded bg-mist/20" />
+              <div className="mt-2 h-5 w-32 rounded bg-mist/30" />
             </div>
-            <div className="rounded-[1.2rem] bg-white/[0.04] p-3 sm:rounded-[1.4rem] sm:p-4">
-              <div className="mb-4 h-16 rounded-[1rem] bg-gradient-to-br from-cyan-300/20 via-sky-400/10 to-transparent sm:mb-5 sm:h-20 sm:rounded-[1.2rem]" />
-              <MetricBar value="86%" className="h-2.5" />
-            </div>
+            <span className="inline-flex items-center gap-1 rounded-full bg-brand-500/15 px-3 py-1 text-xs font-semibold text-brand-300">
+              <Activity size={13} /> Em tempo real
+            </span>
           </div>
 
-          <div className="grid gap-3">
-            {["Arquitetura", "UX", "Escala"].map((label, index) => (
-              <div key={label} className="rounded-[1rem] bg-white/[0.04] p-3 sm:rounded-[1.2rem]">
-                <div className="mb-2 text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-xs sm:tracking-[0.18em]">{label}</div>
-                <MetricBar value={`${70 + index * 10}%`} className="h-2.5" />
+          <div className="grid grid-cols-3 gap-3">
+            {[
+              { h: "h-16", c: "from-brand-500/40 to-brand-500/5" },
+              { h: "h-24", c: "from-accent-400/40 to-accent-400/5" },
+              { h: "h-20", c: "from-brand-400/40 to-brand-400/5" },
+            ].map((bar, i) => (
+              <motion.div
+                key={i}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ delay: 0.4 + i * 0.12, duration: 0.5 }}
+                style={{ transformOrigin: "bottom" }}
+                className="flex items-end rounded-xl border border-line bg-ink/40 p-2"
+              >
+                <div className={`w-full rounded-md bg-gradient-to-t ${bar.c} ${bar.h}`} />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="space-y-2.5 rounded-xl border border-line bg-ink/40 p-4">
+            {[80, 60, 70].map((w, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <CheckCircle2 size={16} className="shrink-0 text-accent-400" />
+                <div
+                  className="h-2.5 rounded bg-mist/20"
+                  style={{ width: `${w}%` }}
+                />
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* card de app flutuante */}
+      <motion.div
+        initial={{ opacity: 0, y: 20, x: 20 }}
+        animate={{ opacity: 1, y: 0, x: 0 }}
+        transition={{ delay: 0.6, duration: 0.7 }}
+        className="absolute -bottom-8 -right-2 w-40 animate-float-slow sm:-right-8 sm:w-48"
+      >
+        <div className="card-surface shadow-glow">
+          <div className="flex items-center gap-2 border-b border-line p-3">
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-gradient text-ink">
+              <Smartphone size={16} />
+            </span>
+            <div>
+              <div className="h-2 w-16 rounded bg-mist/30" />
+              <div className="mt-1.5 h-2 w-10 rounded bg-mist/15" />
+            </div>
+          </div>
+          <div className="space-y-2 p-3">
+            <div className="h-2 w-full rounded bg-mist/15" />
+            <div className="h-2 w-3/4 rounded bg-mist/15" />
+            <div className="mt-3 h-8 rounded-lg bg-brand-gradient" />
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }

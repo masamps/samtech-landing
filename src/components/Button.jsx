@@ -1,34 +1,34 @@
-import { ArrowRight } from "lucide-react";
-import { handleHashAnchorClick } from "../lib/scrollToHash";
+const base =
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 disabled:opacity-60 disabled:cursor-not-allowed";
 
 const variants = {
   primary:
-    "button-shine bg-white text-slate-950 hover:bg-slate-100 shadow-[0_18px_50px_rgba(255,255,255,0.14)]",
+    "bg-brand-gradient text-ink shadow-glow hover:shadow-[0_30px_90px_rgba(99,102,241,0.45)] hover:-translate-y-0.5",
   secondary:
-    "border border-white/[0.14] bg-white/[0.03] text-white hover:border-white/[0.25] hover:bg-white/[0.06]",
+    "border border-line bg-surface/60 text-mist hover:border-brand-400/60 hover:text-white hover:-translate-y-0.5",
+  ghost: "text-mist hover:text-white",
+};
+
+const sizes = {
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-7 py-3.5 text-base",
 };
 
 export default function Button({
-  href,
-  children,
+  as = "a",
   variant = "primary",
+  size = "lg",
   className = "",
-  icon: Icon = ArrowRight,
-  onClick,
+  children,
+  ...props
 }) {
-  const handleClick = (event) => {
-    handleHashAnchorClick(event, href);
-    onClick?.(event);
-  };
-
+  const Tag = as;
   return (
-    <a
-      href={href}
-      onClick={handleClick}
-      className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold tracking-[0.01em] transition duration-300 hover:-translate-y-0.5 active:scale-[0.99] ${variants[variant]} ${className}`}
+    <Tag
+      className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
+      {...props}
     >
-      <span className="relative z-10">{children}</span>
-      {Icon && <Icon className="relative z-10 h-4 w-4 transition duration-300 group-hover:translate-x-0.5" />}
-    </a>
+      {children}
+    </Tag>
   );
 }

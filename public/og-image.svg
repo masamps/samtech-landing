@@ -1,0 +1,26 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070A16" />
+      <stop offset="1" stop-color="#0D1224" />
+    </linearGradient>
+    <linearGradient id="g" x1="120" y1="220" x2="520" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#818CF8" />
+      <stop offset="0.5" stop-color="#6366F1" />
+      <stop offset="1" stop-color="#22D3EE" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(900 160) rotate(90) scale(420)">
+      <stop stop-color="#6366F1" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <g transform="translate(96 150)">
+    <rect width="96" height="96" rx="24" fill="#0D1224" stroke="url(#g)" stroke-opacity="0.5" stroke-width="2" />
+    <path d="M33 36c0-5 4.4-9 10.2-9H62.5v9.8H44.1c-1.4 0-2.1.6-2.1 1.5 0 1 .8 1.5 2.4 2l10 2.5c6 1.5 9.3 4.8 9.3 10.2 0 6-4.7 10.4-11.1 10.4H32.7V63.4h19.4c1.5 0 2.4-.6 2.4-1.6 0-.9-.8-1.5-2.4-2l-9.8-2.4C36.3 54.8 33 51.5 33 45.9V36Z" fill="url(#g)" />
+  </g>
+  <text x="96" y="330" font-family="Sora, Arial, sans-serif" font-size="78" font-weight="700" fill="#F5F7FF">Samps Projetos</text>
+  <text x="96" y="400" font-family="Manrope, Arial, sans-serif" font-size="36" fill="#A5B4FC">Sistemas Web · Sites · Aplicativos Mobile</text>
+  <text x="96" y="470" font-family="Manrope, Arial, sans-serif" font-size="28" fill="#8C97C4">Software sob medida com qualidade, design e performance.</text>
+</svg>

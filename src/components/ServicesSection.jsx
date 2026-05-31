@@ -1,65 +1,62 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { services } from "../data/siteContent";
-import { scaleIn } from "../lib/motion";
-import Container from "./Container";
-import SectionHeading from "./SectionHeading";
+import { Check } from "lucide-react";
+import Container from "./Container.jsx";
+import SectionHeading from "./SectionHeading.jsx";
+import Icon from "./Icon.jsx";
+import { stagger, fadeUp } from "../lib/motion.js";
+import { services } from "../data/site.js";
 
 export default function ServicesSection() {
   return (
-    <section id="servicos" data-section className="section-shell scroll-mt-28 md:scroll-mt-32">
+    <section id="servicos" className="scroll-mt-24 py-20 sm:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Serviços"
-          title="Escolha a frente certa para o seu momento, com o mesmo padrão premium de entrega."
-          description="A Samcore desenvolve sistemas, aplicativos mobile e sites profissionais sob demanda. Cada frente pode ser contratada de forma independente ou combinada conforme o escopo do projeto."
-          align="center"
-          className="mb-14"
+          eyebrow="O que fazemos"
+          title="Soluções digitais sob medida"
+          description="Do sistema interno ao aplicativo do seu cliente, desenvolvemos cada projeto com foco em qualidade, performance e resultado."
         />
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-14 grid gap-6 md:grid-cols-3"
+        >
+          {services.map((service) => (
+            <motion.article
+              key={service.id}
+              variants={fadeUp}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/50 hover:shadow-card"
+            >
+              <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-400/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
 
-            return (
-              <motion.article
-                key={service.title}
-                {...scaleIn(index * 0.08)}
-                className="motion-card group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] p-5 shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/18 hover:bg-white/[0.06] sm:p-6 md:backdrop-blur-xl"
-              >
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
-                <div className="absolute right-[-20%] top-0 hidden h-20 w-72 rotate-12 bg-gradient-to-r from-transparent via-cyan-300/10 to-transparent blur-2xl opacity-0 transition duration-300 group-hover:opacity-100 md:block" />
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-ink shadow-glow">
+                <Icon name={service.icon} size={22} />
+              </span>
 
-                <div className="relative flex h-full flex-col">
-                  <div className="mb-6 flex items-center justify-between">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-cyan-200">
-                      <Icon className="h-6 w-6" />
-                    </span>
-                    <ArrowUpRight className="h-5 w-5 text-slate-500 transition duration-300 group-hover:text-cyan-200" />
-                  </div>
+              <h3 className="mt-5 text-xl font-bold text-white">{service.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-mist">
+                {service.summary}
+              </p>
 
-                  <div className="mb-8 rounded-lg border border-white/[0.08] bg-slate-950/50 p-4">
-                    <div className="mb-4 flex items-center justify-between text-[11px] uppercase tracking-[0.24em] text-slate-400">
-                      <span>Entrega premium</span>
-                      <span>0{index + 1}</span>
-                    </div>
-                    <div className="grid gap-3">
-                      <div className="h-24 rounded-[1.2rem] bg-gradient-to-br from-cyan-300/15 via-sky-500/6 to-white/5" />
-                      <div className="grid grid-cols-3 gap-3">
-                        {Array.from({ length: 3 }).map((_, itemIndex) => (
-                          <div key={itemIndex} className="h-10 rounded-2xl bg-white/[0.04]" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <h3 className="font-display text-xl font-semibold leading-snug text-white sm:text-2xl">{service.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-300">{service.description}</p>
-                </div>
-              </motion.article>
-            );
-          })}
-        </div>
+              <ul className="mt-6 space-y-2.5 border-t border-line pt-5">
+                {service.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-start gap-2.5 text-sm text-mist"
+                  >
+                    <Check
+                      size={16}
+                      className="mt-0.5 shrink-0 text-accent-400"
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
+          ))}
+        </motion.div>
       </Container>
     </section>
   );
