@@ -19,8 +19,6 @@ export const whatsappLink = `https://wa.me/${company.whatsapp}?text=${encodeURIC
 export const navLinks = [
   { label: "Serviços", href: "#servicos" },
   { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Processo", href: "#processo" },
-  { label: "Projetos", href: "#projetos" },
   { label: "Contato", href: "#contato" },
 ];
 

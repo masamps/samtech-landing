@@ -1,13 +1,8 @@
 import Navbar from "./components/Navbar.jsx";
 import HeroSection from "./components/HeroSection.jsx";
-import StatsSection from "./components/StatsSection.jsx";
+import TrustStrip from "./components/TrustStrip.jsx";
 import ServicesSection from "./components/ServicesSection.jsx";
-import DifferentialsSection from "./components/DifferentialsSection.jsx";
-import ProcessSection from "./components/ProcessSection.jsx";
-import ProjectsSection from "./components/ProjectsSection.jsx";
-import TestimonialsSection from "./components/TestimonialsSection.jsx";
-import FaqSection from "./components/FaqSection.jsx";
-import FinalCtaSection from "./components/FinalCtaSection.jsx";
+import BentoSection from "./components/BentoSection.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import Footer from "./components/Footer.jsx";
 import FloatingWhatsApp from "./components/FloatingWhatsApp.jsx";
@@ -26,14 +21,9 @@ export default function App() {
 
       <main>
         <HeroSection />
-        <StatsSection />
+        <TrustStrip />
         <ServicesSection />
-        <DifferentialsSection />
-        <ProcessSection />
-        <ProjectsSection />
-        <TestimonialsSection />
-        <FaqSection />
-        <FinalCtaSection />
+        <BentoSection />
         <ContactSection />
       </main>
 

@@ -20,12 +20,12 @@
 
   body {
     @apply bg-ink font-body text-mist antialiased;
-    background-color: #070a16;
+    background-color: #08080a;
   }
 
   ::selection {
-    background-color: rgba(99, 102, 241, 0.35);
-    color: #f5f7ff;
+    background-color: rgba(129, 140, 248, 0.35);
+    color: #ffffff;
   }
 
   h1,
@@ -34,6 +34,7 @@
   h4 {
     @apply font-display;
     text-wrap: balance;
+    letter-spacing: -0.02em;
   }
 
   :focus-visible {
@@ -62,12 +63,12 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #070a16;
+  background: #08080a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a3358;
+  background: #2a2a33;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a4576;
+  background: #3a3a47;
 }

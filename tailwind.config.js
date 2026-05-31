@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#070A16",
-        surface: "#0D1224",
-        mist: "#C3CBE8",
-        line: "rgba(148, 163, 220, 0.12)",
+        ink: "#08080A",
+        surface: "#101015",
+        mist: "#B4B7C5",
+        line: "rgba(255, 255, 255, 0.08)",
         brand: {
           50: "#EEF1FF",
           100: "#E0E5FF",
@@ -36,9 +36,11 @@ export default {
       },
       backgroundImage: {
         "grid-fade":
-          "linear-gradient(rgba(148, 163, 220, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 220, 0.06) 1px, transparent 1px)",
+          "linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px)",
         "brand-gradient":
           "linear-gradient(120deg, #818CF8 0%, #6366F1 45%, #22D3EE 100%)",
+        "aurora":
+          "radial-gradient(40% 60% at 50% 0%, rgba(129,140,248,0.25) 0%, transparent 70%), radial-gradient(30% 50% at 80% 10%, rgba(34,211,238,0.18) 0%, transparent 70%), radial-gradient(30% 50% at 20% 10%, rgba(99,102,241,0.18) 0%, transparent 70%)",
       },
       animation: {
         "float-slow": "floatSlow 11s ease-in-out infinite",
