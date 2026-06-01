@@ -158,10 +158,10 @@ export const projects = [
 ];
 
 export const stats = [
-  { value: 50, suffix: "+", label: "Projetos entregues" },
-  { value: 98, suffix: "%", label: "Clientes satisfeitos" },
-  { value: 7, suffix: " anos", label: "De experiência" },
-  { value: 100, suffix: "%", label: "Código sob medida" },
+  { value: 5, suffix: " anos", label: "De experiência" },
+  { value: 2, suffix: "", label: "Clientes em produção" },
+  { value: "24/7", suffix: "", label: "Sistemas no ar" },
+  { value: 100, suffix: "%", label: "Sob medida" },
 ];
 
 export const testimonials = [

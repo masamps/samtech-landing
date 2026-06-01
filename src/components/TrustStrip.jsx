@@ -8,7 +8,7 @@ export default function TrustStrip() {
       <Container>
         <Reveal>
           <p className="text-center text-sm text-mist">
-            Empresas e empreendedores que confiam na Samps Projetos
+            Sistemas reais, no ar, gerando resultado para nossos clientes
           </p>
           <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-y-8 sm:grid-cols-4">
             {stats.map((stat) => (
