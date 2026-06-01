@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.sampsprojetos.com.br/sitemap.xml
+Sitemap: https://samps-projetos.vercel.app/sitemap.xml

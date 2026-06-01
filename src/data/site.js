@@ -6,9 +6,9 @@ export const company = {
   tagline: "Sistemas web, sites e aplicativos sob medida",
   description:
     "Transformamos ideias em produtos digitais de verdade. Desenvolvemos sistemas web, sites e aplicativos mobile com qualidade, design e performance.",
-  email: "contato@sampsprojetos.com.br",
-  whatsapp: "5599999999999", // formato internacional, somente números
-  whatsappLabel: "(99) 99999-9999",
+  email: "sampsprojetos@gmail.com",
+  whatsapp: "5515981777690", // formato internacional, somente números
+  whatsappLabel: "(15) 98177-7690",
   city: "Brasil",
 };
 
