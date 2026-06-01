@@ -158,10 +158,9 @@ export const projects = [
 ];
 
 export const stats = [
-  { value: 5, suffix: " anos", label: "De experiência" },
-  { value: 2, suffix: "", label: "Clientes em produção" },
+  { value: 5, suffix: "", label: "Anos de experiência" },
   { value: "24/7", suffix: "", label: "Sistemas no ar" },
-  { value: 100, suffix: "%", label: "Sob medida" },
+  { value: 100, suffix: "%", label: "Projetos sob medida" },
 ];
 
 export const testimonials = [
