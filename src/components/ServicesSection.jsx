@@ -29,9 +29,6 @@ export default function ServicesSection() {
               variants={fadeUp}
               className="group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-surface/40 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-surface/70"
             >
-              {/* glow no hover */}
-              <div className="pointer-events-none absolute -inset-px -z-10 rounded-3xl bg-aurora opacity-0 transition-opacity duration-500 group-hover:opacity-60" />
-
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-gradient text-ink shadow-glow">
                 <Icon name={service.icon} size={22} />
               </span>

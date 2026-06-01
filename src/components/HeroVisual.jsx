@@ -13,12 +13,8 @@ import {
 export default function HeroVisual() {
   return (
     <div className="relative">
-      {/* glow colorido por trás */}
-      <div className="pointer-events-none absolute -inset-x-10 -top-10 bottom-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-72 w-[80%] -translate-x-1/2 rounded-full bg-brand-500/30 blur-[100px]" />
-        <div className="absolute left-[20%] top-10 h-56 w-72 rounded-full bg-accent-500/20 blur-[90px]" />
-        <div className="absolute right-[18%] top-10 h-56 w-72 rounded-full bg-brand-400/25 blur-[90px]" />
-      </div>
+      {/* realce sutil atrás do produto */}
+      <div className="pointer-events-none absolute inset-x-0 -top-6 -z-10 mx-auto h-56 w-3/4 rounded-full bg-brand-500/15 blur-[120px]" />
 
       {/* janela do app */}
       <div className="overflow-hidden rounded-2xl border border-line bg-surface/80 shadow-card backdrop-blur-sm">

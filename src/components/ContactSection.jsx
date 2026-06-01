@@ -37,10 +37,6 @@ export default function ContactSection() {
       id="contato"
       className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute bottom-0 left-1/2 h-80 w-[40rem] -translate-x-1/2 rounded-full bg-brand-500/10 blur-[120px]" />
-      </div>
-
       <Container>
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Lado esquerdo: chamada + canais */}

@@ -12,12 +12,6 @@ export default function HeroSection() {
       id="inicio"
       className="relative overflow-hidden pt-32 sm:pt-40"
     >
-      {/* aurora / glow de fundo */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-aurora [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
-        <div className="absolute inset-0 bg-grid-fade [background-size:54px_54px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_60%)]" />
-      </div>
-
       <Container>
         <motion.div
           variants={stagger}
