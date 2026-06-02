@@ -19,6 +19,7 @@ export const whatsappLink = `https://wa.me/${company.whatsapp}?text=${encodeURIC
 export const navLinks = [
   { label: "Serviços", href: "#servicos" },
   { label: "Diferenciais", href: "#diferenciais" },
+  { label: "Projetos", href: "#projetos" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -161,6 +162,52 @@ export const stats = [
   { value: 5, suffix: "", label: "Anos de experiência" },
   { value: "24/7", suffix: "", label: "Sistemas no ar" },
   { value: 100, suffix: "%", label: "Projetos sob medida" },
+];
+
+// Cases reais de clientes em produção.
+export const cases = [
+  {
+    client: "Nigro Franciscatto",
+    type: "Site & Landing Page",
+    segment: "Advocacia",
+    icon: "Globe",
+    challenge:
+      "O escritório precisava de uma presença online profissional para transmitir credibilidade e atrair novos clientes.",
+    solution:
+      "Landing page com área de publicações para o escritório postar conteúdo e uma seção de depoimentos de clientes, com visual sóbrio e foco em contato.",
+    result:
+      "Site institucional no ar, com conteúdo e prova social que reforçam a autoridade do escritório.",
+    tags: ["Landing page", "Publicações", "Depoimentos", "SEO"],
+  },
+  {
+    client: "Conferência fiscal para vendedores",
+    type: "Sistema Web",
+    segment: "E-commerce · Mercado Livre",
+    icon: "LayoutDashboard",
+    challenge:
+      "Conferir manualmente o pedido de compra contra a nota fiscal era lento e deixava passar divergências de valores.",
+    solution:
+      "Sistema que compara os PDFs de pedido e nota fiscal automaticamente, acusa as divergências e ainda apresenta os custos da regional do Mercado Livre.",
+    result:
+      "Conferência automática que evita prejuízo por erro e economiza horas de trabalho manual.",
+    tags: ["Automação", "Leitura de PDF", "Conferência fiscal", "Relatórios"],
+  },
+];
+
+// Projetos próprios (laboratório) — mostram capacidade técnica.
+export const labProjects = [
+  {
+    title: "App de mistura de combustível",
+    icon: "Smartphone",
+    description:
+      "Aplicativo mobile que calcula a proporção ideal de mistura de combustível.",
+  },
+  {
+    title: "Leitor de dados OBD2",
+    icon: "Gauge",
+    description:
+      "App que lê e exibe os dados do veículo pela porta OBD2 do carro em tempo real.",
+  },
 ];
 
 export const testimonials = [

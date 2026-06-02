@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection.jsx";
 import TrustStrip from "./components/TrustStrip.jsx";
 import ServicesSection from "./components/ServicesSection.jsx";
 import BentoSection from "./components/BentoSection.jsx";
+import CasesSection from "./components/CasesSection.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import Footer from "./components/Footer.jsx";
 import FloatingWhatsApp from "./components/FloatingWhatsApp.jsx";
@@ -24,6 +25,7 @@ export default function App() {
         <TrustStrip />
         <ServicesSection />
         <BentoSection />
+        <CasesSection />
         <ContactSection />
       </main>
 
