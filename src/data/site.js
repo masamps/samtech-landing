@@ -167,14 +167,14 @@ export const stats = [
 // Cases reais de clientes em produção.
 export const cases = [
   {
-    client: "Nigro Franciscatto",
+    client: "Escritório de advocacia securitária",
     type: "Site & Landing Page",
-    segment: "Advocacia",
+    segment: "Advocacia · Direito securitário",
     icon: "Globe",
     challenge:
-      "O escritório precisava de uma presença online profissional para transmitir credibilidade e atrair novos clientes.",
+      "O escritório precisava de uma presença online profissional para transmitir credibilidade e atrair clientes em uma área especializada.",
     solution:
-      "Landing page com área de publicações para o escritório postar conteúdo e uma seção de depoimentos de clientes, com visual sóbrio e foco em contato.",
+      "Landing page com área de publicações para o escritório postar conteúdo jurídico e uma seção de depoimentos de clientes, com visual sóbrio e foco em contato.",
     result:
       "Site institucional no ar, com conteúdo e prova social que reforçam a autoridade do escritório.",
     tags: ["Landing page", "Publicações", "Depoimentos", "SEO"],
