@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { whatsappLink } from "../data/site.js";
+import { trackConversion } from "../lib/analytics.js";
 
 export default function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
@@ -16,6 +17,7 @@ export default function FloatingWhatsApp() {
       href={whatsappLink}
       target="_blank"
       rel="noopener"
+      onClick={() => trackConversion("clique_whatsapp_flutuante")}
       aria-label="Falar no WhatsApp"
       className={`fixed bottom-6 right-6 z-40 grid h-14 w-14 place-items-center rounded-full bg-brand-gradient text-ink shadow-glow transition-all duration-300 hover:scale-110 ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"

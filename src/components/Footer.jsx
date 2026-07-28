@@ -67,7 +67,12 @@ export default function Footer() {
           <p>
             © {year} {company.name}. Todos os direitos reservados.
           </p>
-          <p>Desenvolvido com tecnologia de ponta.</p>
+          <a
+            href="/politica-de-privacidade.html"
+            className="transition-colors hover:text-white"
+          >
+            Política de Privacidade
+          </a>
         </div>
       </Container>
     </footer>

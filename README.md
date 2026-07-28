@@ -36,13 +36,33 @@ index.html         # meta tags, Open Graph, Twitter Card e JSON-LD
 
 ## ✏️ Como editar o conteúdo
 
-Quase todo o conteúdo (serviços, diferenciais, processo, projetos, depoimentos,
-FAQ e dados de contato) fica centralizado em **`src/data/site.js`**.
+Quase todo o conteúdo (serviços, diferenciais, cases, depoimentos e dados de
+contato) fica centralizado em **`src/data/site.js`**.
 
-> **Importante:** atualize os dados de contato em `src/data/site.js`
+## ⚙️ Configuração (leads e rastreamento)
+
+Todas as integrações são opcionais e ligadas por **variáveis de ambiente**.
+Sem elas o site funciona normalmente — o formulário apenas cai no WhatsApp e
+nenhum rastreamento é carregado. Veja **`.env.example`** para a lista completa.
+
+Na Vercel: **Settings → Environment Variables** (depois refaça o deploy).
+
+| Variável | Para que serve | Onde obter |
+|---|---|---|
+| `VITE_FORMSPREE_ID` | Recebe os leads do formulário **por e-mail** | [formspree.io](https://formspree.io) |
+| `VITE_GA4_ID` | Google Analytics 4 (`G-XXXX`) | [analytics.google.com](https://analytics.google.com) |
+| `VITE_GOOGLE_ADS_ID` | Conversões do Google Ads (`AW-XXXX`) | Painel do Google Ads |
+| `VITE_META_PIXEL_ID` | Meta Pixel (Facebook/Instagram) | [business.facebook.com](https://business.facebook.com) |
+
+### Eventos de conversão enviados
+
+`lead_formulario` (envio do form), `clique_whatsapp`, `clique_whatsapp_hero`,
+`clique_whatsapp_menu`, `clique_whatsapp_flutuante`, `clique_email`.
+No Meta, todos são reportados como o evento padrão **`Lead`**.
+
+> **Antes de publicar:** confira os dados de contato em `src/data/site.js`
 > (`email`, `whatsapp`, `whatsappLabel`) e o domínio nos arquivos de SEO
-> (`index.html`, `public/robots.txt`, `public/sitemap.xml`) com as informações
-> reais da empresa antes de publicar.
+> (`index.html`, `public/robots.txt`, `public/sitemap.xml`).
 
 ## 🔎 SEO incluído
 
@@ -52,6 +72,7 @@ FAQ e dados de contato) fica centralizado em **`src/data/site.js`**.
 - `robots.txt` e `sitemap.xml`
 - HTML semântico, acessibilidade (skip link, foco visível, `aria-*`)
 - URL canônica e `lang="pt-BR"`
+- Política de Privacidade (LGPD) em `/politica-de-privacidade.html`
 
 ## 🌐 Deploy
 

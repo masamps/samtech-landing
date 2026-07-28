@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import Button from "./Button.jsx";
 import Logo from "./Logo.jsx";
 import { navLinks, whatsappLink } from "../data/site.js";
+import { trackConversion } from "../lib/analytics.js";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,6 +61,7 @@ export default function Navbar() {
             href={whatsappLink}
             target="_blank"
             rel="noopener"
+            onClick={() => trackConversion("clique_whatsapp_menu")}
             size="sm"
           >
             Fale conosco
@@ -97,7 +99,10 @@ export default function Navbar() {
               target="_blank"
               rel="noopener"
               className="mt-2 w-full"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackConversion("clique_whatsapp_menu");
+                setOpen(false);
+              }}
             >
               Fale conosco
             </Button>

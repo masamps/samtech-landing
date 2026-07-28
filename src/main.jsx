@@ -4,6 +4,9 @@ import "@fontsource-variable/sora";
 import "@fontsource-variable/manrope";
 import "./index.css";
 import App from "./App.jsx";
+import { initAnalytics } from "./lib/analytics.js";
+
+initAnalytics();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -3,3 +3,8 @@ dist
 .DS_Store
 
 .vercel
+
+# variáveis de ambiente (nunca versionar)
+.env
+.env.local
+.env.*.local

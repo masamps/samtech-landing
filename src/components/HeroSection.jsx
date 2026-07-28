@@ -5,6 +5,7 @@ import Button from "./Button.jsx";
 import HeroVisual from "./HeroVisual.jsx";
 import { stagger, fadeUp } from "../lib/motion.js";
 import { whatsappLink } from "../data/site.js";
+import { trackConversion } from "../lib/analytics.js";
 
 export default function HeroSection() {
   return (
@@ -63,6 +64,7 @@ export default function HeroSection() {
               href={whatsappLink}
               target="_blank"
               rel="noopener"
+              onClick={() => trackConversion("clique_whatsapp_hero")}
               variant="secondary"
             >
               Falar no WhatsApp
