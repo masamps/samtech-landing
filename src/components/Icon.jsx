@@ -1,4 +1,5 @@
 import {
+  Zap,
   LayoutDashboard,
   Globe,
   Smartphone,
@@ -11,6 +12,7 @@ import {
 } from "lucide-react";
 
 const icons = {
+  Zap,
   LayoutDashboard,
   Globe,
   Smartphone,

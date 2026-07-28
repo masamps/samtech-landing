@@ -37,17 +37,17 @@ export default function HeroSection() {
             variants={fadeUp}
             className="mt-7 text-[2.6rem] font-bold leading-[1.05] text-white sm:text-6xl md:text-[4.25rem]"
           >
-            Software sob medida para a sua empresa parar de{" "}
-            <span className="text-gradient">perder tempo</span>
+            Sistemas sob medida para acabar com o{" "}
+            <span className="text-gradient">trabalho manual</span> da sua empresa
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-6 max-w-xl text-lg leading-relaxed text-mist"
           >
-            Sistemas web, sites e aplicativos desenvolvidos do zero para o seu
-            processo — falando direto com quem programa, sem intermediário. Do
-            diagnóstico à publicação.
+            Automatizamos processos e desenvolvemos sistemas web feitos para a
+            sua operação — falando direto com quem programa, sem intermediário.
+            Também criamos sites e aplicativos.
           </motion.p>
 
           <motion.div
@@ -74,7 +74,9 @@ export default function HeroSection() {
             variants={fadeUp}
             className="mt-5 text-sm text-mist/80"
           >
-            Conversa de 30 minutos, sem compromisso · Retorno em até 1 dia útil
+            Automações a partir de{" "}
+            <strong className="font-semibold text-white">R$ 6.000</strong> ·
+            Diagnóstico gratuito de 30 min · Retorno em até 1 dia útil
           </motion.p>
         </motion.div>
 

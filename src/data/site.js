@@ -3,9 +3,9 @@
 
 export const company = {
   name: "Samps Projetos",
-  tagline: "Sistemas web, sites e aplicativos sob medida",
+  tagline: "Sistemas sob medida e automação de processos",
   description:
-    "Transformamos ideias em produtos digitais de verdade. Desenvolvemos sistemas web, sites e aplicativos mobile com qualidade, design e performance.",
+    "Automatizamos processos manuais e desenvolvemos sistemas web sob medida para empresas. Também criamos sites e aplicativos mobile.",
   email: "sampsprojetos@gmail.com",
   whatsapp: "5515981777690", // formato internacional, somente números
   whatsappLabel: "(15) 98177-7690",
@@ -23,16 +23,35 @@ export const navLinks = [
   { label: "Contato", href: "#contato" },
 ];
 
+// Escada de serviços: automação (entrada) -> sistema completo -> recorrência.
 export const services = [
+  {
+    id: "automacao",
+    icon: "Zap",
+    title: "Automação de Processos",
+    highlight: "Comece por aqui",
+    price: "a partir de R$ 6.000",
+    deadline: "2 a 5 semanas",
+    summary:
+      "Aquela tarefa manual e repetitiva que consome horas da sua equipe — e ainda deixa passar erro. A gente automatiza e o retrabalho acaba.",
+    features: [
+      "Conferência automática de documentos",
+      "Leitura e cruzamento de planilhas e PDFs",
+      "Relatórios e alertas automáticos",
+      "Integração entre sistemas que hoje não conversam",
+    ],
+  },
   {
     id: "sistemas",
     icon: "LayoutDashboard",
-    title: "Sistemas Web",
+    title: "Sistemas Web sob medida",
+    price: "a partir de R$ 15.000",
+    deadline: "2 a 4 meses",
     summary:
-      "Plataformas sob medida, painéis administrativos e SaaS que organizam e automatizam a operação do seu negócio.",
+      "Quando planilha e sistema de prateleira não dão mais conta. Uma plataforma feita para o seu processo, não o contrário.",
     features: [
       "Painéis e dashboards de gestão",
-      "Automação de processos e integrações",
+      "Controle de acessos e perfis de usuário",
       "APIs e integrações com sistemas externos",
       "Arquitetura escalável e segura",
     ],
@@ -40,30 +59,27 @@ export const services = [
   {
     id: "sites",
     icon: "Globe",
-    title: "Sites & Landing Pages",
+    title: "Sites e Aplicativos",
+    price: "sob consulta",
+    deadline: "2 a 8 semanas",
     summary:
-      "Sites institucionais, landing pages e e-commerce com design moderno, alta performance e otimização para o Google.",
+      "Também desenvolvemos sites institucionais, landing pages e aplicativos mobile — normalmente como complemento do sistema principal.",
     features: [
-      "Design responsivo e moderno",
-      "SEO técnico e velocidade de carregamento",
-      "Landing pages focadas em conversão",
-      "Lojas virtuais e catálogos",
-    ],
-  },
-  {
-    id: "apps",
-    icon: "Smartphone",
-    title: "Aplicativos Mobile",
-    summary:
-      "Aplicativos para Android e iOS com experiência fluida, do protótipo à publicação nas lojas.",
-    features: [
-      "Apps nativos e multiplataforma",
-      "Publicação na App Store e Play Store",
-      "Notificações, login e pagamentos",
-      "Sincronização com sua plataforma web",
+      "Sites e landing pages otimizados para SEO",
+      "Aplicativos Android e iOS",
+      "Publicação nas lojas",
+      "Integração com a sua plataforma web",
     ],
   },
 ];
+
+// Plano de manutenção — receita recorrente após a entrega.
+export const maintenance = {
+  price: "a partir de R$ 500/mês",
+  title: "Manutenção e evolução contínua",
+  description:
+    "Depois da entrega, seguimos cuidando do seu sistema: correções, melhorias, novas funcionalidades e suporte direto com quem desenvolveu.",
+};
 
 export const stats = [
   { value: 5, suffix: "", label: "Anos de experiência" },
@@ -126,7 +142,17 @@ export const faqs = [
   {
     question: "Quanto custa um projeto?",
     answer:
-      "O valor depende do escopo: um site institucional tem investimento bem menor que um sistema com várias integrações. Depois do diagnóstico enviamos uma proposta fechada, com o preço definido antes de começar — sem surpresa no meio do caminho.",
+      "Automações de processo começam em R$ 6.000 e sistemas web sob medida em R$ 15.000. O valor final depende do escopo — principalmente da quantidade de integrações. Depois do diagnóstico você recebe uma proposta fechada, com o preço definido antes de começar e sem surpresa no meio do caminho.",
+  },
+  {
+    question: "Por que começar por uma automação em vez de um sistema completo?",
+    answer:
+      "Porque é mais rápido, mais barato e você vê resultado antes de investir alto. Resolvemos primeiro o processo que mais consome tempo hoje e, se fizer sentido, evoluímos aquilo para um sistema completo depois — com você já sabendo como trabalhamos.",
+  },
+  {
+    question: "Existe custo mensal depois da entrega?",
+    answer:
+      "Só se você quiser. A manutenção contínua começa em R$ 500/mês e inclui correções, melhorias e novas funcionalidades. Não é obrigatória: o sistema é seu e continua funcionando sem ela.",
   },
   {
     question: "Quanto tempo leva para ficar pronto?",
