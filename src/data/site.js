@@ -65,99 +65,6 @@ export const services = [
   },
 ];
 
-export const differentials = [
-  {
-    icon: "Sparkles",
-    title: "Design que transmite confiança",
-    description:
-      "Interfaces limpas e intuitivas, pensadas para que o seu cliente use sem fricção e a sua marca pareça profissional.",
-  },
-  {
-    icon: "Gauge",
-    title: "Performance e velocidade",
-    description:
-      "Aplicações rápidas e otimizadas, porque cada segundo conta para a experiência do usuário e para o SEO.",
-  },
-  {
-    icon: "ShieldCheck",
-    title: "Código de qualidade",
-    description:
-      "Boas práticas, testes e código organizado para que o seu sistema cresça sem virar uma dor de cabeça.",
-  },
-  {
-    icon: "TrendingUp",
-    title: "Foco em resultado",
-    description:
-      "Não entregamos só tecnologia: entregamos soluções que geram valor e ajudam o seu negócio a crescer.",
-  },
-  {
-    icon: "MessagesSquare",
-    title: "Comunicação transparente",
-    description:
-      "Você acompanha o andamento do projeto de perto, com prazos claros e contato direto com quem desenvolve.",
-  },
-  {
-    icon: "Wrench",
-    title: "Suporte contínuo",
-    description:
-      "Depois da entrega, seguimos ao seu lado com manutenção, evolução e novas funcionalidades.",
-  },
-];
-
-export const processSteps = [
-  {
-    number: "01",
-    title: "Descoberta",
-    description:
-      "Entendemos o seu negócio, objetivos e desafios para definir o escopo certo do projeto.",
-  },
-  {
-    number: "02",
-    title: "Planejamento & Design",
-    description:
-      "Estruturamos a solução e desenhamos a interface (UI/UX) antes de escrever a primeira linha de código.",
-  },
-  {
-    number: "03",
-    title: "Desenvolvimento",
-    description:
-      "Construímos o produto em ciclos, com entregas frequentes para você acompanhar e validar.",
-  },
-  {
-    number: "04",
-    title: "Entrega & Evolução",
-    description:
-      "Publicamos, monitoramos e damos suporte contínuo, evoluindo o sistema junto com o seu negócio.",
-  },
-];
-
-export const projects = [
-  {
-    title: "Plataforma de Gestão",
-    category: "Sistema Web",
-    description:
-      "Painel administrativo completo para controle de operações, relatórios e equipe em tempo real.",
-    tags: ["Dashboard", "SaaS", "Automação"],
-    accent: "from-brand-500/30 to-accent-400/20",
-  },
-  {
-    title: "App de Delivery",
-    category: "Aplicativo Mobile",
-    description:
-      "Aplicativo multiplataforma com pedidos, pagamentos e rastreamento em tempo real.",
-    tags: ["Android", "iOS", "Pagamentos"],
-    accent: "from-accent-400/30 to-brand-500/20",
-  },
-  {
-    title: "Site Institucional",
-    category: "Website",
-    description:
-      "Site rápido, responsivo e otimizado para SEO, com foco em geração de contatos.",
-    tags: ["SEO", "Landing", "Responsivo"],
-    accent: "from-brand-400/30 to-brand-600/20",
-  },
-];
-
 export const stats = [
   { value: 5, suffix: "", label: "Anos de experiência" },
   { value: "24/7", suffix: "", label: "Sistemas no ar" },
@@ -210,46 +117,40 @@ export const labProjects = [
   },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "A Samps Projetos entendeu exatamente o que precisávamos e entregou um sistema que mudou a forma como trabalhamos. Profissionalismo do início ao fim.",
-    name: "Cliente Satisfeito",
-    role: "Diretor de Operações",
-  },
-  {
-    quote:
-      "O aplicativo ficou impecável e a comunicação durante todo o projeto foi excelente. Recomendo de olhos fechados.",
-    name: "Empreendedora",
-    role: "Fundadora de Startup",
-  },
-  {
-    quote:
-      "Nosso site novo é rápido, bonito e já estamos aparecendo melhor no Google. Superou as expectativas.",
-    name: "Gestor de Marketing",
-    role: "Empresa do varejo",
-  },
-];
-
 export const faqs = [
   {
-    question: "Quanto tempo leva para desenvolver um projeto?",
+    question: "Como funciona o diagnóstico gratuito?",
     answer:
-      "Depende da complexidade. Um site institucional pode levar de 2 a 4 semanas, enquanto sistemas e aplicativos mais robustos variam de 2 a 4 meses. Definimos um cronograma claro logo no início.",
+      "É uma conversa de cerca de 30 minutos, sem compromisso, para entender o seu processo e o que você precisa resolver. Ao final você recebe uma orientação do caminho e, se fizer sentido, uma proposta com escopo, prazo e valor.",
   },
   {
-    question: "Vocês desenvolvem do zero ou também dão manutenção em projetos existentes?",
+    question: "Quanto custa um projeto?",
     answer:
-      "Os dois. Criamos novos produtos do zero e também assumimos a manutenção e evolução de sistemas, sites e apps que já existem.",
+      "O valor depende do escopo: um site institucional tem investimento bem menor que um sistema com várias integrações. Depois do diagnóstico enviamos uma proposta fechada, com o preço definido antes de começar — sem surpresa no meio do caminho.",
   },
   {
-    question: "Como funciona o orçamento?",
+    question: "Quanto tempo leva para ficar pronto?",
     answer:
-      "Após uma conversa inicial para entender o escopo, enviamos uma proposta detalhada com valores, prazos e etapas. O primeiro contato é sempre gratuito e sem compromisso.",
+      "Depende da complexidade. Um site institucional costuma levar de 2 a 4 semanas, enquanto sistemas e aplicativos mais robustos variam de 2 a 4 meses. O cronograma é definido junto com você logo no início.",
   },
   {
-    question: "O sistema fica sob minha propriedade?",
+    question: "Preciso saber exatamente o que quero antes de falar com vocês?",
     answer:
-      "Sim. Todo o código desenvolvido é seu. Entregamos o produto pronto para escalar, sem amarras com a nossa equipe.",
+      "Não. Boa parte dos projetos começa com uma ideia ou um incômodo do dia a dia. A gente ajuda a transformar isso em escopo — essa é justamente a função do diagnóstico.",
+  },
+  {
+    question: "Vocês desenvolvem do zero ou também dão manutenção no que já existe?",
+    answer:
+      "Os dois. Criamos produtos do zero e também assumimos a manutenção e a evolução de sistemas, sites e aplicativos que já estão rodando.",
+  },
+  {
+    question: "O sistema fica sob a minha propriedade?",
+    answer:
+      "Sim. Todo o código desenvolvido é seu, entregue pronto para crescer e sem amarras com a gente. Você não fica refém de fornecedor.",
+  },
+  {
+    question: "Vocês atendem empresas de outras cidades?",
+    answer:
+      "Sim. O atendimento é remoto e acompanhamos o projeto por videochamada e WhatsApp, com contato direto com quem está desenvolvendo.",
   },
 ];

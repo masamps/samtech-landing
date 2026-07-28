@@ -112,11 +112,12 @@ export default function ContactSection() {
               Vamos conversar
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Pronto para tirar o seu projeto do papel?
+              Peça o seu diagnóstico gratuito
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-mist">
-              Conte a sua ideia e mostramos como podemos ajudar. A primeira
-              conversa é gratuita e sem compromisso.
+              Conte o que você precisa resolver. Em uma conversa de 30 minutos
+              entendemos o seu processo e mostramos o caminho — sem compromisso
+              e sem custo.
             </p>
 
             <div className="mt-8 flex flex-col gap-4">
@@ -337,7 +338,7 @@ export default function ContactSection() {
                     </>
                   ) : (
                     <>
-                      Enviar mensagem
+                      Quero meu diagnóstico gratuito
                       <Send size={17} />
                     </>
                   )}

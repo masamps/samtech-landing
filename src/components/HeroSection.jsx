@@ -26,7 +26,7 @@ export default function HeroSection() {
             className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface/50 px-4 py-1.5 text-xs font-medium text-mist backdrop-blur-sm transition-colors hover:text-white"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
-            Software sob medida para empresas que querem crescer
+            5 anos desenvolvendo software sob medida
             <ArrowRight
               size={13}
               className="transition-transform group-hover:translate-x-0.5"
@@ -35,20 +35,19 @@ export default function HeroSection() {
 
           <motion.h1
             variants={fadeUp}
-            className="mt-7 text-[2.6rem] font-bold leading-[1.05] text-white sm:text-6xl md:text-7xl"
+            className="mt-7 text-[2.6rem] font-bold leading-[1.05] text-white sm:text-6xl md:text-[4.25rem]"
           >
-            O atalho da sua empresa
-            <br />
-            para o <span className="text-gradient">digital</span>
+            Software sob medida para a sua empresa parar de{" "}
+            <span className="text-gradient">perder tempo</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-6 max-w-xl text-lg leading-relaxed text-mist"
           >
-            A Samps Projetos cria sistemas web, sites e aplicativos sob medida —
-            com design impecável, performance e código de qualidade. Do primeiro
-            clique à publicação.
+            Sistemas web, sites e aplicativos desenvolvidos do zero para o seu
+            processo — falando direto com quem programa, sem intermediário. Do
+            diagnóstico à publicação.
           </motion.p>
 
           <motion.div
@@ -56,7 +55,7 @@ export default function HeroSection() {
             className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <Button as="a" href="#contato">
-              Solicitar orçamento
+              Quero um diagnóstico gratuito
               <ArrowRight size={18} />
             </Button>
             <Button
@@ -70,6 +69,13 @@ export default function HeroSection() {
               Falar no WhatsApp
             </Button>
           </motion.div>
+
+          <motion.p
+            variants={fadeUp}
+            className="mt-5 text-sm text-mist/80"
+          >
+            Conversa de 30 minutos, sem compromisso · Retorno em até 1 dia útil
+          </motion.p>
         </motion.div>
 
         {/* visual de produto */}
