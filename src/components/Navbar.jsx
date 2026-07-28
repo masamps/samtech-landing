@@ -34,7 +34,7 @@ export default function Navbar() {
       >
         <a
           href="#inicio"
-          className="flex items-center gap-2 pl-1"
+          className="flex min-h-[44px] items-center gap-2 pl-1"
           aria-label="Samps Projetos — início"
         >
           <Logo className="h-8 w-8" />
@@ -48,7 +48,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-mist transition-colors hover:text-white"
+              className="flex items-center py-3 text-sm text-mist transition-colors hover:text-white"
             >
               {link.label}
             </a>
@@ -71,7 +71,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full text-white md:hidden"
+          className="-mr-1 inline-flex h-11 w-11 items-center justify-center rounded-full text-white md:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
         >

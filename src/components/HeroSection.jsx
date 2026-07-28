@@ -23,7 +23,7 @@ export default function HeroSection() {
           <motion.a
             variants={fadeUp}
             href="#servicos"
-            className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface/50 px-4 py-1.5 text-xs font-medium text-mist backdrop-blur-sm transition-colors hover:text-white"
+            className="group inline-flex min-h-[40px] items-center gap-2 rounded-full border border-line bg-surface/50 px-4 py-2.5 text-xs font-medium text-mist backdrop-blur-sm transition-colors hover:text-white"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
             5 anos desenvolvendo software sob medida
@@ -35,7 +35,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={fadeUp}
-            className="mt-7 text-[2.6rem] font-bold leading-[1.05] text-white sm:text-6xl md:text-[4.25rem]"
+            className="mt-7 text-[clamp(2.25rem,8.5vw,4.25rem)] font-bold leading-[1.07] text-white"
           >
             Sistemas sob medida para acabar com o{" "}
             <span className="text-gradient">trabalho manual</span> da sua empresa

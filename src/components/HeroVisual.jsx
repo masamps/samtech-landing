@@ -174,7 +174,7 @@ export default function HeroVisual() {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setView(v.id)}
-                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`inline-flex min-h-[44px] items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-200 ${
                   isActive
                     ? "bg-white text-ink"
                     : "text-mist hover:text-white"

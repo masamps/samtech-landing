@@ -16,10 +16,10 @@ import { company, whatsappLink } from "../data/site.js";
 import { trackConversion } from "../lib/analytics.js";
 
 const serviceOptions = [
-  "Sistema Web",
-  "Site / Landing Page",
-  "Aplicativo Mobile",
   "Automação de processos",
+  "Sistema Web",
+  "Aplicativo Mobile",
+  "Site / Landing Page",
   "Ainda não sei",
 ];
 
