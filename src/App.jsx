@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar.jsx";
 import HeroSection from "./components/HeroSection.jsx";
 import ProcessStrip from "./components/ProcessStrip.jsx";
@@ -33,6 +34,7 @@ export default function App() {
 
       <Footer />
       <FloatingWhatsApp />
+      <Analytics />
     </>
   );
 }
