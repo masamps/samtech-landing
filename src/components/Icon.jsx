@@ -1,5 +1,8 @@
 import {
   Zap,
+  Target,
+  KeyRound,
+  GitBranch,
   LayoutDashboard,
   Globe,
   Smartphone,
@@ -13,6 +16,9 @@ import {
 
 const icons = {
   Zap,
+  Target,
+  KeyRound,
+  GitBranch,
   LayoutDashboard,
   Globe,
   Smartphone,

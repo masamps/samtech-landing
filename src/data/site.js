@@ -81,6 +81,46 @@ export const maintenance = {
     "Depois da entrega, seguimos cuidando do seu sistema: correções, melhorias, novas funcionalidades e suporte direto com quem desenvolveu.",
 };
 
+// Diferenciais — respondem aos medos reais de quem contrata software.
+export const differentials = [
+  {
+    icon: "Target",
+    title: "Feito para o seu processo",
+    description:
+      "Nada de adaptar a sua operação a um sistema de prateleira. O software é construído em cima da forma como a sua empresa já trabalha.",
+  },
+  {
+    icon: "MessagesSquare",
+    title: "Você fala direto com quem programa",
+    description:
+      "Sem camada de atendimento, sem telefone sem fim. Quem responde a sua dúvida é quem escreve o código.",
+  },
+  {
+    icon: "KeyRound",
+    title: "O sistema é seu, sem amarras",
+    description:
+      "Todo o código e os dados ficam com você. Se um dia quiser levar para outra equipe, leva — não existe refém aqui.",
+  },
+  {
+    icon: "GitBranch",
+    title: "Entregas parciais para acompanhar",
+    description:
+      "Você não espera meses para ver resultado. Entregamos em etapas, você valida no caminho e corrige a rota cedo.",
+  },
+  {
+    icon: "ShieldCheck",
+    title: "Segurança e backup desde o início",
+    description:
+      "Controle de acesso por perfil, dados protegidos e rotina de backup — não como item extra, mas como parte do projeto.",
+  },
+  {
+    icon: "Wrench",
+    title: "Suporte depois da entrega",
+    description:
+      "O projeto não acaba no lançamento. Seguimos corrigindo, melhorando e evoluindo o sistema conforme a empresa cresce.",
+  },
+];
+
 export const stats = [
   { value: 5, suffix: "", label: "Anos de experiência" },
   { value: "24/7", suffix: "", label: "Sistemas no ar" },
