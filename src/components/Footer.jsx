@@ -1,13 +1,14 @@
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import Container from "./Container.jsx";
 import Logo from "./Logo.jsx";
-import { company, navLinks, services } from "../data/site.js";
+import { company, navLinks, services, whatsappLink } from "../data/site.js";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-line bg-ink">
       <Container className="py-14">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
             <a href="#inicio" className="flex min-h-[44px] items-center gap-2.5">
               <Logo className="h-9 w-9" />
@@ -49,13 +50,35 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-white">Contato</h3>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex min-h-[40px] items-center gap-2 text-sm text-mist transition-colors hover:text-white"
+                >
+                  <MessageCircle size={15} className="shrink-0" />
+                  {company.whatsappLabel}
+                </a>
+              </li>
               <li>
                 <a
                   href={`mailto:${company.email}`}
-                  className="inline-flex min-h-[40px] items-center text-sm text-mist transition-colors hover:text-white"
+                  className="inline-flex min-h-[40px] items-center gap-2 text-sm text-mist transition-colors hover:text-white"
                 >
+                  <Mail size={15} className="shrink-0" />
                   {company.email}
                 </a>
+              </li>
+              <li className="flex items-start gap-2 pt-1 text-sm text-mist">
+                <MapPin size={15} className="mt-0.5 shrink-0" />
+                Atendimento remoto para todo o Brasil
               </li>
             </ul>
           </div>

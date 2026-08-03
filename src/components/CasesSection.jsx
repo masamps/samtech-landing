@@ -12,8 +12,8 @@ export default function CasesSection() {
       <Container>
         <SectionHeading
           eyebrow="Projetos"
-          title="Trabalho real, no ar"
-          description="Da advocacia ao e-commerce: alguns dos sistemas e sites que já desenvolvemos e seguem em produção."
+          title="Sistemas que já estão rodando"
+          description="Dois projetos reais em produção hoje — o problema que o cliente tinha, o que construímos e o que mudou depois."
         />
 
         {/* cases de clientes */}

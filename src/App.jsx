@@ -1,9 +1,9 @@
 import Navbar from "./components/Navbar.jsx";
 import HeroSection from "./components/HeroSection.jsx";
-import TrustStrip from "./components/TrustStrip.jsx";
+import ProcessStrip from "./components/ProcessStrip.jsx";
 import ServicesSection from "./components/ServicesSection.jsx";
-import BentoSection from "./components/BentoSection.jsx";
 import CasesSection from "./components/CasesSection.jsx";
+import BentoSection from "./components/BentoSection.jsx";
 import FaqSection from "./components/FaqSection.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import Footer from "./components/Footer.jsx";
@@ -23,10 +23,10 @@ export default function App() {
 
       <main>
         <HeroSection />
-        <TrustStrip />
+        <ProcessStrip />
         <ServicesSection />
-        <BentoSection />
         <CasesSection />
+        <BentoSection />
         <FaqSection />
         <ContactSection />
       </main>

@@ -17,8 +17,8 @@ export const whatsappLink = `https://wa.me/${company.whatsapp}?text=${encodeURIC
 )}`;
 
 export const navLinks = [
+  { label: "Como funciona", href: "#como-funciona" },
   { label: "Serviços", href: "#servicos" },
-  { label: "Diferenciais", href: "#diferenciais" },
   { label: "Projetos", href: "#projetos" },
   { label: "Contato", href: "#contato" },
 ];
@@ -121,39 +121,33 @@ export const differentials = [
   },
 ];
 
-export const stats = [
-  { value: 5, suffix: "", label: "Anos de experiência" },
-  { value: "24/7", suffix: "", label: "Sistemas no ar" },
-  { value: 100, suffix: "%", label: "Projetos sob medida" },
-];
-
 // Cases reais de clientes em produção.
 export const cases = [
   {
-    client: "Escritório de advocacia securitária",
-    type: "Site & Landing Page",
-    segment: "Advocacia · Direito securitário",
-    icon: "Globe",
+    client: "Vendedor do Mercado Livre",
+    type: "Sistema Web",
+    segment: "E-commerce",
+    icon: "Zap",
     challenge:
-      "O escritório precisava de uma presença online profissional para transmitir credibilidade e atrair clientes em uma área especializada.",
+      "A equipe conferia à mão, um a um, se o pedido de compra batia com a nota fiscal. Além de consumir horas todo mês, divergência de valor passava despercebida e virava prejuízo.",
     solution:
-      "Landing page com área de publicações para o escritório postar conteúdo jurídico e uma seção de depoimentos de clientes, com visual sóbrio e foco em contato.",
+      "Um sistema que lê os PDFs de pedido e de nota fiscal, compara automaticamente e aponta as divergências na tela. Também mostra os custos da regional do Mercado Livre, que antes ficavam fora da conta.",
     result:
-      "Site institucional no ar, com conteúdo e prova social que reforçam a autoridade do escritório.",
-    tags: ["Landing page", "Publicações", "Depoimentos", "SEO"],
+      "A conferência que era manual virou automática, e o erro que gerava prejuízo passou a ser identificado antes do pagamento.",
+    tags: ["Automação", "Leitura de PDF", "Conferência fiscal", "Relatórios"],
   },
   {
-    client: "Conferência fiscal para vendedores",
-    type: "Sistema Web",
-    segment: "E-commerce · Mercado Livre",
-    icon: "LayoutDashboard",
+    client: "Escritório de advocacia securitária",
+    type: "Site & Landing Page",
+    segment: "Advocacia",
+    icon: "Globe",
     challenge:
-      "Conferir manualmente o pedido de compra contra a nota fiscal era lento e deixava passar divergências de valores.",
+      "O escritório atuava numa área bastante especializada, mas não tinha presença online — e perdia credibilidade para concorrentes menos preparados que apareciam melhor.",
     solution:
-      "Sistema que compara os PDFs de pedido e nota fiscal automaticamente, acusa as divergências e ainda apresenta os custos da regional do Mercado Livre.",
+      "Uma landing page sóbria, com área de publicações para o escritório divulgar conteúdo jurídico e uma seção de depoimentos, tudo direcionado para o contato.",
     result:
-      "Conferência automática que evita prejuízo por erro e economiza horas de trabalho manual.",
-    tags: ["Automação", "Leitura de PDF", "Conferência fiscal", "Relatórios"],
+      "O escritório passou a ter um canal próprio para mostrar autoridade no assunto e receber contatos direto pelo site.",
+    tags: ["Landing page", "Publicações", "Depoimentos", "SEO"],
   },
 ];
 
