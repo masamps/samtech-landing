@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   AlertCircle,
@@ -14,6 +14,7 @@ import Button from "./Button.jsx";
 import Reveal from "./Reveal.jsx";
 import { company, whatsappLink } from "../data/site.js";
 import { trackConversion } from "../lib/analytics.js";
+import { sanitizeText, isValidContact, looksLikeSpam } from "../lib/sanitize.js";
 
 const serviceOptions = [
   "Automação de processos",
@@ -26,29 +27,51 @@ const serviceOptions = [
 // Enquanto o endpoint não estiver configurado, o envio cai no WhatsApp.
 const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
 
+// Limites de tamanho por campo — cortam payloads gigantes na origem.
+const LIMITS = { name: 80, contact: 120, message: 1500 };
+
+// Um humano não preenche e envia em menos de 3s; bots enviam instantaneamente.
+const MIN_FILL_MS = 3000;
+// Intervalo mínimo entre dois envios do mesmo navegador.
+const RESUBMIT_MS = 30000;
+
 const emptyForm = {
   name: "",
   contact: "",
   service: serviceOptions[0],
   message: "",
   consent: false,
+  // Campo-armadilha: invisível para pessoas, preenchido por robôs.
+  website: "",
 };
 
 export default function ContactSection() {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState("");
+  const mountedAt = useRef(Date.now());
+  const lastSentAt = useRef(0);
 
   const update = (key) => (e) => {
-    const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setForm((f) => ({ ...f, [key]: value }));
   };
 
-  const openWhatsApp = () => {
+  // Aplica a higienização a todos os campos de uma vez.
+  const cleanForm = () => ({
+    name: sanitizeText(form.name, LIMITS.name, { singleLine: true }),
+    contact: sanitizeText(form.contact, LIMITS.contact, { singleLine: true }),
+    service: serviceOptions.includes(form.service) ? form.service : serviceOptions[0],
+    message: sanitizeText(form.message, LIMITS.message),
+  });
+
+  const openWhatsApp = (data) => {
     const text = [
-      `Olá! Sou ${form.name || "um visitante do site"}.`,
-      `Interesse: ${form.service}.`,
-      form.message && `Detalhes: ${form.message}`,
-      form.contact && `Contato: ${form.contact}`,
+      `Olá! Sou ${data.name || "um visitante do site"}.`,
+      `Interesse: ${data.service}.`,
+      data.message && `Detalhes: ${data.message}`,
+      data.contact && `Contato: ${data.contact}`,
     ]
       .filter(Boolean)
       .join("\n");
@@ -62,11 +85,58 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === "sending") return;
+    setErrorMsg("");
 
-    // Sem endpoint configurado: mantém o fluxo antigo via WhatsApp.
+    const now = Date.now();
+
+    // 1. Armadilha e tempo de preenchimento: sinais de robô.
+    //    Fingimos sucesso para não ensinar o bot a contornar a proteção.
+    const isBot =
+      form.website.trim() !== "" || now - mountedAt.current < MIN_FILL_MS;
+    if (isBot) {
+      setStatus("success");
+      setForm(emptyForm);
+      return;
+    }
+
+    // 2. Evita reenvio em rajada.
+    if (now - lastSentAt.current < RESUBMIT_MS) {
+      setStatus("error");
+      setErrorMsg("Você acabou de enviar uma mensagem. Aguarde um instante.");
+      return;
+    }
+
+    const data = cleanForm();
+
+    // 3. Validações de conteúdo.
+    if (data.name.length < 2) {
+      setStatus("error");
+      setErrorMsg("Informe o seu nome.");
+      return;
+    }
+    if (!isValidContact(data.contact)) {
+      setStatus("error");
+      setErrorMsg("Informe um e-mail ou telefone válido para retornarmos.");
+      return;
+    }
+    if (!form.consent) {
+      setStatus("error");
+      setErrorMsg("É necessário autorizar o contato para enviar.");
+      return;
+    }
+    if (looksLikeSpam(data)) {
+      setStatus("error");
+      setErrorMsg(
+        "Sua mensagem foi bloqueada pelo filtro. Envie sem links ou fale no WhatsApp."
+      );
+      return;
+    }
+
+    // Sem endpoint configurado: mantém o fluxo pelo WhatsApp.
     if (!FORMSPREE_ID) {
+      lastSentAt.current = now;
       trackConversion("lead_whatsapp");
-      openWhatsApp();
+      openWhatsApp(data);
       return;
     }
 
@@ -79,21 +149,29 @@ export default function ContactSection() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          nome: form.name,
-          contato: form.contact,
-          interesse: form.service,
-          mensagem: form.message,
-          _subject: `Novo contato do site — ${form.name}`,
+          nome: data.name,
+          contato: data.contact,
+          interesse: data.service,
+          mensagem: data.message,
+          // Assunto fixo: nunca interpolar entrada do usuário em cabeçalho
+          // de e-mail, sob risco de injeção de cabeçalho (CC/BCC).
+          _subject: "Novo contato pelo site",
+          // Armadilha nativa do Formspree.
+          _gotcha: form.website,
         }),
       });
 
       if (!response.ok) throw new Error("Falha no envio");
 
-      trackConversion("lead_formulario", { interesse: form.service });
+      lastSentAt.current = now;
+      trackConversion("lead_formulario", { interesse: data.service });
       setStatus("success");
       setForm(emptyForm);
     } catch {
       setStatus("error");
+      setErrorMsg(
+        "Não foi possível enviar agora. Tente novamente ou fale direto no WhatsApp."
+      );
     }
   };
 
@@ -215,6 +293,21 @@ export default function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                {/* Armadilha anti-robô: invisível e ignorada por leitores de tela.
+                    Pessoas nunca preenchem; bots preenchem tudo que encontram. */}
+                <div aria-hidden="true" className="absolute h-0 w-0 overflow-hidden opacity-0">
+                  <label htmlFor="website">Não preencha este campo</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={update("website")}
+                  />
+                </div>
+
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-medium text-white">
                     Nome
@@ -223,6 +316,8 @@ export default function ContactSection() {
                     id="name"
                     type="text"
                     required
+                    maxLength={LIMITS.name}
+                    autoComplete="name"
                     value={form.name}
                     onChange={update("name")}
                     placeholder="Como podemos te chamar?"
@@ -241,6 +336,8 @@ export default function ContactSection() {
                     id="contact"
                     type="text"
                     required
+                    maxLength={LIMITS.contact}
+                    autoComplete="email"
                     value={form.contact}
                     onChange={update("contact")}
                     placeholder="Para retornarmos o contato"
@@ -279,6 +376,7 @@ export default function ContactSection() {
                   <textarea
                     id="message"
                     rows={4}
+                    maxLength={LIMITS.message}
                     value={form.message}
                     onChange={update("message")}
                     placeholder="Conte um pouco sobre a sua ideia..."
@@ -320,8 +418,7 @@ export default function ContactSection() {
                     className="flex items-start gap-2 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-200"
                   >
                     <AlertCircle size={15} className="mt-0.5 shrink-0" />
-                    Não foi possível enviar agora. Tente novamente ou fale
-                    direto no WhatsApp.
+                    {errorMsg}
                   </p>
                 )}
 
