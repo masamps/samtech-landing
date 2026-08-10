@@ -138,16 +138,16 @@ export const cases = [
   },
   {
     client: "Escritório de advocacia securitária",
-    type: "Site & Landing Page",
+    type: "Site + Automação",
     segment: "Advocacia",
     icon: "Globe",
     challenge:
-      "O escritório atuava numa área bastante especializada, mas não tinha presença online — e perdia credibilidade para concorrentes menos preparados que apareciam melhor.",
+      "O escritório atuava numa área bastante especializada, mas não tinha presença online. Site parado também não resolveria: manter conteúdo em dia exige um tempo que advogado ocupado não tem.",
     solution:
-      "Uma landing page sóbria, com área de publicações para o escritório divulgar conteúdo jurídico e uma seção de depoimentos, tudo direcionado para o contato.",
+      "Uma landing page sóbria com seção de depoimentos e área de publicações — alimentada por uma automação que busca e publica notícias do setor securitário, sem ninguém precisar postar manualmente.",
     result:
-      "O escritório passou a ter um canal próprio para mostrar autoridade no assunto e receber contatos direto pelo site.",
-    tags: ["Landing page", "Publicações", "Depoimentos", "SEO"],
+      "O site se mantém atualizado sozinho, reforçando a autoridade do escritório no tema e gerando contato sem consumir hora de trabalho da equipe.",
+    tags: ["Landing page", "Automação de conteúdo", "Publicação automática", "SEO"],
   },
 ];
 
