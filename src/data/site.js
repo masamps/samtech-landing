@@ -146,7 +146,7 @@ export const cases = [
     solution:
       "Uma landing page sóbria com seção de depoimentos e área de publicações — alimentada por uma automação que busca e publica notícias do setor securitário, sem ninguém precisar postar manualmente.",
     result:
-      "O site se mantém atualizado sozinho, reforçando a autoridade do escritório no tema e gerando contato sem consumir hora de trabalho da equipe.",
+      "A automação publica três vezes por semana sem ninguém precisar tocar nela. O site se mantém atualizado sozinho, reforçando a autoridade do escritório no tema sem consumir hora de trabalho da equipe.",
     tags: ["Landing page", "Automação de conteúdo", "Publicação automática", "SEO"],
   },
 ];
