@@ -144,29 +144,49 @@ export const appB2B = {
 
   plans: [
     {
+      id: "template",
+      name: "Licença do template",
+      audience: "Para quem tem equipe técnica",
+      price: "R$ 2.000",
+      period: "pagamento único",
+      summary:
+        "O código-fonte completo com a documentação. A sua equipe configura a marca, integra ao sistema e publica nas lojas.",
+      items: [
+        "Código-fonte Flutter (Android e iOS)",
+        "Scripts de configuração white-label e build em lote",
+        "Integração REST de referência, pronta e funcionando",
+        "Documentação de configuração, integração e publicação",
+        "Licença de uso próprio da sua empresa",
+      ],
+      excluded: [
+        "Configuração, integração e publicação por nossa conta",
+        "Suporte e atualizações",
+      ],
+    },
+    {
       id: "implantacao",
       highlight: "Mais escolhido",
-      name: "Implantação",
+      name: "Implantação completa",
+      audience: "Para quem quer tudo pronto",
       price: "a partir de R$ 12.000",
       period: "pagamento único",
-      deadline: "2 a 4 semanas",
       summary:
-        "O aplicativo configurado com a sua marca, integrado ao seu sistema e publicado nas duas lojas.",
+        "A gente faz tudo: configura com a sua marca, integra ao seu sistema e publica nas duas lojas.",
       items: [
-        "Aplicativo Android e iOS com a sua identidade visual",
-        "Integração com o seu sistema (REST de referência inclusa)",
+        "Tudo o que vem na licença do template",
+        "Aplicativo configurado com a sua identidade visual",
+        "Integração com o seu sistema",
         "Publicação na Play Store e na App Store",
         "Parametrização das regras comerciais",
-        "Documentação de configuração e integração",
         "Acompanhamento na primeira semana de uso",
       ],
     },
     {
       id: "manutencao",
       name: "Manutenção mensal",
+      audience: "Opcional, para os dois planos",
       price: "a partir de R$ 700",
       period: "por mês",
-      deadline: "contínuo",
       summary:
         "Aplicativo publicado exige manutenção. As lojas mudam as regras todo ano e app desatualizado sai do ar.",
       items: [
@@ -181,8 +201,9 @@ export const appB2B = {
 
   // Transparência sobre o que não está incluso evita atrito na proposta.
   notes: [
-    "O valor final depende do seu sistema: se ele já expõe uma API, a integração é rápida; se não, avaliamos o adaptador no diagnóstico.",
+    "Na implantação, o valor final depende do seu sistema: se ele já expõe uma API, a integração é rápida; se não, avaliamos o adaptador no diagnóstico.",
     "As contas de desenvolvedor da Apple (anual) e do Google (única) ficam no nome da sua empresa e são cobradas pelas próprias lojas.",
+    "A licença do template é para uso próprio da sua empresa. Revenda ou sublicenciamento a terceiros é negociado à parte.",
     "A manutenção é opcional, mas recomendada: sem as atualizações anuais, as lojas removem o aplicativo.",
   ],
 
@@ -206,6 +227,11 @@ export const appB2B = {
       question: "Por que existe mensalidade se o aplicativo é meu?",
       answer:
         "Porque aplicativo publicado não é software parado. Apple e Google exigem atualizações técnicas todo ano e removem das lojas quem não acompanha. A mensalidade cobre essas atualizações, correções, suporte e republicação. Ela é opcional, mas sem ela o aplicativo tende a sair do ar com o tempo.",
+    },
+    {
+      question: "Qual a diferença entre a licença do template e a implantação?",
+      answer:
+        "Na licença, você recebe o código-fonte e a documentação por R$ 2.000, e a sua equipe cuida de configurar a marca, integrar ao sistema e publicar nas lojas — é a opção para quem já tem time técnico. Na implantação, a partir de R$ 12.000, nós fazemos todo esse trabalho e entregamos o aplicativo publicado e funcionando.",
     },
     {
       question: "Dá para adaptar o aplicativo ao meu processo?",

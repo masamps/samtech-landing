@@ -91,9 +91,9 @@ export default function AppB2BPage() {
               </motion.div>
 
               <motion.p variants={fadeUp} className="mt-5 text-sm text-mist/80">
-                Implantação a partir de{" "}
-                <strong className="font-semibold text-white">R$ 12.000</strong> ·
-                No ar em 2 a 4 semanas
+                Do código-fonte por{" "}
+                <strong className="font-semibold text-white">R$ 2.000</strong> à
+                implantação completa · No ar em 2 a 4 semanas
               </motion.p>
             </motion.div>
 
@@ -292,7 +292,7 @@ export default function AppB2BPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
-              className="mt-12 grid items-start gap-5 md:grid-cols-2"
+              className="mt-12 grid items-start gap-5 lg:grid-cols-3"
             >
               {appB2B.plans.map((plan) => {
                 const featured = Boolean(plan.highlight);
@@ -300,7 +300,7 @@ export default function AppB2BPage() {
                   <motion.div
                     key={plan.id}
                     variants={fadeUp}
-                    className={`relative flex h-full flex-col rounded-3xl border p-7 sm:p-8 ${
+                    className={`relative flex h-full flex-col rounded-3xl border p-7 ${
                       featured
                         ? "border-brand-400/50 bg-surface/70 shadow-glow"
                         : "border-line bg-surface/40"
@@ -312,15 +312,19 @@ export default function AppB2BPage() {
                       </span>
                     )}
                     <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
-                    <div className="mt-3 flex flex-wrap items-baseline gap-x-2">
+                    <p className="mt-1 text-xs text-brand-300">{plan.audience}</p>
+
+                    <div className="mt-4 flex flex-wrap items-baseline gap-x-2">
                       <span className="text-2xl font-bold text-gradient">
                         {plan.price}
                       </span>
                       <span className="text-sm text-mist">{plan.period}</span>
                     </div>
+
                     <p className="mt-4 text-sm leading-relaxed text-mist">
                       {plan.summary}
                     </p>
+
                     <ul className="mt-6 space-y-2.5 border-t border-line pt-5">
                       {plan.items.map((item) => (
                         <li
@@ -331,7 +335,17 @@ export default function AppB2BPage() {
                           {item}
                         </li>
                       ))}
+                      {plan.excluded?.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2.5 text-sm leading-relaxed text-mist/60"
+                        >
+                          <X size={15} className="mt-1 shrink-0 text-mist/40" />
+                          {item}
+                        </li>
+                      ))}
                     </ul>
+
                     <div className="mt-6 flex-1" />
                     <Button
                       as="a"
@@ -340,7 +354,7 @@ export default function AppB2BPage() {
                       variant={featured ? "primary" : "secondary"}
                       className="w-full"
                     >
-                      Pedir diagnóstico
+                      {plan.id === "template" ? "Quero a licença" : "Pedir diagnóstico"}
                     </Button>
                   </motion.div>
                 );
