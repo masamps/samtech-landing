@@ -12,6 +12,18 @@ import {
   TrendingUp,
   MessagesSquare,
   Wrench,
+  Truck,
+  Factory,
+  Users,
+  Code2,
+  LayoutGrid,
+  ShoppingCart,
+  PackageSearch,
+  Palette,
+  Plug,
+  SlidersHorizontal,
+  RefreshCw,
+  TestTube2,
 } from "lucide-react";
 
 const icons = {
@@ -28,6 +40,18 @@ const icons = {
   TrendingUp,
   MessagesSquare,
   Wrench,
+  Truck,
+  Factory,
+  Users,
+  Code2,
+  LayoutGrid,
+  ShoppingCart,
+  PackageSearch,
+  Palette,
+  Plug,
+  SlidersHorizontal,
+  RefreshCw,
+  TestTube2,
 };
 
 export default function Icon({ name, ...props }) {

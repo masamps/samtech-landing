@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Clock, Wrench } from "lucide-react";
+import { ArrowRight, Check, Clock, Smartphone, Wrench } from "lucide-react";
 import Container from "./Container.jsx";
 import SectionHeading from "./SectionHeading.jsx";
 import Icon from "./Icon.jsx";
@@ -124,6 +124,47 @@ export default function ServicesSection() {
             {maintenance.price}
           </span>
         </motion.div>
+
+        {/* Produto pronto — categoria diferente dos serviços sob medida */}
+        <motion.a
+          href="/aplicativo-b2b/"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="group mt-6 flex flex-col gap-5 rounded-3xl border border-brand-400/40 bg-surface/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/70 sm:p-7 lg:flex-row lg:items-center lg:gap-7"
+        >
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-gradient text-ink shadow-glow">
+            <Smartphone size={22} />
+          </span>
+
+          <div className="flex-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-brand-gradient px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink">
+                Produto pronto
+              </span>
+              <h3 className="text-lg font-bold text-white">
+                Aplicativo de Pedidos B2B com a sua marca
+              </h3>
+            </div>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-mist">
+              Para distribuidoras, indústrias e representantes: o seu cliente
+              monta o pedido pelo celular e ele cai direto no seu sistema. App
+              Android e iOS publicado nas lojas com a identidade da sua empresa.
+            </p>
+            <p className="mt-3 text-sm font-semibold text-gradient">
+              Implantação a partir de R$ 12.000 · No ar em 2 a 4 semanas
+            </p>
+          </div>
+
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-line bg-ink/40 px-5 py-2.5 text-sm font-semibold text-white transition-colors group-hover:border-brand-400/60">
+            Conhecer o aplicativo
+            <ArrowRight
+              size={16}
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          </span>
+        </motion.a>
 
         <p className="mt-6 text-center text-sm text-mist">
           Valores de referência. O preço final é fechado na proposta, depois do

@@ -10,7 +10,7 @@ export default function Footer() {
       <Container className="py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
-            <a href="#inicio" className="flex min-h-[44px] items-center gap-2.5">
+            <a href="/#inicio" className="flex min-h-[44px] items-center gap-2.5">
               <Logo className="h-9 w-9" />
               <span className="font-display text-lg font-bold text-white">
                 Samps<span className="text-brand-400"> Projetos</span>
@@ -43,7 +43,7 @@ export default function Footer() {
               {services.map((s) => (
                 <li key={s.id}>
                   <a
-                    href="#servicos"
+                    href="/#servicos"
                     className="inline-flex min-h-[40px] items-center text-sm text-mist transition-colors hover:text-white"
                   >
                     {s.title}

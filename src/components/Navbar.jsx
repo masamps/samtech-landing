@@ -33,7 +33,7 @@ export default function Navbar() {
         }`}
       >
         <a
-          href="#inicio"
+          href="/#inicio"
           className="flex min-h-[44px] items-center gap-2 pl-1"
           aria-label="Samps Projetos — início"
         >

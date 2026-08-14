@@ -17,10 +17,10 @@ export const whatsappLink = `https://wa.me/${company.whatsapp}?text=${encodeURIC
 )}`;
 
 export const navLinks = [
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
+  { label: "Como funciona", href: "/#como-funciona" },
+  { label: "Serviços", href: "/#servicos" },
+  { label: "Projetos", href: "/#projetos" },
+  { label: "Contato", href: "/#contato" },
 ];
 
 // Escada de serviços: automação (entrada) -> sistema completo -> recorrência.
