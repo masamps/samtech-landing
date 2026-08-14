@@ -199,6 +199,21 @@ export const appB2B = {
     },
   ],
 
+  // Revenda é outro negócio: valor por cliente ativado, não licença única.
+  partner: {
+    eyebrow: "Software houses e ERPs",
+    title: "Quer oferecer o aplicativo para a sua carteira?",
+    description:
+      "Se você atende várias empresas e quer entregar o app de pedidos com a marca de cada uma, existe um modelo de parceria: licença de revenda com valor por cliente ativado, em vez de licença única. Você usa a nossa base e mantém o relacionamento com o seu cliente.",
+    items: [
+      "Direito de implantar o aplicativo para os seus clientes",
+      "Acesso ao código, aos scripts de build e à documentação",
+      "Apoio técnico na primeira implantação",
+      "Valor por cliente ativado, alinhado ao seu crescimento",
+    ],
+    cta: "Falar sobre parceria",
+  },
+
   // Transparência sobre o que não está incluso evita atrito na proposta.
   notes: [
     "Na implantação, o valor final depende do seu sistema: se ele já expõe uma API, a integração é rápida; se não, avaliamos o adaptador no diagnóstico.",

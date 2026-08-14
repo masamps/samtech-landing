@@ -361,6 +361,40 @@ export default function AppB2BPage() {
               })}
             </motion.div>
 
+            {/* Parceria / revenda */}
+            <Reveal className="mt-6 rounded-3xl border border-line bg-surface/40 p-7 sm:p-8">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
+                <div className="flex-1">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
+                    {appB2B.partner.eyebrow}
+                  </span>
+                  <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
+                    {appB2B.partner.title}
+                  </h3>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-mist">
+                    {appB2B.partner.description}
+                  </p>
+                  <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+                    {appB2B.partner.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2.5 text-sm leading-relaxed text-mist"
+                      >
+                        <Check size={15} className="mt-1 shrink-0 text-accent-400" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="shrink-0">
+                  <Button as="a" href="/#contato" size="md">
+                    {appB2B.partner.cta}
+                    <ArrowRight size={16} />
+                  </Button>
+                </div>
+              </div>
+            </Reveal>
+
             {/* Observações */}
             <Reveal className="mx-auto mt-8 flex max-w-3xl flex-col gap-3">
               {appB2B.notes.map((n) => (
