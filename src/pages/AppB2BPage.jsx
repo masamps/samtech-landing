@@ -91,7 +91,7 @@ export default function AppB2BPage() {
               </motion.div>
 
               <motion.p variants={fadeUp} className="mt-5 text-sm text-mist/80">
-                Do código-fonte por{" "}
+                Do aplicativo configurado por{" "}
                 <strong className="font-semibold text-white">R$ 2.000</strong> à
                 implantação completa · No ar em 2 a 4 semanas
               </motion.p>
@@ -354,7 +354,7 @@ export default function AppB2BPage() {
                       variant={featured ? "primary" : "secondary"}
                       className="w-full"
                     >
-                      {plan.id === "template" ? "Quero a licença" : "Pedir diagnóstico"}
+                      {plan.id === "template" ? "Quero o app configurado" : "Pedir diagnóstico"}
                     </Button>
                   </motion.div>
                 );

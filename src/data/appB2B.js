@@ -145,22 +145,23 @@ export const appB2B = {
   plans: [
     {
       id: "template",
-      name: "Licença do template",
+      name: "Aplicativo configurado",
       audience: "Para quem tem equipe técnica",
       price: "R$ 2.000",
       period: "pagamento único",
       summary:
-        "O código-fonte completo com a documentação. A sua equipe configura a marca, integra ao sistema e publica nas lojas.",
+        "O aplicativo já com a sua marca aplicada e os pacotes prontos. A sua equipe liga ao sistema e publica nas lojas.",
       items: [
-        "Código-fonte Flutter (Android e iOS)",
-        "Scripts de configuração white-label e build em lote",
+        "Aplicativo Android e iOS com a sua identidade visual",
+        "Pacotes prontos para publicar (APK, AAB e IPA)",
         "Integração REST de referência, pronta e funcionando",
-        "Documentação de configuração, integração e publicação",
+        "Documentação de integração e de publicação",
         "Licença de uso próprio da sua empresa",
       ],
       excluded: [
-        "Configuração, integração e publicação por nossa conta",
-        "Suporte e atualizações",
+        "Publicação nas lojas por nossa conta",
+        "Integração ao seu sistema por nossa conta",
+        "Código-fonte, suporte e atualizações",
       ],
     },
     {
@@ -173,7 +174,7 @@ export const appB2B = {
       summary:
         "A gente faz tudo: configura com a sua marca, integra ao seu sistema e publica nas duas lojas.",
       items: [
-        "Tudo o que vem na licença do template",
+        "Tudo o que vem no aplicativo configurado",
         "Aplicativo configurado com a sua identidade visual",
         "Integração com o seu sistema",
         "Publicação na Play Store e na App Store",
@@ -218,7 +219,7 @@ export const appB2B = {
   notes: [
     "Na implantação, o valor final depende do seu sistema: se ele já expõe uma API, a integração é rápida; se não, avaliamos o adaptador no diagnóstico.",
     "As contas de desenvolvedor da Apple (anual) e do Google (única) ficam no nome da sua empresa e são cobradas pelas próprias lojas.",
-    "A licença do template é para uso próprio da sua empresa. Revenda ou sublicenciamento a terceiros é negociado à parte.",
+    "A licença é de uso próprio da sua empresa. O código-fonte não faz parte da entrega e a revenda a terceiros é negociada à parte.",
     "A manutenção é opcional, mas recomendada: sem as atualizações anuais, as lojas removem o aplicativo.",
   ],
 
@@ -244,9 +245,14 @@ export const appB2B = {
         "Porque aplicativo publicado não é software parado. Apple e Google exigem atualizações técnicas todo ano e removem das lojas quem não acompanha. A mensalidade cobre essas atualizações, correções, suporte e republicação. Ela é opcional, mas sem ela o aplicativo tende a sair do ar com o tempo.",
     },
     {
-      question: "Qual a diferença entre a licença do template e a implantação?",
+      question: "Qual a diferença entre o aplicativo configurado e a implantação?",
       answer:
-        "Na licença, você recebe o código-fonte e a documentação por R$ 2.000, e a sua equipe cuida de configurar a marca, integrar ao sistema e publicar nas lojas — é a opção para quem já tem time técnico. Na implantação, a partir de R$ 12.000, nós fazemos todo esse trabalho e entregamos o aplicativo publicado e funcionando.",
+        "No aplicativo configurado, por R$ 2.000, entregamos o app já com a sua marca e os pacotes prontos — e a sua equipe cuida de ligar ao sistema e publicar nas lojas. É a opção para quem tem time técnico. Na implantação, a partir de R$ 12.000, nós fazemos esse trabalho e entregamos o aplicativo publicado e funcionando.",
+    },
+    {
+      question: "O código-fonte vem junto?",
+      answer:
+        "Nos dois planos, não: você recebe o aplicativo pronto para usar, com licença de uso da sua empresa. O código-fonte entra apenas em acordos de parceria, para quem vai implantar o app em vários clientes — nesse caso, fale com a gente sobre o modelo de revenda.",
     },
     {
       question: "Dá para adaptar o aplicativo ao meu processo?",
