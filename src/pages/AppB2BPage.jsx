@@ -174,16 +174,16 @@ export default function AppB2BPage() {
         <section className="py-20 sm:py-24">
           <Container>
             <SectionHeading
-              eyebrow="O que o aplicativo faz"
-              title="Do catálogo ao pedido dentro do seu sistema"
-              description="Tudo o que a operação precisa já vem pronto e testado."
+              eyebrow="Como funciona na prática"
+              title="Três passos, do catálogo ao seu sistema"
+              description="É isso que o seu cliente faz pelo celular — sem ligar, sem mandar mensagem, sem esperar alguém atender."
             />
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
-              className="mt-12 grid gap-5 md:grid-cols-2"
+              className="mt-12 grid gap-5 md:grid-cols-3"
             >
               {appB2B.features.map((group) => (
                 <motion.div
@@ -247,34 +247,6 @@ export default function AppB2BPage() {
                 </motion.div>
               ))}
             </motion.div>
-          </Container>
-        </section>
-
-        {/* Benefícios */}
-        <section className="py-20 sm:py-24">
-          <Container>
-            <SectionHeading
-              eyebrow="O que muda"
-              title="O resultado na operação do dia a dia"
-            />
-            <motion.ul
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-2"
-            >
-              {appB2B.benefits.map((b) => (
-                <motion.li
-                  key={b}
-                  variants={fadeUp}
-                  className="flex items-start gap-3 rounded-2xl border border-line bg-surface/40 p-4"
-                >
-                  <Check size={17} className="mt-0.5 shrink-0 text-accent-400" />
-                  <span className="text-sm leading-relaxed text-mist">{b}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
           </Container>
         </section>
 
