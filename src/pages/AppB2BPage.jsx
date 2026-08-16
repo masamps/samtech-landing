@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Check, Info, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import Container from "../components/Container.jsx";
 import Button from "../components/Button.jsx";
 import Navbar from "../components/Navbar.jsx";
@@ -16,6 +16,8 @@ import { whatsappLink } from "../data/site.js";
 import { appB2B } from "../data/appB2B.js";
 
 export default function AppB2BPage() {
+  const { comparison } = appB2B;
+
   return (
     <>
       <a
@@ -60,7 +62,7 @@ export default function AppB2BPage() {
                 variants={fadeUp}
                 className="mt-5 text-[clamp(2.1rem,7vw,3.75rem)] font-bold leading-[1.08] text-white"
               >
-                Seu catálogo no bolso do cliente —{" "}
+                Aplicativo de pedidos B2B{" "}
                 <span className="text-gradient">com a sua marca</span>
               </motion.h1>
 
@@ -92,15 +94,30 @@ export default function AppB2BPage() {
               </motion.div>
 
               <motion.p variants={fadeUp} className="mt-5 text-sm text-mist/80">
-                Do aplicativo configurado por{" "}
-                <strong className="font-semibold text-white">R$ 2.000</strong> à
-                implantação completa · No ar em 2 a 4 semanas
+                De{" "}
+                <strong className="font-semibold text-white">R$ 2.000</strong> a
+                partir do app configurado · No ar em 2 a 4 semanas
               </motion.p>
+
+              {/* público-alvo compacto, logo no topo */}
+              <motion.ul
+                variants={fadeUp}
+                className="mt-8 flex flex-wrap justify-center gap-2"
+              >
+                {appB2B.audience.map((a) => (
+                  <li
+                    key={a.label}
+                    className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/40 px-3.5 py-2 text-xs text-mist"
+                  >
+                    <Icon name={a.icon} size={14} className="text-brand-300" />
+                    {a.label}
+                  </li>
+                ))}
+              </motion.ul>
             </motion.div>
 
-            {/* Pitch central */}
-            <Reveal className="mx-auto mt-14 max-w-3xl rounded-3xl border border-brand-400/40 bg-surface/60 p-7 text-center shadow-glow sm:p-9">
-              <p className="text-lg leading-relaxed text-white">
+            <Reveal className="mx-auto mt-14 max-w-2xl rounded-3xl border border-brand-400/40 bg-surface/60 p-6 text-center shadow-glow sm:p-8">
+              <p className="leading-relaxed text-white sm:text-lg">
                 {appB2B.pitch}
               </p>
             </Reveal>
@@ -111,80 +128,66 @@ export default function AppB2BPage() {
         <section className="py-20 sm:py-24">
           <Container>
             <SectionHeading
-              eyebrow="Veja o aplicativo"
+              eyebrow="Veja por dentro"
               title="É assim que o seu cliente compra"
-              description="Quatro telas, do catálogo ao acompanhamento do pedido."
             />
             <div className="mt-12">
               <AppGallery screens={appB2B.screens} />
             </div>
             <p className="mt-6 text-center text-sm text-mist">
-              Telas de demonstração. No seu aplicativo, a marca, as cores e os
-              produtos são os da sua empresa.
+              Telas de demonstração. No seu aplicativo, a marca e os produtos são
+              os da sua empresa.
             </p>
           </Container>
         </section>
 
-        {/* Problema */}
+        {/* Antes e depois */}
         <section className="py-20 sm:py-24">
           <Container>
             <SectionHeading
-              eyebrow="O problema"
-              title="Como o pedido chega hoje na sua empresa"
-            />
-            <motion.ul
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              className="mx-auto mt-10 flex max-w-2xl flex-col gap-3"
-            >
-              {appB2B.problems.map((p) => (
-                <motion.li
-                  key={p}
-                  variants={fadeUp}
-                  className="flex items-start gap-3 rounded-2xl border border-line bg-surface/40 p-4"
-                >
-                  <X size={18} className="mt-0.5 shrink-0 text-red-400/80" />
-                  <span className="text-sm leading-relaxed text-mist">{p}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </Container>
-        </section>
-
-        {/* Para quem é */}
-        <section className="py-20 sm:py-24">
-          <Container>
-            <SectionHeading
-              eyebrow={appB2B.whoFor.title}
-              title="Feito para quem vende para outras empresas"
-              description={appB2B.whoFor.intro}
+              eyebrow="O que muda"
+              title="Do WhatsApp e da planilha para o pedido automático"
             />
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+              viewport={{ once: true, amount: 0.15 }}
+              className="mx-auto mt-12 grid max-w-3xl gap-5 md:grid-cols-2"
             >
-              {appB2B.whoFor.items.map((item) => (
-                <motion.div
-                  key={item.title}
-                  variants={fadeUp}
-                  className="flex h-full flex-col rounded-2xl border border-line bg-surface/40 p-6"
-                >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-ink/60 text-brand-300">
-                    <Icon name={item.icon} size={20} />
-                  </span>
-                  <h3 className="mt-4 text-base font-semibold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-mist">
-                    {item.text}
-                  </p>
-                </motion.div>
-              ))}
+              <motion.div
+                variants={fadeUp}
+                className="rounded-3xl border border-line bg-surface/30 p-6"
+              >
+                <h3 className="text-base font-semibold text-mist">
+                  {comparison.before.title}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {comparison.before.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-mist">
+                      <X size={16} className="mt-0.5 shrink-0 text-red-400/70" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div
+                variants={fadeUp}
+                className="rounded-3xl border border-brand-400/40 bg-surface/60 p-6 shadow-glow"
+              >
+                <h3 className="text-base font-semibold text-white">
+                  {comparison.after.title}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {comparison.after.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-mist">
+                      <Check size={16} className="mt-0.5 shrink-0 text-accent-400" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </motion.div>
           </Container>
         </section>
@@ -193,9 +196,8 @@ export default function AppB2BPage() {
         <section className="py-20 sm:py-24">
           <Container>
             <SectionHeading
-              eyebrow="Como funciona na prática"
-              title="Três passos, do catálogo ao seu sistema"
-              description="É isso que o seu cliente faz pelo celular — sem ligar, sem mandar mensagem, sem esperar alguém atender."
+              eyebrow="Como funciona"
+              title="Do catálogo ao pedido dentro do seu sistema"
             />
             <motion.div
               variants={stagger}
@@ -208,17 +210,17 @@ export default function AppB2BPage() {
                 <motion.div
                   key={group.title}
                   variants={fadeUp}
-                  className="flex h-full flex-col rounded-3xl border border-line bg-surface/40 p-7"
+                  className="flex h-full flex-col rounded-3xl border border-line bg-surface/40 p-6"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-gradient text-ink">
-                      <Icon name={group.icon} size={20} />
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-gradient text-ink">
+                      <Icon name={group.icon} size={18} />
                     </span>
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-base font-semibold text-white">
                       {group.title}
                     </h3>
                   </div>
-                  <ul className="mt-5 space-y-2.5 border-t border-line pt-5">
+                  <ul className="mt-5 space-y-2.5 border-t border-line pt-4">
                     {group.items.map((item) => (
                       <li
                         key={item}
@@ -239,27 +241,26 @@ export default function AppB2BPage() {
         <section className="py-20 sm:py-24">
           <Container>
             <SectionHeading
-              eyebrow="Por que este e não outro"
-              title="O que existe por baixo do aplicativo"
-              description="Decisões técnicas que aparecem no prazo, no custo e na estabilidade."
+              eyebrow="Por que este"
+              title="Aplicativo white label, pronto e no seu nome"
             />
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
-              className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+              className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
             >
               {appB2B.differentials.map((d) => (
                 <motion.div
                   key={d.title}
                   variants={fadeUp}
-                  className="flex h-full flex-col rounded-2xl border border-line bg-surface/40 p-6 transition-colors hover:border-white/20"
+                  className="flex h-full flex-col rounded-2xl border border-line bg-surface/40 p-6"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-ink/60 text-brand-300">
-                    <Icon name={d.icon} size={20} />
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-ink/60 text-brand-300">
+                    <Icon name={d.icon} size={18} />
                   </span>
-                  <h3 className="mt-4 text-base font-semibold leading-snug text-white">
+                  <h3 className="mt-4 text-base font-semibold text-white">
                     {d.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-mist">{d.text}</p>
@@ -274,8 +275,8 @@ export default function AppB2BPage() {
           <Container>
             <SectionHeading
               eyebrow="Investimento"
-              title="Implantação uma vez, manutenção enquanto durar"
-              description="Preço transparente. O valor final é fechado na proposta, depois do diagnóstico."
+              title="Escolha até onde a gente vai"
+              description="O valor final é fechado na proposta, depois do diagnóstico."
             />
 
             <motion.div
@@ -291,14 +292,14 @@ export default function AppB2BPage() {
                   <motion.div
                     key={plan.id}
                     variants={fadeUp}
-                    className={`relative flex h-full flex-col rounded-3xl border p-7 ${
+                    className={`relative flex h-full flex-col rounded-3xl border p-6 sm:p-7 ${
                       featured
                         ? "border-brand-400/50 bg-surface/70 shadow-glow"
                         : "border-line bg-surface/40"
                     }`}
                   >
                     {featured && (
-                      <span className="absolute -top-3 left-7 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-ink">
+                      <span className="absolute -top-3 left-6 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-ink">
                         {plan.highlight}
                       </span>
                     )}
@@ -312,11 +313,11 @@ export default function AppB2BPage() {
                       <span className="text-sm text-mist">{plan.period}</span>
                     </div>
 
-                    <p className="mt-4 text-sm leading-relaxed text-mist">
+                    <p className="mt-3 text-sm leading-relaxed text-mist">
                       {plan.summary}
                     </p>
 
-                    <ul className="mt-6 space-y-2.5 border-t border-line pt-5">
+                    <ul className="mt-5 space-y-2.5 border-t border-line pt-4">
                       {plan.items.map((item) => (
                         <li
                           key={item}
@@ -345,68 +346,41 @@ export default function AppB2BPage() {
                       variant={featured ? "primary" : "secondary"}
                       className="w-full"
                     >
-                      {plan.id === "template" ? "Quero o app configurado" : "Pedir diagnóstico"}
+                      Pedir diagnóstico
                     </Button>
                   </motion.div>
                 );
               })}
             </motion.div>
 
-            {/* Parceria / revenda */}
-            <Reveal className="mt-6 rounded-3xl border border-line bg-surface/40 p-7 sm:p-8">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
-                <div className="flex-1">
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
-                    {appB2B.partner.eyebrow}
-                  </span>
-                  <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
-                    {appB2B.partner.title}
-                  </h3>
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-mist">
-                    {appB2B.partner.description}
-                  </p>
-                  <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-                    {appB2B.partner.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2.5 text-sm leading-relaxed text-mist"
-                      >
-                        <Check size={15} className="mt-1 shrink-0 text-accent-400" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="shrink-0">
-                  <Button as="a" href="/#contato" size="md">
-                    {appB2B.partner.cta}
-                    <ArrowRight size={16} />
-                  </Button>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Observações */}
-            <Reveal className="mx-auto mt-8 flex max-w-3xl flex-col gap-3">
-              {appB2B.notes.map((n) => (
-                <p
-                  key={n}
-                  className="flex items-start gap-2.5 text-sm leading-relaxed text-mist"
-                >
-                  <Info size={15} className="mt-1 shrink-0 text-brand-300" />
-                  {n}
+            {/* Parceria */}
+            <Reveal className="mt-6 flex flex-col gap-5 rounded-3xl border border-line bg-surface/40 p-6 sm:p-7 lg:flex-row lg:items-center lg:gap-8">
+              <div className="flex-1">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
+                  {appB2B.partner.eyebrow}
+                </span>
+                <h3 className="mt-2 text-lg font-bold text-white">
+                  {appB2B.partner.title}
+                </h3>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-mist">
+                  {appB2B.partner.description}
                 </p>
-              ))}
+              </div>
+              <Button as="a" href="/#contato" size="md" className="shrink-0">
+                {appB2B.partner.cta}
+                <ArrowRight size={16} />
+              </Button>
             </Reveal>
           </Container>
         </section>
 
-        {/* Dúvidas */}
+        {/* Dúvidas — o detalhe completo vive aqui */}
         <section className="py-20 sm:py-24">
           <Container>
             <SectionHeading
               eyebrow="Dúvidas frequentes"
-              title="O que perguntam antes de contratar"
+              title="Tudo sobre o aplicativo de pedidos B2B"
+              description="Preço, prazo, integração e publicação nas lojas — respondido em detalhe."
             />
             <div className="mx-auto mt-12 max-w-3xl">
               <FaqList faqs={appB2B.faqs} />
@@ -419,11 +393,11 @@ export default function AppB2BPage() {
           <Container>
             <Reveal className="rounded-3xl border border-line bg-surface/50 px-7 py-12 text-center sm:px-12">
               <h2 className="mx-auto max-w-2xl text-3xl font-bold leading-tight text-white sm:text-4xl">
-                Quer ver o aplicativo funcionando com a sua marca?
+                Quer ver o aplicativo com a sua marca?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-base text-mist">
-                Em 30 minutos entendemos a sua operação, mostramos o app rodando e
-                dizemos o que seria necessário para integrar ao seu sistema.
+                Em 30 minutos mostramos o app rodando e dizemos o que seria
+                necessário para integrar ao seu sistema.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button as="a" href="/#contato">
