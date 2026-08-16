@@ -9,6 +9,7 @@ import SectionHeading from "../components/SectionHeading.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Icon from "../components/Icon.jsx";
 import FaqList from "../components/FaqList.jsx";
+import AppGallery from "../components/AppGallery.jsx";
 import { stagger, fadeUp } from "../lib/motion.js";
 import { trackConversion } from "../lib/analytics.js";
 import { whatsappLink } from "../data/site.js";
@@ -103,6 +104,24 @@ export default function AppB2BPage() {
                 {appB2B.pitch}
               </p>
             </Reveal>
+          </Container>
+        </section>
+
+        {/* Telas do aplicativo */}
+        <section className="py-20 sm:py-24">
+          <Container>
+            <SectionHeading
+              eyebrow="Veja o aplicativo"
+              title="É assim que o seu cliente compra"
+              description="Quatro telas, do catálogo ao acompanhamento do pedido."
+            />
+            <div className="mt-12">
+              <AppGallery screens={appB2B.screens} />
+            </div>
+            <p className="mt-6 text-center text-sm text-mist">
+              Telas de demonstração. No seu aplicativo, a marca, as cores e os
+              produtos são os da sua empresa.
+            </p>
           </Container>
         </section>
 

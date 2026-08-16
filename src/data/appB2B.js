@@ -49,6 +49,30 @@ export const appB2B = {
     "Cliente pede com base numa tabela desatualizada que recebeu por e-mail.",
   ],
 
+  // Telas de demonstração: mostram a jornada completa em quatro passos.
+  screens: [
+    {
+      src: "/app-b2b/catalogo.webp",
+      caption: "Catálogo",
+      text: "Produtos com foto, código, preço e campanha do mês.",
+    },
+    {
+      src: "/app-b2b/carrinho.webp",
+      caption: "Carrinho",
+      text: "Quantidade por item, total e forma de pagamento.",
+    },
+    {
+      src: "/app-b2b/revisao.webp",
+      caption: "Revisão",
+      text: "Transportadora, condição e valor final antes de enviar.",
+    },
+    {
+      src: "/app-b2b/pedidos.webp",
+      caption: "Meus pedidos",
+      text: "Situação de cada pedido, da separação à entrega.",
+    },
+  ],
+
   features: [
     {
       icon: "LayoutGrid",
