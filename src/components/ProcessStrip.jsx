@@ -80,8 +80,8 @@ export default function ProcessStrip() {
             variants={fadeUp}
             className="mt-8 text-center text-sm text-mist"
           >
-            5 anos desenvolvendo software sob medida · Atendimento remoto para
-            todo o Brasil · O código entregue é seu
+            5 anos desenvolvendo software sob medida · Atendemos de São Paulo
+            para todo o Brasil · O código entregue é seu
           </motion.p>
         </motion.div>
       </Container>

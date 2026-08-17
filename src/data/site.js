@@ -9,7 +9,9 @@ export const company = {
   email: "sampsprojetos@gmail.com",
   whatsapp: "5515981777690", // formato internacional, somente números
   whatsappLabel: "(15) 98177-7690",
-  city: "Brasil",
+  city: "São Paulo",
+  state: "SP",
+  serviceArea: "São Paulo e todo o Brasil",
 };
 
 export const whatsappLink = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(

@@ -242,7 +242,7 @@ export default function ContactSection() {
                     Atendimento
                   </span>
                   <span className="text-sm text-mist">
-                    Todo o {company.city}, de forma remota
+                    {company.city} e todo o Brasil, de forma remota
                   </span>
                 </span>
               </div>
