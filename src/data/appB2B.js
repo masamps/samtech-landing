@@ -9,7 +9,7 @@ export const appB2B = {
   name: "Aplicativo de Pedidos B2B",
   badge: "Produto pronto",
   subheadline:
-    "Aplicativo de pedidos para Android e iOS com a marca da sua empresa. O seu cliente compra sozinho e o pedido cai direto no seu sistema.",
+    "Aplicativo de pedidos para Android e iOS com a marca da sua empresa. O seu cliente compra sozinho pelo celular — e se a sua loja ainda não tem sistema, a gente monta junto.",
   pitch:
     "Não é um projeto do zero: o aplicativo já está pronto e testado. Configuramos com a sua marca e colocamos no ar em semanas.",
 
@@ -47,7 +47,7 @@ export const appB2B = {
     { icon: "Truck", label: "Distribuidoras e atacadistas" },
     { icon: "Factory", label: "Indústrias" },
     { icon: "Users", label: "Representantes comerciais" },
-    { icon: "Code2", label: "Software houses" },
+    { icon: "Store", label: "Lojas e comércios" },
   ],
 
   // Antes e depois: entendido de relance, sem precisar ler tudo.
@@ -60,6 +60,7 @@ export const appB2B = {
         "Equipe presa no telefone tirando pedido",
         "Fora do horário comercial, ninguém compra",
         "Cliente novo depende de alguém mandar tabela",
+        "Controle de produto e preço vive em planilha",
       ],
     },
     after: {
@@ -70,6 +71,7 @@ export const appB2B = {
         "Equipe livre para vender, não para digitar",
         "Canal de compra aberto 24 horas",
         "Visitante vira cliente pedindo cadastro no app",
+        "Produtos e preços num só lugar, sem planilha",
       ],
     },
   },
@@ -121,8 +123,8 @@ export const appB2B = {
     },
     {
       icon: "Plug",
-      title: "Liga no seu sistema",
-      text: "Funciona com ERP de mercado ou sistema próprio, pela API que você já tem.",
+      title: "Não precisa ter sistema",
+      text: "Se você já usa um, ligamos nele. Se controla tudo em planilha, montamos o sistema junto com o app.",
     },
     {
       icon: "SlidersHorizontal",
@@ -138,63 +140,45 @@ export const appB2B = {
 
   plans: [
     {
-      id: "template",
-      name: "Aplicativo configurado",
-      audience: "Você publica e integra",
+      id: "pronto",
+      name: "App pronto",
+      audience: "Você publica e cuida",
       price: "R$ 2.000",
       period: "pagamento único",
-      summary: "O app com a sua marca e os pacotes prontos para publicar.",
+      summary:
+        "O aplicativo com a sua marca e os pacotes prontos. A publicação nas lojas fica com você.",
       items: [
         "Android e iOS com a sua identidade visual",
-        "Pacotes prontos (APK, AAB e IPA)",
-        "Integração de referência e documentação",
+        "Pacotes prontos para publicar (APK, AAB e IPA)",
+        "Documentação de publicação e de ligação com os dados",
       ],
-      excluded: ["Publicação e integração por nossa conta", "Código-fonte e suporte"],
+      excluded: ["Publicação nas lojas por nossa conta", "Suporte e atualizações"],
     },
     {
-      id: "implantacao",
+      id: "gestao",
       highlight: "Mais escolhido",
-      name: "Implantação completa",
-      audience: "A gente faz tudo",
+      name: "Gestão completa",
+      audience: "A gente faz e mantém",
       price: "a partir de R$ 12.000",
-      period: "pagamento único",
-      summary: "Configuramos, integramos ao seu sistema e publicamos nas lojas.",
+      period: "mais R$ 700/mês",
+      summary:
+        "Cuidamos de tudo: marca, dados, publicação nas duas lojas e o aplicativo rodando ao longo do tempo.",
       items: [
         "Tudo do plano anterior",
-        "Integração com o seu sistema",
+        "Ligação com o seu sistema — ou montamos um para você",
         "Publicação na Play Store e na App Store",
-        "Parametrização e acompanhamento inicial",
-      ],
-    },
-    {
-      id: "manutencao",
-      name: "Manutenção",
-      audience: "Opcional, para os dois",
-      price: "a partir de R$ 700",
-      period: "por mês",
-      summary: "As lojas mudam as regras todo ano; app desatualizado sai do ar.",
-      items: [
         "Atualizações exigidas pela Apple e Google",
-        "Correções, melhorias e republicação",
-        "Suporte direto com quem desenvolveu",
+        "Correções, melhorias e suporte direto",
       ],
     },
   ],
-
-  partner: {
-    eyebrow: "Software houses e ERPs",
-    title: "Quer oferecer o aplicativo para a sua carteira?",
-    description:
-      "Existe um modelo de parceria com valor por cliente ativado, em vez de licença única. Você usa a nossa base e mantém o relacionamento com o seu cliente.",
-    cta: "Falar sobre parceria",
-  },
 
   // O detalhe mora aqui: leve para quem lê, completo para quem busca.
   faqs: [
     {
       question: "Quanto custa um aplicativo de pedidos para distribuidora?",
       answer:
-        "Aqui são duas faixas. O aplicativo configurado com a sua marca custa R$ 2.000 e a sua equipe cuida de integrar e publicar. A implantação completa, em que fazemos a integração com o seu sistema e publicamos nas duas lojas, começa em R$ 12.000. A manutenção mensal é opcional e começa em R$ 700. Desenvolver um aplicativo assim do zero costuma custar muito mais e levar meses, porque aqui o produto já existe e está testado.",
+        "São dois caminhos. No App pronto, por R$ 2.000, entregamos o aplicativo com a sua marca e os pacotes prontos, e a publicação nas lojas fica com você. Na Gestão completa, a partir de R$ 12.000 mais R$ 700 por mês, cuidamos de tudo: marca, dados, publicação nas duas lojas e o aplicativo funcionando ao longo do tempo. Desenvolver um aplicativo assim do zero costuma custar muito mais e levar meses, porque aqui o produto já existe e está testado.",
     },
     {
       question: "Como funciona um aplicativo de força de vendas B2B?",
@@ -217,9 +201,9 @@ export const appB2B = {
         "De 2 a 4 semanas na maioria dos casos. Aplicar a marca e gerar os pacotes é rápido, porque isso é automatizado. O que costuma pesar no prazo é a integração com o seu sistema e a análise das lojas, principalmente a da Apple, que pode pedir ajustes antes de aprovar.",
     },
     {
-      question: "Preciso ter um ERP para usar?",
+      question: "Preciso já ter um sistema ou um ERP?",
       answer:
-        "Não. O aplicativo conversa com o sistema que a sua empresa já usa, seja um ERP de mercado ou um sistema próprio. Se ele já expõe uma API, a ligação é direta. Se não expõe, avaliamos no diagnóstico o que seria necessário — e isso influencia o prazo e o valor da implantação.",
+        "Não precisa. Se a sua empresa já usa um ERP de mercado ou um sistema próprio, o aplicativo se liga a ele. Se você ainda controla produtos e preços em planilha ou caderno, montamos o sistema junto com o aplicativo — e isso funciona para loja pequena também. No diagnóstico avaliamos o seu caso e dizemos qual caminho sai mais barato.",
     },
     {
       question: "Serve para representante comercial e venda externa?",
@@ -232,9 +216,9 @@ export const appB2B = {
         "Porque aplicativo publicado não é software parado. Apple e Google exigem atualizações técnicas todo ano e removem das lojas quem não acompanha. A mensalidade cobre essas atualizações obrigatórias, correções, republicação e suporte. Ela é opcional, mas sem ela o aplicativo tende a sair do ar com o tempo.",
     },
     {
-      question: "O código-fonte vem junto?",
+      question: "Minha loja é pequena. Vale a pena?",
       answer:
-        "Nos dois planos, não: você recebe o aplicativo pronto para usar, com licença de uso da sua empresa. O código-fonte entra apenas em acordos de parceria, para quem vai implantar o app em vários clientes. Se esse é o seu caso, fale com a gente sobre o modelo de revenda.",
+        "Vale se você vende para outras empresas e hoje recebe pedido por telefone, WhatsApp ou papel. O tamanho da loja não muda o problema: alguém do seu time gasta tempo anotando e redigitando pedido. Como o aplicativo já existe, o investimento é bem menor que desenvolver do zero, e conseguimos começar simples — só com o catálogo e o pedido — e crescer depois.",
     },
     {
       question: "Dá para adaptar o aplicativo ao meu processo?",

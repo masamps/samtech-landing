@@ -148,12 +148,12 @@ export default function ServicesSection() {
               </h3>
             </div>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-mist">
-              Para distribuidoras, indústrias e representantes: o seu cliente
-              monta o pedido pelo celular e ele cai direto no seu sistema. App
-              Android e iOS publicado nas lojas com a identidade da sua empresa.
+              Para distribuidoras, indústrias, representantes e lojas: o seu
+              cliente monta o pedido pelo celular e ele cai direto no seu
+              sistema — e se você ainda não tem um, a gente monta junto.
             </p>
             <p className="mt-3 text-sm font-semibold text-gradient">
-              Implantação a partir de R$ 12.000 · No ar em 2 a 4 semanas
+              App pronto por R$ 2.000 ou gestão completa · No ar em 2 a 4 semanas
             </p>
           </div>
 

@@ -94,9 +94,9 @@ export default function AppB2BPage() {
               </motion.div>
 
               <motion.p variants={fadeUp} className="mt-5 text-sm text-mist/80">
-                De{" "}
-                <strong className="font-semibold text-white">R$ 2.000</strong> a
-                partir do app configurado · No ar em 2 a 4 semanas
+                App pronto por{" "}
+                <strong className="font-semibold text-white">R$ 2.000</strong> ·
+                No ar em 2 a 4 semanas
               </motion.p>
 
               {/* público-alvo compacto, logo no topo */}
@@ -284,7 +284,7 @@ export default function AppB2BPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
-              className="mt-12 grid items-start gap-5 lg:grid-cols-3"
+              className="mx-auto mt-12 grid max-w-3xl items-start gap-5 md:grid-cols-2"
             >
               {appB2B.plans.map((plan) => {
                 const featured = Boolean(plan.highlight);
@@ -353,24 +353,6 @@ export default function AppB2BPage() {
               })}
             </motion.div>
 
-            {/* Parceria */}
-            <Reveal className="mt-6 flex flex-col gap-5 rounded-3xl border border-line bg-surface/40 p-6 sm:p-7 lg:flex-row lg:items-center lg:gap-8">
-              <div className="flex-1">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
-                  {appB2B.partner.eyebrow}
-                </span>
-                <h3 className="mt-2 text-lg font-bold text-white">
-                  {appB2B.partner.title}
-                </h3>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-mist">
-                  {appB2B.partner.description}
-                </p>
-              </div>
-              <Button as="a" href="/#contato" size="md" className="shrink-0">
-                {appB2B.partner.cta}
-                <ArrowRight size={16} />
-              </Button>
-            </Reveal>
           </Container>
         </section>
 

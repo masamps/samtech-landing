@@ -25,6 +25,7 @@ import {
   RefreshCw,
   TestTube2,
   LockKeyhole,
+  Store,
 } from "lucide-react";
 
 const icons = {
@@ -54,6 +55,7 @@ const icons = {
   RefreshCw,
   TestTube2,
   LockKeyhole,
+  Store,
 };
 
 export default function Icon({ name, ...props }) {
