@@ -24,6 +24,7 @@ import {
   SlidersHorizontal,
   RefreshCw,
   TestTube2,
+  LockKeyhole,
 } from "lucide-react";
 
 const icons = {
@@ -52,6 +53,7 @@ const icons = {
   SlidersHorizontal,
   RefreshCw,
   TestTube2,
+  LockKeyhole,
 };
 
 export default function Icon({ name, ...props }) {

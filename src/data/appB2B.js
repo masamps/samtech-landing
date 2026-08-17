@@ -13,12 +13,17 @@ export const appB2B = {
   pitch:
     "Não é um projeto do zero: o aplicativo já está pronto e testado. Configuramos com a sua marca e colocamos no ar em semanas.",
 
-  // Telas de demonstração: mostram a jornada completa em quatro passos.
+  // Telas de demonstração: do visitante ao acompanhamento do pedido.
   screens: [
     {
+      src: "/app-b2b/visitante.webp",
+      caption: "Catálogo aberto",
+      text: "Visitante navega; o preço aparece após entrar.",
+    },
+    {
       src: "/app-b2b/catalogo.webp",
-      caption: "Catálogo",
-      text: "Produtos com foto, preço e campanha do mês.",
+      caption: "Catálogo do cliente",
+      text: "Com foto, preço e campanha do mês.",
     },
     {
       src: "/app-b2b/carrinho.webp",
@@ -54,6 +59,7 @@ export const appB2B = {
         "Erro de digitação vira retrabalho e prejuízo",
         "Equipe presa no telefone tirando pedido",
         "Fora do horário comercial, ninguém compra",
+        "Cliente novo depende de alguém mandar tabela",
       ],
     },
     after: {
@@ -63,6 +69,7 @@ export const appB2B = {
         "Preço e condição sempre os do cadastro",
         "Equipe livre para vender, não para digitar",
         "Canal de compra aberto 24 horas",
+        "Visitante vira cliente pedindo cadastro no app",
       ],
     },
   },
@@ -106,6 +113,11 @@ export const appB2B = {
       icon: "Palette",
       title: "A marca é a sua",
       text: "Cores, logo, ícone e nome da sua empresa, publicado nas lojas em nome dela.",
+    },
+    {
+      icon: "LockKeyhole",
+      title: "Catálogo aberto, preço protegido",
+      text: "Quem não é cliente navega e pede cadastro; o preço só aparece depois de entrar.",
     },
     {
       icon: "Plug",
@@ -193,6 +205,11 @@ export const appB2B = {
       question: "O que é um aplicativo white label?",
       answer:
         "É um aplicativo pronto que ganha a identidade de cada empresa. No nosso caso, cores, logo, ícone, tela de abertura e nome são os da sua empresa, e o aplicativo é publicado na Play Store e na App Store em nome dela. Para o seu cliente, o app é seu: a Samps Projetos não aparece em lugar nenhum.",
+    },
+    {
+      question: "Quem não é cliente consegue ver o catálogo?",
+      answer:
+        "Sim, e isso é proposital. O visitante baixa o aplicativo e navega pelo catálogo livremente, mas no lugar do preço vê um convite para entrar. Se ele ainda não tem acesso, pede cadastro ali mesmo. Assim o aplicativo também trabalha como canal de captação: quem chegou por indicação ou pela loja de aplicativos consegue conhecer a linha de produtos antes de virar cliente, e você recebe o pedido de cadastro sem que ninguém precise atender.",
     },
     {
       question: "Em quanto tempo o aplicativo entra no ar?",
