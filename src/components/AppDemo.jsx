@@ -27,9 +27,9 @@ export default function AppDemo({ passos }) {
   };
 
   return (
-    <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-16">
-      {/* aparelho */}
-      <div className="mx-auto w-full max-w-[280px]">
+    <div className="mx-auto flex max-w-xl flex-col items-center">
+      {/* aparelho — sempre no centro */}
+      <div className="w-full max-w-[280px]">
         <button
           type="button"
           onClick={avancar}
@@ -91,8 +91,8 @@ export default function AppDemo({ passos }) {
         </div>
       </div>
 
-      {/* texto do passo */}
-      <div className="text-center lg:text-left">
+      {/* texto do passo — centralizado abaixo do aparelho */}
+      <div className="mt-10 text-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={passo.titulo}
@@ -107,7 +107,7 @@ export default function AppDemo({ passos }) {
             <h3 className="mt-3 text-2xl font-bold text-white sm:text-3xl">
               {passo.titulo}
             </h3>
-            <p className="mt-3 max-w-md text-base leading-relaxed text-mist lg:mx-0 mx-auto">
+            <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-mist">
               {passo.texto}
             </p>
           </motion.div>
