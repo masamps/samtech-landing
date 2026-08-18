@@ -13,32 +13,51 @@ export const appB2B = {
   pitch:
     "Não é um projeto do zero: o aplicativo já está pronto e testado. Configuramos com a sua marca e colocamos no ar em semanas.",
 
-  // Telas de demonstração: do visitante ao acompanhamento do pedido.
-  screens: [
+  // Roteiro da demonstração navegável: cada passo é uma tela e a ação que
+  // leva à próxima. As coordenadas do destaque são percentuais da imagem,
+  // para acompanharem qualquer tamanho de exibição.
+  demo: [
     {
       src: "/app-b2b/visitante.webp",
-      caption: "Catálogo aberto",
-      text: "Visitante navega; o preço aparece após entrar.",
+      titulo: "Catálogo aberto",
+      texto: "Quem ainda não é cliente navega pelo catálogo, mas o preço fica protegido.",
+      acao: "Tocar em Ver preço",
+      alvo: { x: 26, y: 87 },
+    },
+    {
+      src: "/app-b2b/login.webp",
+      titulo: "Acesso na hora certa",
+      texto: "O acesso aparece no momento do interesse, com digital, Face ID ou pedido de cadastro.",
+      acao: "Entrar",
+      alvo: { x: 75, y: 89 },
     },
     {
       src: "/app-b2b/catalogo.webp",
-      caption: "Catálogo do cliente",
-      text: "Com foto, preço e campanha do mês.",
+      titulo: "Preço do cliente",
+      texto: "Agora o catálogo mostra a tabela de preço e as condições daquele cliente.",
+      acao: "Abrir o carrinho",
+      alvo: { x: 92, y: 10 },
     },
     {
       src: "/app-b2b/carrinho.webp",
-      caption: "Carrinho",
-      text: "Quantidade por item, total e pagamento.",
+      titulo: "Carrinho montado",
+      texto: "Quantidade por item, total e forma de pagamento. O carrinho não some ao fechar o app.",
+      acao: "Finalizar compra",
+      alvo: { x: 50, y: 92 },
     },
     {
       src: "/app-b2b/revisao.webp",
-      caption: "Revisão",
-      text: "Transportadora, condição e valor final.",
+      titulo: "Revisão do pedido",
+      texto: "Transportadora, condição de pagamento e valor final com impostos, antes de enviar.",
+      acao: "Enviar pedido",
+      alvo: { x: 50, y: 92 },
     },
     {
       src: "/app-b2b/pedidos.webp",
-      caption: "Meus pedidos",
-      text: "Da separação até a entrega.",
+      titulo: "Pedido no seu sistema",
+      texto: "O pedido entra direto no seu sistema e o cliente acompanha da separação à entrega.",
+      acao: null,
+      alvo: null,
     },
   ],
 
