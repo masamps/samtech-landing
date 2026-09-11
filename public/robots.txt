@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Protótipos de clientes: páginas privadas, acessíveis só por link direto.
+Disallow: /prototipos/
+
 Sitemap: https://www.sampsprojetos.com.br/sitemap.xml

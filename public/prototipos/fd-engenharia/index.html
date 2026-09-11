@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" id="vp">
+<script>
+  // O protótipo foi desenhado para 1280px e tem quadros de largura fixa
+  // (o celular de 390px dentro da moldura). Em telas estreitas, fixar a
+  // viewport em 800px faz o navegador encaixar a página inteira em vez de
+  // obrigar o cliente a rolar na horizontal. O pinça-para-ampliar continua
+  // funcionando normalmente.
+  if (window.innerWidth < 800) {
+    document.getElementById("vp").setAttribute("content", "width=800");
+  }
+</script>
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>FD Engenharia — Protótipo do app do técnico</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!--
+  Protótipo interno. Página não listada: sem link em nenhum lugar do site,
+  fora do sitemap.xml e bloqueada no robots.txt.
+
+  __resources aponta o runtime do Claude Design para as cópias locais do
+  React em vez do CDN unpkg.com — assim a página abre sem depender de
+  terceiros e respeita a Content-Security-Policy do domínio.
+-->
+<script>
+  window.__resources = {
+    "https://unpkg.com/react@18.3.1/umd/react.production.min.js":
+      "vendor/react.production.min.js",
+    "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":
+      "vendor/react-dom.production.min.js",
+  };
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-664557d7-e78b-4ccc-a3a0-6e0d4c024383/styles.css">
+<script src="_ds/modernist-664557d7-e78b-4ccc-a3a0-6e0d4c024383/_ds_bundle.js"></script>
+<link rel="stylesheet" href="fonts/archivo.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#cfcdcb;color:#1F1F1F;font-family:"Archivo",system-ui,sans-serif}
+a{color:#D62828;text-underline-offset:3px}
+a:hover{color:#B71C1C}
+button{font-family:inherit}
+input,textarea,select{font-family:inherit}
+@keyframes fdin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fd-scr{animation:fdin .2s ease}
+.fd-sc::-webkit-scrollbar{width:6px}
+.fd-sc::-webkit-scrollbar-thumb{background:#c9c7c5}
+</style>
+</helmet>
+<div style="min-height:100vh;padding:0 0 60px">
+
+<div style="position:sticky;top:0;z-index:40;background:#1F1F1F;border-bottom:3px solid #D62828;display:flex;align-items:center;gap:22px;padding:0 22px;height:60px">
+  <div style="display:flex;align-items:center;gap:10px">
+    <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true"><polygon points="13,1 25,21 1,21" fill="#D62828"></polygon><text x="13" y="17.5" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="900" fill="#1F1F1F">FD</text></svg>
+    <span style="font-size:13px;font-weight:800;letter-spacing:.16em;color:#fff">FD ENGENHARIA</span>
+  </div>
+  <div style="width:1px;height:26px;background:#454545"></div>
+  <div style="display:flex;gap:0">
+    <button onClick="{{ showApp }}" style="border:0;background:transparent;color:#8A8A8A;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;padding:20px 14px;cursor:pointer;border-bottom:3px solid transparent" style-hover="color:#fff">App do técnico</button>
+    <button onClick="{{ showGestor }}" style="border:0;background:transparent;color:#8A8A8A;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;padding:20px 14px;cursor:pointer;border-bottom:3px solid transparent" style-hover="color:#fff">Painel do gestor</button>
+    <button onClick="{{ showPdf }}" style="border:0;background:transparent;color:#8A8A8A;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;padding:20px 14px;cursor:pointer;border-bottom:3px solid transparent" style-hover="color:#fff">Relatório PDF</button>
+  </div>
+  <div style="flex:1"></div>
+  <div style="font-size:11px;color:#8A8A8A;letter-spacing:.08em;text-transform:uppercase">{{ viewLabel }}</div>
+</div>
+
+<sc-if value="{{ isApp }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;justify-content:center;padding:34px 20px 0">
+<div style="background:#1F1F1F;padding:12px 12px 16px;box-shadow:0 24px 50px rgba(0,0,0,.28);flex:none">
+  <div style="width:390px;height:812px;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column">
+
+    <sc-if value="{{ scLogin }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;background:#fff">
+      <div style="background:#1F1F1F;padding:54px 28px 30px;position:relative;overflow:hidden">
+        <svg width="240" height="240" viewBox="0 0 100 100" aria-hidden="true" style="position:absolute;right:-70px;top:-30px;opacity:.12"><polygon points="50,4 96,96 4,96" fill="#D62828"></polygon></svg>
+        <img src="uploads/dyn-ca3495977a4997d980272574b904e78e.png" alt="FD Engenharia" style="width:168px;position:relative;background:#fff;padding:12px 14px">
+        <div style="height:3px;background:#D62828;width:64px;margin:22px 0 6px"></div>
+        <div style="height:3px;background:#D62828;width:104px;margin-bottom:6px"></div>
+        <div style="height:3px;background:#D62828;width:38px"></div>
+        <div style="color:#fff;font-size:22px;font-weight:800;letter-spacing:-.01em;margin-top:26px;line-height:1.15">MANUTENÇÃO<br>INDUSTRIAL</div>
+        <div style="color:#8A8A8A;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px">Ordens de serviço em campo</div>
+      </div>
+      <div style="padding:30px 28px 0;flex:1">
+        <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A;margin-bottom:8px">E-mail corporativo</div>
+        <input value="{{ email }}" onChange="{{ setEmail }}" style="width:100%;height:56px;border:2px solid #1F1F1F;padding:0 14px;font-size:16px;background:#F2F2F2;color:#1F1F1F">
+        <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A;margin:22px 0 8px">Senha</div>
+        <input type="password" value="{{ senha }}" onChange="{{ setSenha }}" style="width:100%;height:56px;border:2px solid #1F1F1F;padding:0 14px;font-size:16px;background:#F2F2F2;color:#1F1F1F">
+        <div style="display:flex;align-items:center;gap:10px;margin-top:18px;color:#8A8A8A;font-size:13px">
+          <div style="width:18px;height:18px;border:2px solid #1F1F1F;background:#1F1F1F;display:flex;align-items:center;justify-content:center">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4"><path d="M4 12l5 5L20 6"></path></svg>
+          </div>
+          Manter conectado neste aparelho
+        </div>
+        <button onClick="{{ toHome }}" style="width:100%;height:62px;margin-top:28px;background:#D62828;color:#fff;border:0;font-size:16px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:0 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between" style-hover="background:#B71C1C">
+          Entrar
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+        </button>
+        <div style="text-align:left;margin-top:16px"><a href="#" style="font-size:13px;font-weight:600">Esqueci minha senha</a></div>
+      </div>
+      <div style="padding:18px 28px 26px;border-top:2px solid #F2F2F2;color:#8A8A8A;font-size:11px;letter-spacing:.1em;text-transform:uppercase">v2.4.1 · Modo offline disponível</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ scHome }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#1F1F1F;padding:22px 20px 18px;border-bottom:3px solid #D62828">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between">
+          <div>
+            <div style="color:#8A8A8A;font-size:11px;letter-spacing:.14em;text-transform:uppercase">Quinta, 11 set · 07:40</div>
+            <div style="color:#fff;font-size:24px;font-weight:800;margin-top:6px;line-height:1.1">MINHAS OS DE HOJE</div>
+          </div>
+          <div style="width:42px;height:42px;background:#D62828;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px">CS</div>
+        </div>
+        <div style="display:flex;gap:0;margin-top:18px;border:2px solid #454545">
+          <div style="flex:1;padding:10px 12px;border-right:2px solid #454545"><div style="color:#fff;font-size:20px;font-weight:800">3</div><div style="color:#8A8A8A;font-size:10px;letter-spacing:.1em;text-transform:uppercase">Atribuídas</div></div>
+          <div style="flex:1;padding:10px 12px;border-right:2px solid #454545"><div style="color:#E8A100;font-size:20px;font-weight:800">1</div><div style="color:#8A8A8A;font-size:10px;letter-spacing:.1em;text-transform:uppercase">Atrasada</div></div>
+          <div style="flex:1;padding:10px 12px"><div style="color:#34A853;font-size:20px;font-weight:800">1</div><div style="color:#8A8A8A;font-size:10px;letter-spacing:.1em;text-transform:uppercase">Concluída</div></div>
+        </div>
+      </div>
+      <div class="fd-sc" style="flex:1;overflow-y:auto;background:#F2F2F2;padding:14px 14px 24px">
+        <sc-for list="{{ cards }}" as="os" hint-placeholder-count="3">
+          <button onClick="{{ os.open }}" style="display:block;width:100%;text-align:left;background:#fff;border:0;border-left:6px solid #8A8A8A;padding:0;margin-bottom:12px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.10)" style-hover="box-shadow:0 4px 14px rgba(0,0,0,.16)">
+            <div style="padding:14px 16px 4px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#8A8A8A">OS #{{ os.num }}</span>
+              <span style="{{ os.badgeStyle }}">{{ os.status }}</span>
+            </div>
+            <div style="padding:0 16px 2px;font-size:19px;font-weight:800;line-height:1.15;color:#1F1F1F">{{ os.cliente }}</div>
+            <div style="padding:0 16px;font-size:13px;color:#8A8A8A">{{ os.unidade }}</div>
+            <div style="margin:12px 16px 0;height:2px;background:#F2F2F2"></div>
+            <div style="padding:10px 16px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px">
+              <div>
+                <div style="font-size:14px;font-weight:700;color:#1F1F1F">{{ os.tipo }}</div>
+                <div style="font-size:12px;color:#8A8A8A;margin-top:2px">Janela {{ os.horario }} · {{ os.prioridade }}</div>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2.5"><path d="M9 6l6 6-6 6"></path></svg>
+            </div>
+          </button>
+        </sc-for>
+        <div style="background:#fff;border-left:6px solid #F2F2F2;padding:14px 16px;opacity:.65">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#8A8A8A">OS #1039 · CONCLUÍDA 06:55</div>
+          <div style="font-size:16px;font-weight:800;margin-top:4px">Via Varejo</div>
+          <div style="font-size:13px;color:#8A8A8A">CD Jundiaí-SP · Serralheria — troca de portão</div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ scDetail }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#1F1F1F;padding:18px 20px 16px;border-bottom:3px solid #D62828;display:flex;align-items:center;gap:14px">
+        <button onClick="{{ toHome }}" style="background:transparent;border:0;cursor:pointer;padding:6px;margin-left:-6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></button>
+        <div>
+          <div style="color:#8A8A8A;font-size:11px;letter-spacing:.14em;text-transform:uppercase">Ordem de serviço</div>
+          <div style="color:#fff;font-size:22px;font-weight:800;line-height:1.1">#{{ os.num }} · {{ os.tipoCurto }}</div>
+        </div>
+      </div>
+      <div class="fd-sc" style="flex:1;overflow-y:auto;background:#fff">
+        <div style="padding:18px 20px;border-bottom:2px solid #F2F2F2">
+          <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A">Cliente</div>
+          <div style="font-size:22px;font-weight:800;margin-top:4px">{{ os.cliente }}</div>
+          <div style="font-size:14px;color:#1F1F1F;margin-top:2px">{{ os.unidade }}</div>
+          <div style="font-size:13px;color:#8A8A8A;margin-top:8px">{{ os.endereco }}</div>
+          <div style="display:flex;gap:10px;margin-top:14px">
+            <button style="flex:1;height:48px;border:2px solid #1F1F1F;background:#fff;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;padding:0 12px" style-hover="background:#F2F2F2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2.2"><path d="M12 21s-7-6.1-7-11a7 7 0 0114 0c0 4.9-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+              Rota
+            </button>
+            <button style="flex:1;height:48px;border:2px solid #1F1F1F;background:#fff;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;padding:0 12px" style-hover="background:#F2F2F2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2.2"><path d="M4 5c0 8 7 15 15 15l2-4-5-2-2 2c-2-1-5-4-6-6l2-2-2-5z"></path></svg>
+              Ligar
+            </button>
+          </div>
+        </div>
+        <div style="padding:16px 20px;border-bottom:2px solid #F2F2F2;display:flex;gap:14px">
+          <div style="width:44px;height:44px;background:#F2F2F2;display:flex;align-items:center;justify-content:center;font-weight:800;color:#8A8A8A;font-size:13px">{{ os.contatoIni }}</div>
+          <div>
+            <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A">Contato no local</div>
+            <div style="font-size:16px;font-weight:700;margin-top:2px">{{ os.contato }}</div>
+            <div style="font-size:13px;color:#8A8A8A">{{ os.contatoCargo }} · {{ os.contatoTel }}</div>
+          </div>
+        </div>
+        <div style="padding:16px 20px;border-bottom:2px solid #F2F2F2">
+          <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A">Descrição do problema</div>
+          <div style="font-size:15px;line-height:1.5;margin-top:8px;text-wrap:pretty">{{ os.descricao }}</div>
+        </div>
+        <div style="padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px 0">
+          <div><div style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Janela</div><div style="font-size:15px;font-weight:700">{{ os.horario }}</div></div>
+          <div><div style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Prioridade</div><div style="font-size:15px;font-weight:700">{{ os.prioridade }}</div></div>
+          <div><div style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Técnico</div><div style="font-size:15px;font-weight:700">{{ os.tecnico }}</div></div>
+          <div><div style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Contrato</div><div style="font-size:15px;font-weight:700">{{ os.contrato }}</div></div>
+        </div>
+        <div style="margin:4px 20px 20px;background:#F2F2F2;border-left:6px solid #E8A100;padding:12px 14px;font-size:13px;line-height:1.45;color:#1F1F1F">
+          <strong>Requisitos de acesso:</strong> {{ os.acesso }}
+        </div>
+      </div>
+      <div style="padding:14px 20px 18px;border-top:2px solid #F2F2F2;background:#fff">
+        <button onClick="{{ startAtend }}" style="width:100%;height:64px;background:#D62828;color:#fff;border:0;font-size:16px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 20px" style-hover="background:#B71C1C">
+          Iniciar atendimento
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ scCheck }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#1F1F1F;padding:16px 20px 0;border-bottom:3px solid #D62828">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button onClick="{{ toDetail }}" style="background:transparent;border:0;cursor:pointer;padding:6px;margin-left:-6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></button>
+          <div style="flex:1">
+            <div style="color:#8A8A8A;font-size:11px;letter-spacing:.14em;text-transform:uppercase">Etapa 1 de 4 · OS #{{ os.num }}</div>
+            <div style="color:#fff;font-size:20px;font-weight:800;line-height:1.1">CHECKLIST TÉCNICO</div>
+          </div>
+          <div style="border:2px solid #34A853;color:#34A853;padding:5px 9px;font-size:12px;font-weight:800;letter-spacing:.08em">{{ elapsed }}</div>
+        </div>
+        <div style="display:flex;gap:4px;padding:14px 0 0">
+          <div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#454545"></div><div style="flex:1;height:4px;background:#454545"></div><div style="flex:1;height:4px;background:#454545"></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0 12px">
+          <span style="color:#8A8A8A;font-size:12px;letter-spacing:.06em;text-transform:uppercase">{{ os.tipo }}</span>
+          <span style="color:#fff;font-size:12px;font-weight:800">{{ checkDone }}/{{ checkTotal }} itens</span>
+        </div>
+      </div>
+      <div class="fd-sc" style="flex:1;overflow-y:auto;background:#F2F2F2;padding:12px 14px 20px">
+        <sc-for list="{{ checklist }}" as="it" hint-placeholder-count="6">
+          <div style="background:#fff;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.08)">
+            <button onClick="{{ it.toggle }}" style="display:flex;width:100%;align-items:center;gap:14px;background:transparent;border:0;text-align:left;padding:16px 16px;cursor:pointer;min-height:64px">
+              <sc-if value="{{ it.done }}" hint-placeholder-val="{{ false }}">
+                <span style="width:30px;height:30px;flex:none;background:#34A853;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4"><path d="M4 12l5 5L20 6"></path></svg></span>
+              </sc-if>
+              <sc-if value="{{ it.pending }}" hint-placeholder-val="{{ true }}">
+                <span style="width:30px;height:30px;flex:none;border:2px solid #8A8A8A"></span>
+              </sc-if>
+              <span style="font-size:16px;font-weight:700;line-height:1.25;color:#1F1F1F">{{ it.label }}</span>
+            </button>
+            <div style="padding:0 16px 14px">
+              <sc-if value="{{ it.hasObs }}" hint-placeholder-val="{{ false }}">
+                <div style="background:#F2F2F2;border-left:4px solid #8A8A8A;padding:8px 10px;font-size:13px;color:#1F1F1F;margin-bottom:8px">{{ it.obs }}</div>
+              </sc-if>
+              <sc-if value="{{ it.obsOpen }}" hint-placeholder-val="{{ false }}">
+                <textarea onChange="{{ it.setObs }}" value="{{ it.obs }}" placeholder="Observação do item (medições, ocorrências, peças)" style="width:100%;min-height:76px;border:2px solid #1F1F1F;padding:10px;font-size:14px;background:#fff;resize:vertical"></textarea>
+              </sc-if>
+              <button onClick="{{ it.toggleObs }}" style="background:transparent;border:0;color:#D62828;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;padding:6px 0">{{ it.obsLabel }}</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:12px 16px 16px;border-top:2px solid #F2F2F2;background:#fff">
+        <button onClick="{{ toPhotos }}" style="width:100%;height:60px;background:#D62828;color:#fff;border:0;font-size:15px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 20px" style-hover="background:#B71C1C">
+          Avançar para fotos
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ scPhotos }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#1F1F1F;padding:16px 20px 0;border-bottom:3px solid #D62828">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button onClick="{{ toCheck }}" style="background:transparent;border:0;cursor:pointer;padding:6px;margin-left:-6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></button>
+          <div style="flex:1">
+            <div style="color:#8A8A8A;font-size:11px;letter-spacing:.14em;text-transform:uppercase">Etapa 2 de 4 · OS #{{ os.num }}</div>
+            <div style="color:#fff;font-size:20px;font-weight:800;line-height:1.1">REGISTRO FOTOGRÁFICO</div>
+          </div>
+          <div style="border:2px solid #34A853;color:#34A853;padding:5px 9px;font-size:12px;font-weight:800;letter-spacing:.08em">{{ elapsed }}</div>
+        </div>
+        <div style="display:flex;gap:4px;padding:14px 0 16px">
+          <div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#454545"></div><div style="flex:1;height:4px;background:#454545"></div>
+        </div>
+      </div>
+      <div class="fd-sc" style="flex:1;overflow-y:auto;background:#F2F2F2;padding:16px 14px 20px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="background:#1F1F1F;color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;padding:5px 10px">ANTES</span>
+          <span style="font-size:12px;color:#8A8A8A">{{ nAntes }} foto(s) · mínimo 2</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+          <sc-for list="{{ antes }}" as="p" hint-placeholder-count="2">
+            <div style="background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08)">
+              <div style="height:112px;background:repeating-linear-gradient(45deg,#c9c7c5 0 8px,#bcbab8 8px 16px);display:flex;align-items:flex-end;justify-content:space-between;padding:6px">
+                <span style="background:#1F1F1F;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;padding:3px 6px">{{ p.hora }}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13"></rect><circle cx="12" cy="13.5" r="3.5"></circle></svg>
+              </div>
+              <input value="{{ p.cap }}" onChange="{{ p.setCap }}" placeholder="Legenda da foto" style="width:100%;height:42px;border:0;border-top:2px solid #F2F2F2;padding:0 10px;font-size:13px;background:#fff">
+            </div>
+          </sc-for>
+          <button onClick="{{ addAntes }}" style="height:156px;border:2px dashed #8A8A8A;background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px" style-hover="background:#eceaea">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2"><rect x="3" y="7" width="18" height="13"></rect><circle cx="12" cy="13.5" r="3.5"></circle><path d="M9 7l1.5-3h3L15 7"></path></svg>
+            <span style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#1F1F1F">Fotografar</span>
+          </button>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="background:#D62828;color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;padding:5px 10px">DEPOIS</span>
+          <span style="font-size:12px;color:#8A8A8A">{{ nDepois }} foto(s) · mínimo 2</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <sc-for list="{{ depois }}" as="p" hint-placeholder-count="2">
+            <div style="background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08)">
+              <div style="height:112px;background:repeating-linear-gradient(45deg,#d9d7d5 0 8px,#cbc9c7 8px 16px);display:flex;align-items:flex-end;justify-content:space-between;padding:6px">
+                <span style="background:#D62828;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;padding:3px 6px">{{ p.hora }}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13"></rect><circle cx="12" cy="13.5" r="3.5"></circle></svg>
+              </div>
+              <input value="{{ p.cap }}" onChange="{{ p.setCap }}" placeholder="Legenda da foto" style="width:100%;height:42px;border:0;border-top:2px solid #F2F2F2;padding:0 10px;font-size:13px;background:#fff">
+            </div>
+          </sc-for>
+          <button onClick="{{ addDepois }}" style="height:156px;border:2px dashed #D62828;background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px" style-hover="background:#eceaea">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2"><rect x="3" y="7" width="18" height="13"></rect><circle cx="12" cy="13.5" r="3.5"></circle><path d="M9 7l1.5-3h3L15 7"></path></svg>
+            <span style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#1F1F1F">Fotografar</span>
+          </button>
+        </div>
+      </div>
+      <div style="padding:12px 16px 16px;border-top:2px solid #F2F2F2;background:#fff">
+        <button onClick="{{ toMat }}" style="width:100%;height:60px;background:#D62828;color:#fff;border:0;font-size:15px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 20px" style-hover="background:#B71C1C">
+          Avançar para materiais
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ scMat }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#1F1F1F;padding:16px 20px 0;border-bottom:3px solid #D62828">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button onClick="{{ toPhotos }}" style="background:transparent;border:0;cursor:pointer;padding:6px;margin-left:-6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></button>
+          <div style="flex:1">
+            <div style="color:#8A8A8A;font-size:11px;letter-spacing:.14em;text-transform:uppercase">Etapa 3 de 4 · OS #{{ os.num }}</div>
+            <div style="color:#fff;font-size:20px;font-weight:800;line-height:1.1">MATERIAIS UTILIZADOS</div>
+          </div>
+          <div style="border:2px solid #34A853;color:#34A853;padding:5px 9px;font-size:12px;font-weight:800;letter-spacing:.08em">{{ elapsed }}</div>
+        </div>
+        <div style="display:flex;gap:4px;padding:14px 0 16px">
+          <div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#454545"></div>
+        </div>
+      </div>
+      <div class="fd-sc" style="flex:1;overflow-y:auto;background:#F2F2F2;padding:14px 14px 20px">
+        <sc-for list="{{ materials }}" as="m" hint-placeholder-count="2">
+          <div style="background:#fff;padding:14px 14px;margin-bottom:10px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 2px rgba(0,0,0,.08)">
+            <div style="flex:1">
+              <div style="font-size:15px;font-weight:700;line-height:1.25">{{ m.n }}</div>
+              <div style="font-size:12px;color:#8A8A8A;margin-top:2px">Cód. {{ m.cod }} · {{ m.u }}</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0;border:2px solid #1F1F1F">
+              <button onClick="{{ m.dec }}" style="width:44px;height:44px;border:0;border-right:2px solid #1F1F1F;background:#fff;cursor:pointer;font-size:20px;font-weight:800;color:#1F1F1F" style-hover="background:#F2F2F2">−</button>
+              <span style="width:46px;text-align:center;font-size:17px;font-weight:800">{{ m.q }}</span>
+              <button onClick="{{ m.inc }}" style="width:44px;height:44px;border:0;border-left:2px solid #1F1F1F;background:#fff;cursor:pointer;font-size:20px;font-weight:800;color:#1F1F1F" style-hover="background:#F2F2F2">+</button>
+            </div>
+          </div>
+        </sc-for>
+        <button onClick="{{ toggleAdd }}" style="width:100%;height:56px;border:2px dashed #8A8A8A;background:#fff;cursor:pointer;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px;padding:0 16px;color:#1F1F1F" style-hover="background:#eceaea">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2.6"><path d="M12 5v14M5 12h14"></path></svg>
+          Adicionar material
+        </button>
+        <sc-if value="{{ adding }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#fff;border:2px solid #1F1F1F;margin-top:10px">
+            <div style="padding:12px 14px;border-bottom:2px solid #F2F2F2;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A">Almoxarifado da van · Carlos Silva</div>
+            <sc-for list="{{ matOptions }}" as="o" hint-placeholder-count="4">
+              <button onClick="{{ o.add }}" style="display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;background:transparent;border:0;border-bottom:2px solid #F2F2F2;text-align:left;padding:14px;cursor:pointer" style-hover="background:#F2F2F2">
+                <span>
+                  <span style="display:block;font-size:14px;font-weight:700">{{ o.n }}</span>
+                  <span style="display:block;font-size:12px;color:#8A8A8A">Cód. {{ o.cod }} · saldo {{ o.saldo }}</span>
+                </span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2.6"><path d="M12 5v14M5 12h14"></path></svg>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="margin-top:16px;background:#fff;border-left:6px solid #8A8A8A;padding:12px 14px;font-size:13px;color:#1F1F1F;line-height:1.45">Materiais lançados aqui baixam do estoque da van e entram no relatório do cliente sem valores de custo.</div>
+      </div>
+      <div style="padding:12px 16px 16px;border-top:2px solid #F2F2F2;background:#fff">
+        <button onClick="{{ toSign }}" style="width:100%;height:60px;background:#D62828;color:#fff;border:0;font-size:15px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 20px" style-hover="background:#B71C1C">
+          Coletar assinatura
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ scSign }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#1F1F1F;padding:16px 20px 0;border-bottom:3px solid #D62828">
+        <div style="display:flex;align-items:center;gap:12px">
+          <button onClick="{{ toMat }}" style="background:transparent;border:0;cursor:pointer;padding:6px;margin-left:-6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></button>
+          <div style="flex:1">
+            <div style="color:#8A8A8A;font-size:11px;letter-spacing:.14em;text-transform:uppercase">Etapa 4 de 4 · OS #{{ os.num }}</div>
+            <div style="color:#fff;font-size:20px;font-weight:800;line-height:1.1">ASSINATURA DO CLIENTE</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:4px;padding:14px 0 16px">
+          <div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#D62828"></div><div style="flex:1;height:4px;background:#D62828"></div>
+        </div>
+      </div>
+      <div class="fd-sc" style="flex:1;overflow-y:auto;background:#fff;padding:18px 20px 20px">
+        <div style="font-size:15px;line-height:1.5;color:#1F1F1F;text-wrap:pretty">O responsável do cliente confirma a execução do serviço descrito na OS <strong>#{{ os.num }}</strong> e a retirada dos resíduos da área.</div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A;margin:22px 0 8px">Nome do responsável</div>
+        <input value="{{ sigName }}" onChange="{{ setSigName }}" style="width:100%;height:54px;border:2px solid #1F1F1F;padding:0 14px;font-size:16px;background:#F2F2F2">
+        <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A;margin:18px 0 8px">Cargo / empresa</div>
+        <input value="{{ sigRole }}" onChange="{{ setSigRole }}" style="width:100%;height:54px;border:2px solid #1F1F1F;padding:0 14px;font-size:16px;background:#F2F2F2">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin:22px 0 8px">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A">Assine no campo abaixo</span>
+          <button onClick="{{ clearSig }}" style="background:transparent;border:0;color:#D62828;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:0">Limpar</button>
+        </div>
+        <div style="border:2px solid #1F1F1F;background:#F2F2F2;position:relative">
+          <canvas ref="{{ sigRef }}" width="620" height="380" style="width:100%;height:190px;display:block;touch-action:none;cursor:crosshair"></canvas>
+          <div style="position:absolute;left:16px;right:16px;bottom:34px;height:2px;background:#c9c7c5"></div>
+        </div>
+        <sc-if value="{{ signed }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:8px;margin-top:12px;color:#1E8E3E;font-size:13px;font-weight:700">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E8E3E" stroke-width="3"><path d="M4 12l5 5L20 6"></path></svg>
+            Assinatura capturada · 11/09/2026 09:12 · GPS conferido
+          </div>
+        </sc-if>
+        <sc-if value="{{ unsigned }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-top:12px;color:#8A8A8A;font-size:13px">Arraste o dedo sobre o campo para assinar.</div>
+        </sc-if>
+      </div>
+      <div style="padding:12px 16px 16px;border-top:2px solid #F2F2F2;background:#fff">
+        <button onClick="{{ toDone }}" disabled="{{ notSigned }}" style="width:100%;height:60px;background:#D62828;color:#fff;border:0;font-size:15px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 20px" style-hover="background:#B71C1C">
+          Gerar relatório
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ scDone }}" hint-placeholder-val="{{ true }}">
+    <div class="fd-scr" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#1F1F1F;padding:22px 20px 20px;border-bottom:3px solid #D62828">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="width:38px;height:38px;background:#34A853;display:flex;align-items:center;justify-content:center;flex:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-width="4"><path d="M4 12l5 5L20 6"></path></svg></span>
+          <div>
+            <div style="color:#8A8A8A;font-size:11px;letter-spacing:.14em;text-transform:uppercase">OS #{{ os.num }} concluída · {{ elapsed }} em campo</div>
+            <div style="color:#fff;font-size:21px;font-weight:800;line-height:1.1">RELATÓRIO TÉCNICO PRONTO</div>
+          </div>
+        </div>
+      </div>
+      <div class="fd-sc" style="flex:1;overflow-y:auto;background:#F2F2F2;padding:16px 14px 20px">
+        <div style="background:#fff;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.12)">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #F2F2F2;padding-bottom:10px">
+            <span style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Pré-visualização · 3 páginas</span>
+            <span style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#D62828">PDF · 2,1 MB</span>
+          </div>
+          <div style="margin-top:12px;border:2px solid #F2F2F2;padding:12px">
+            <div style="height:6px;background:#D62828;margin:-12px -12px 10px"></div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <svg width="20" height="17" viewBox="0 0 26 22"><polygon points="13,1 25,21 1,21" fill="#D62828"></polygon><text x="13" y="17.5" text-anchor="middle" font-family="Archivo" font-size="10" font-weight="900" fill="#1F1F1F">FD</text></svg>
+              <span style="font-size:10px;font-weight:800;letter-spacing:.14em">FD ENGENHARIA</span>
+              <span style="flex:1"></span>
+              <span style="font-size:9px;color:#8A8A8A;letter-spacing:.1em">RT-{{ os.num }}/2026</span>
+            </div>
+            <div style="font-size:13px;font-weight:800;margin-top:10px;line-height:1.2">RELATÓRIO TÉCNICO DE MANUTENÇÃO</div>
+            <div style="font-size:10px;color:#8A8A8A;margin-top:2px">{{ os.cliente }} · {{ os.unidade }}</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px">
+              <div style="height:7px;background:#F2F2F2"></div><div style="height:7px;background:#F2F2F2"></div>
+              <div style="height:7px;background:#F2F2F2"></div><div style="height:7px;background:#F2F2F2"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px">
+              <div style="height:46px;background:repeating-linear-gradient(45deg,#c9c7c5 0 6px,#bcbab8 6px 12px)"></div>
+              <div style="height:46px;background:repeating-linear-gradient(45deg,#d9d7d5 0 6px,#cbc9c7 6px 12px)"></div>
+            </div>
+            <div style="display:flex;gap:3px;margin-top:10px"><div style="height:3px;width:26px;background:#D62828"></div><div style="height:3px;width:40px;background:#D62828"></div><div style="height:3px;width:14px;background:#D62828"></div></div>
+          </div>
+          <button onClick="{{ showPdf }}" style="width:100%;height:52px;margin-top:12px;border:2px solid #1F1F1F;background:#fff;cursor:pointer;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;padding:0 16px" style-hover="background:#F2F2F2">
+            Ver relatório completo
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D62828" stroke-width="2.5"><path d="M9 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+        <div style="background:#fff;margin-top:12px">
+          <div style="padding:12px 14px;border-bottom:2px solid #F2F2F2;display:flex;justify-content:space-between;font-size:13px"><span style="color:#8A8A8A">Itens do checklist</span><strong>{{ checkDone }}/{{ checkTotal }} conformes</strong></div>
+          <div style="padding:12px 14px;border-bottom:2px solid #F2F2F2;display:flex;justify-content:space-between;font-size:13px"><span style="color:#8A8A8A">Fotos anexadas</span><strong>{{ nFotos }} (antes/depois)</strong></div>
+          <div style="padding:12px 14px;border-bottom:2px solid #F2F2F2;display:flex;justify-content:space-between;font-size:13px"><span style="color:#8A8A8A">Materiais</span><strong>{{ nMateriais }} itens</strong></div>
+          <div style="padding:12px 14px;display:flex;justify-content:space-between;font-size:13px"><span style="color:#8A8A8A">Assinado por</span><strong>{{ sigName }}</strong></div>
+        </div>
+        <div style="background:#fff;margin-top:12px;padding:14px">
+          <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A;margin-bottom:8px">Enviar para</div>
+          <div style="font-size:14px;font-weight:700">{{ sigName }} · {{ os.contatoEmail }}</div>
+          <div style="font-size:13px;color:#8A8A8A;margin-top:2px">Cópia: manutencao.{{ os.slug }}@cliente.com · gestao@fdengenharia.com.br</div>
+        </div>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#E6F4EA;border-left:6px solid #1E8E3E;padding:14px;margin-top:12px">
+            <div style="font-size:14px;font-weight:800;color:#14632b">Relatório enviado às 09:14</div>
+            <div style="font-size:13px;color:#1F1F1F;margin-top:4px">Protocolo FD-{{ os.num }}-2026 · o cliente recebeu o PDF e o link de consulta.</div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="padding:12px 16px 16px;border-top:2px solid #F2F2F2;background:#fff;display:flex;gap:10px">
+        <button onClick="{{ toHome }}" style="width:110px;height:60px;border:2px solid #1F1F1F;background:#fff;cursor:pointer;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#F2F2F2">Minhas OS</button>
+        <button onClick="{{ send }}" style="flex:1;height:60px;background:#D62828;color:#fff;border:0;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 18px" style-hover="background:#B71C1C">
+          {{ sendLabel }}
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z"></path></svg>
+        </button>
+      </div>
+    </div>
+    </sc-if>
+
+  </div>
+</div>
+</div>
+<div style="text-align:center;padding:16px 20px 0;font-size:12px;color:#6f6d6b;letter-spacing:.06em">Fluxo clicável: login → OS de hoje → detalhe → checklist → fotos → materiais → assinatura → envio do PDF</div>
+</sc-if>
+
+<sc-if value="{{ isGestor }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;min-height:calc(100vh - 60px);background:#F2F2F2">
+  <div style="width:238px;flex:none;background:#1F1F1F;padding:24px 0;display:flex;flex-direction:column">
+    <div style="padding:0 22px 22px;border-bottom:2px solid #454545">
+      <img src="uploads/dyn-ca3495977a4997d980272574b904e78e.png" alt="FD Engenharia" style="width:134px;background:#fff;padding:10px 12px">
+    </div>
+    <div style="padding:18px 0;display:flex;flex-direction:column;gap:2px">
+      <div style="padding:13px 22px;border-left:4px solid #D62828;background:#2a2a2a;color:#fff;font-size:14px;font-weight:800;letter-spacing:.04em">Painel operacional</div>
+      <div style="padding:13px 22px;border-left:4px solid transparent;color:#8A8A8A;font-size:14px;font-weight:600" style-hover="color:#fff">Ordens de serviço</div>
+      <div style="padding:13px 22px;border-left:4px solid transparent;color:#8A8A8A;font-size:14px;font-weight:600" style-hover="color:#fff">Preventivas</div>
+      <div style="padding:13px 22px;border-left:4px solid transparent;color:#8A8A8A;font-size:14px;font-weight:600" style-hover="color:#fff">Técnicos</div>
+      <div style="padding:13px 22px;border-left:4px solid transparent;color:#8A8A8A;font-size:14px;font-weight:600" style-hover="color:#fff">Clientes e contratos</div>
+      <div style="padding:13px 22px;border-left:4px solid transparent;color:#8A8A8A;font-size:14px;font-weight:600" style-hover="color:#fff">Relatórios enviados</div>
+    </div>
+    <div style="flex:1"></div>
+    <div style="padding:20px 22px 0;border-top:2px solid #454545">
+      <div style="display:flex;gap:3px;margin-bottom:14px"><div style="height:3px;width:22px;background:#D62828"></div><div style="height:3px;width:36px;background:#D62828"></div><div style="height:3px;width:12px;background:#D62828"></div></div>
+      <div style="color:#fff;font-size:13px;font-weight:700">Denise Faria</div>
+      <div style="color:#8A8A8A;font-size:12px">Coordenação de campo</div>
+    </div>
+  </div>
+  <div style="flex:1;min-width:0;padding:28px 32px 48px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8A8A8A">Quinta, 11 de setembro de 2026</div>
+        <h1 style="font-size:34px;margin:6px 0 0;letter-spacing:-.02em">PAINEL OPERACIONAL</h1>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-end">
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A;margin-bottom:5px">Cliente</div>
+          <select value="{{ fCliente }}" onChange="{{ setFCliente }}" style="height:44px;min-width:190px;border:2px solid #1F1F1F;background:#fff;padding:0 10px;font-size:14px;font-weight:600">
+            <sc-for list="{{ clientes }}" as="c" hint-placeholder-count="5"><option value="{{ c }}">{{ c }}</option></sc-for>
+          </select>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A;margin-bottom:5px">Tipo de serviço</div>
+          <select value="{{ fTipo }}" onChange="{{ setFTipo }}" style="height:44px;min-width:200px;border:2px solid #1F1F1F;background:#fff;padding:0 10px;font-size:14px;font-weight:600">
+            <sc-for list="{{ tipos }}" as="t" hint-placeholder-count="6"><option value="{{ t }}">{{ t }}</option></sc-for>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div style="height:2px;background:#1F1F1F;opacity:.35;margin:22px 0 24px"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:2px solid #1F1F1F;background:#fff">
+      <div style="padding:18px 20px;border-right:2px solid #1F1F1F;border-top:2px solid #1F1F1F;margin-top:-2px"><div style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">OS do dia</div><div style="font-size:40px;font-weight:800;line-height:1.05;margin-top:6px">12</div><div style="font-size:12px;color:#8A8A8A">4 clientes · 6 técnicos</div></div>
+      <div style="padding:18px 20px;border-right:2px solid #1F1F1F;border-top:2px solid #1F1F1F;margin-top:-2px"><div style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Em andamento</div><div style="font-size:40px;font-weight:800;line-height:1.05;margin-top:6px">5</div><div style="font-size:12px;color:#8A8A8A">tempo médio 2h18</div></div>
+      <div style="padding:18px 20px;border-right:2px solid #1F1F1F;border-top:2px solid #1F1F1F;margin-top:-2px;background:#FFF7E6"><div style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A6100">OS atrasadas</div><div style="font-size:40px;font-weight:800;line-height:1.05;margin-top:6px;color:#8A6100">2</div><div style="font-size:12px;color:#8A6100">SLA vencido há 40 min</div></div>
+      <div style="padding:18px 20px;border-top:2px solid #1F1F1F;margin-top:-2px"><div style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#14632b">Concluídas</div><div style="font-size:40px;font-weight:800;line-height:1.05;margin-top:6px;color:#14632b">5</div><div style="font-size:12px;color:#14632b">5 relatórios enviados</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px;margin-top:24px;align-items:start">
+      <div style="background:#fff;border:2px solid #1F1F1F">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:16px 20px;border-bottom:2px solid #1F1F1F">
+          <h3 style="margin:0;font-size:16px;letter-spacing:.02em">ORDENS DE SERVIÇO · {{ fLabel }}</h3>
+          <span style="font-size:12px;color:#8A8A8A">{{ nRows }} de 12</span>
+        </div>
+        <div style="display:grid;grid-template-columns:62px minmax(130px,1.5fr) minmax(120px,1.4fr) minmax(88px,1fr) 112px;padding:10px 20px;border-bottom:2px solid #F2F2F2;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">
+          <span>OS</span><span>Cliente / unidade</span><span>Serviço</span><span>Técnico</span><span>Status</span>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:62px minmax(130px,1.5fr) minmax(120px,1.4fr) minmax(88px,1fr) 112px;align-items:center;padding:14px 20px;border-bottom:2px solid #F2F2F2;font-size:14px">
+            <span style="font-weight:800;min-width:0">#{{ r.num }}</span>
+            <span style="min-width:0;padding-right:10px"><strong style="display:block;font-weight:700">{{ r.cliente }}</strong><span style="font-size:12px;color:#8A8A8A">{{ r.unidade }}</span></span>
+            <span style="min-width:0;padding-right:10px">{{ r.tipo }}<span style="display:block;font-size:12px;color:#8A8A8A">{{ r.horario }}</span></span>
+            <span style="font-size:13px;min-width:0;padding-right:10px">{{ r.tecnico }}</span>
+            <span style="{{ r.badgeStyle }}">{{ r.status }}</span>
+          </div>
+        </sc-for>
+        <div style="padding:14px 20px;font-size:13px;color:#8A8A8A">Clique em uma OS para abrir o histórico, as fotos e o relatório enviado.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="background:#fff;border:2px solid #1F1F1F">
+          <div style="padding:14px 18px;border-bottom:2px solid #1F1F1F"><h3 style="margin:0;font-size:15px">TÉCNICOS EM CAMPO</h3></div>
+          <sc-for list="{{ tecnicos }}" as="t" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;align-items:center;padding:13px 18px;border-bottom:2px solid #F2F2F2">
+              <span style="width:38px;height:38px;flex:none;background:#1F1F1F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800">{{ t.ini }}</span>
+              <span style="min-width:0">
+                <strong style="display:block;font-size:14px">{{ t.nome }}</strong>
+                <span style="display:block;font-size:12px;color:#8A8A8A">{{ t.onde }}</span>
+              </span>
+              <span style="flex:1"></span>
+              <span style="{{ t.dotStyle }}"></span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#fff;border:2px solid #1F1F1F">
+          <div style="padding:14px 18px;border-bottom:2px solid #1F1F1F"><h3 style="margin:0;font-size:15px">PREVENTIVAS DA SEMANA</h3></div>
+          <sc-for list="{{ preventivas }}" as="p" hint-placeholder-count="4">
+            <div style="padding:13px 18px;border-bottom:2px solid #F2F2F2">
+              <div style="display:flex;justify-content:space-between;gap:10px"><strong style="font-size:14px">{{ p.cliente }}</strong><span style="font-size:12px;font-weight:800;color:#D62828">{{ p.dia }}</span></div>
+              <div style="font-size:12px;color:#8A8A8A;margin-top:2px">{{ p.unidade }} · {{ p.tipo }}</div>
+            </div>
+          </sc-for>
+          <div style="padding:12px 18px"><button style="background:transparent;border:0;color:#D62828;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:0">Ver agenda completa</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isPdf }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;justify-content:center;padding:32px 16px 0">
+<div style="width:100%;max-width:820px">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+    <div style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#4a4846">Relatório técnico RT-{{ os.num }}/2026 · modelo enviado ao cliente</div>
+    <button onClick="{{ backToApp }}" style="height:42px;border:2px solid #1F1F1F;background:#fff;cursor:pointer;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:0 14px" style-hover="background:#F2F2F2">Voltar ao app</button>
+  </div>
+
+  <div style="background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.22);padding:0 0 0">
+    <div style="height:10px;background:#D62828"></div>
+    <div style="padding:26px 46px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-bottom:2px solid #1F1F1F">
+      <div style="display:flex;align-items:center;gap:16px">
+        <img src="uploads/dyn-ca3495977a4997d980272574b904e78e.png" alt="FD Engenharia" style="width:132px">
+        <div style="width:2px;height:56px;background:#F2F2F2"></div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8A8A8A">Manutenção industrial</div>
+          <div style="font-size:12px;color:#1F1F1F;margin-top:4px;line-height:1.45">FD Engenharia Ltda · CNPJ 28.417.903/0001-55<br>Elétrica · Hidráulica · Civil · Serralheria · Moving de rack · Fotovoltaica</div>
+        </div>
+      </div>
+      <div style="text-align:left;flex:none">
+        <div style="background:#1F1F1F;color:#fff;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.12em">RT-{{ os.num }}/2026</div>
+        <div style="font-size:11px;color:#8A8A8A;margin-top:8px">Emitido 11/09/2026 09:14</div>
+      </div>
+    </div>
+
+    <div style="padding:24px 46px 0">
+      <h2 style="font-size:26px;margin:0;letter-spacing:-.01em">RELATÓRIO TÉCNICO DE MANUTENÇÃO</h2>
+      <div style="display:flex;gap:4px;margin-top:10px"><div style="height:3px;width:52px;background:#D62828"></div><div style="height:3px;width:86px;background:#D62828"></div><div style="height:3px;width:24px;background:#D62828"></div></div>
+    </div>
+
+    <div style="padding:22px 46px 0">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border:2px solid #1F1F1F">
+        <div style="padding:12px 14px;border-right:2px solid #F2F2F2"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Cliente</div><div style="font-size:14px;font-weight:700;margin-top:3px">{{ os.cliente }}</div></div>
+        <div style="padding:12px 14px;border-right:2px solid #F2F2F2"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Unidade</div><div style="font-size:14px;font-weight:700;margin-top:3px">{{ os.unidade }}</div></div>
+        <div style="padding:12px 14px;border-right:2px solid #F2F2F2"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Ordem de serviço</div><div style="font-size:14px;font-weight:700;margin-top:3px">#{{ os.num }} · {{ os.contrato }}</div></div>
+        <div style="padding:12px 14px"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Tipo de serviço</div><div style="font-size:14px;font-weight:700;margin-top:3px">{{ os.tipo }}</div></div>
+        <div style="padding:12px 14px;border-top:2px solid #F2F2F2;border-right:2px solid #F2F2F2"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Técnico responsável</div><div style="font-size:14px;font-weight:700;margin-top:3px">{{ os.tecnico }} · CREA-SP 5069814</div></div>
+        <div style="padding:12px 14px;border-top:2px solid #F2F2F2;border-right:2px solid #F2F2F2"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Início / término</div><div style="font-size:14px;font-weight:700;margin-top:3px">07:52 — 09:12</div></div>
+        <div style="padding:12px 14px;border-top:2px solid #F2F2F2;border-right:2px solid #F2F2F2"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Duração</div><div style="font-size:14px;font-weight:700;margin-top:3px">1h20</div></div>
+        <div style="padding:12px 14px;border-top:2px solid #F2F2F2"><div style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">Situação final</div><div style="font-size:14px;font-weight:700;margin-top:3px;color:#14632b">Concluída sem pendências</div></div>
+      </div>
+    </div>
+
+    <div style="padding:26px 46px 0">
+      <h4 style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px;color:#1F1F1F">1 · Descrição do atendimento</h4>
+      <div style="height:2px;background:#1F1F1F;margin-bottom:12px"></div>
+      <p style="font-size:13.5px;line-height:1.6;margin:0;text-wrap:pretty">{{ os.descricao }} Executada a rotina preventiva contratual com inspeção do quadro, ensaio dos dispositivos de proteção e reaperto das conexões. Não foram identificadas não conformidades remanescentes ao final do atendimento.</p>
+    </div>
+
+    <div style="padding:26px 46px 0">
+      <h4 style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px">2 · Checklist executado</h4>
+      <div style="height:2px;background:#1F1F1F"></div>
+      <sc-for list="{{ pdfChecklist }}" as="it" hint-placeholder-count="6">
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:11px 0;border-bottom:2px solid #F2F2F2">
+          <span style="{{ it.markStyle }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4"><path d="M4 12l5 5L20 6"></path></svg>
+          </span>
+          <span style="flex:1;min-width:0">
+            <span style="display:block;font-size:13.5px;font-weight:700">{{ it.label }}</span>
+            <sc-if value="{{ it.hasObs }}" hint-placeholder-val="{{ false }}">
+              <span style="display:block;font-size:12.5px;color:#605d5d;margin-top:2px">Obs.: {{ it.obs }}</span>
+            </sc-if>
+          </span>
+          <span style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#14632b;flex:none">{{ it.tag }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="padding:26px 46px 0">
+      <h4 style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px">3 · Registro fotográfico</h4>
+      <div style="height:2px;background:#1F1F1F;margin-bottom:14px"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <div>
+          <div style="background:#1F1F1F;color:#fff;font-size:10px;font-weight:800;letter-spacing:.16em;padding:5px 9px;display:inline-block;margin-bottom:8px">ANTES</div>
+          <sc-for list="{{ antes }}" as="p" hint-placeholder-count="2">
+            <figure style="margin-bottom:12px">
+              <div class="grayscale" style="height:150px;background:repeating-linear-gradient(45deg,#c9c7c5 0 10px,#bcbab8 10px 20px);border:2px solid #1F1F1F"></div>
+              <figcaption style="font-size:11.5px;color:#605d5d;margin-top:5px">{{ p.pdfCap }} · {{ p.hora }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+        <div>
+          <div style="background:#D62828;color:#fff;font-size:10px;font-weight:800;letter-spacing:.16em;padding:5px 9px;display:inline-block;margin-bottom:8px">DEPOIS</div>
+          <sc-for list="{{ depois }}" as="p" hint-placeholder-count="2">
+            <figure style="margin-bottom:12px">
+              <div class="grayscale" style="height:150px;background:repeating-linear-gradient(45deg,#d9d7d5 0 10px,#cbc9c7 10px 20px);border:2px solid #1F1F1F"></div>
+              <figcaption style="font-size:11.5px;color:#605d5d;margin-top:5px">{{ p.pdfCap }} · {{ p.hora }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:20px 46px 0">
+      <h4 style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px">4 · Materiais aplicados</h4>
+      <div style="height:2px;background:#1F1F1F"></div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px;padding:9px 0;border-bottom:2px solid #F2F2F2;font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A">
+        <span>Descrição</span><span>Código</span><span>Quantidade</span>
+      </div>
+      <sc-for list="{{ materials }}" as="m" hint-placeholder-count="2">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px;padding:11px 0;border-bottom:2px solid #F2F2F2;font-size:13.5px">
+          <span>{{ m.n }}</span><span style="color:#605d5d">{{ m.cod }}</span><span style="font-weight:700">{{ m.q }} {{ m.u }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="padding:28px 46px 0;display:grid;grid-template-columns:1fr 1fr;gap:30px">
+      <div>
+        <h4 style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px">5 · Responsável do cliente</h4>
+        <div style="height:2px;background:#1F1F1F;margin-bottom:12px"></div>
+        <div style="height:74px;border-bottom:2px solid #1F1F1F;display:flex;align-items:flex-end;padding-bottom:4px">
+          <svg width="200" height="60" viewBox="0 0 200 60" fill="none" stroke="#1F1F1F" stroke-width="2.2" stroke-linecap="round"><path d="M6 44c14-26 22 10 32-6s10 14 22-10 16 24 28 6 14 6 26-14 20 12 34 2"></path></svg>
+        </div>
+        <div style="font-size:13.5px;font-weight:700;margin-top:8px">{{ sigName }}</div>
+        <div style="font-size:12px;color:#605d5d">{{ sigRole }}</div>
+        <div style="font-size:11px;color:#8A8A8A;margin-top:6px">Assinado em 11/09/2026 às 09:12 · lat -22.5643 / long -47.4014</div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px">6 · Técnico FD Engenharia</h4>
+        <div style="height:2px;background:#1F1F1F;margin-bottom:12px"></div>
+        <div style="height:74px;border-bottom:2px solid #1F1F1F;display:flex;align-items:flex-end;padding-bottom:4px">
+          <svg width="190" height="56" viewBox="0 0 190 56" fill="none" stroke="#1F1F1F" stroke-width="2.2" stroke-linecap="round"><path d="M8 40c10-22 18 16 30-4s12 10 20-12 14 26 26 4 12 10 24-8 18 14 30 4"></path></svg>
+        </div>
+        <div style="font-size:13.5px;font-weight:700;margin-top:8px">{{ os.tecnico }}</div>
+        <div style="font-size:12px;color:#605d5d">Técnico eletrotécnico · matrícula FD-0148</div>
+        <div style="font-size:11px;color:#8A8A8A;margin-top:6px">Relatório gerado automaticamente pelo app FD Campo</div>
+      </div>
+    </div>
+
+    <div style="margin-top:30px;padding:16px 46px 22px;border-top:2px solid #1F1F1F;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div style="font-size:11px;color:#605d5d;line-height:1.5">FD Engenharia · Rod. Anhanguera km 104, Campinas-SP · (19) 3242-8100 · gestao@fdengenharia.com.br<br>Documento eletrônico — protocolo FD-{{ os.num }}-2026 · página 1 de 3</div>
+      <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end">
+        <div style="height:4px;width:120px;background:#D62828"></div>
+        <div style="height:4px;width:76px;background:#D62828"></div>
+        <div style="height:4px;width:40px;background:#D62828"></div>
+      </div>
+    </div>
+    <div style="height:10px;background:#D62828"></div>
+  </div>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:980}}">
+const OSS = {
+  1042: {num:1042, cliente:'Mercado Livre', slug:'mercadolivre', unidade:'CD Limeira-SP · Galpão B, doca 14',
+    endereco:'Rod. Anhanguera, km 143 — Distrito Industrial, Limeira-SP',
+    tipo:'Manutenção elétrica preventiva', tipoCurto:'Elétrica preventiva', horario:'08:00 — 10:00',
+    prioridade:'Prioridade média', status:'Pendente', tecnico:'Carlos Silva', contrato:'CT-2026/044',
+    contato:'Marcos Antunes', contatoCargo:'Coordenador de Manutenção', contatoTel:'(19) 99871-4402',
+    contatoEmail:'marcos.antunes@mercadolivre.com', contatoIni:'MA',
+    descricao:'Rotina preventiva trimestral do quadro geral QGBT-02 do galpão B. Equipe do CD relatou atuação intermitente do disjuntor do circuito de esteiras na madrugada de 08/09.',
+    acesso:'NR-10 e NR-35 válidas, crachá de visitante na portaria 2, botina e luva isolante classe 0.', kind:'eletrica'},
+  1043: {num:1043, cliente:'Magazine Luiza', slug:'magalu', unidade:'CD Louveira-SP · Mezanino 3',
+    endereco:'Av. Alberto Moschini, 1200 — Louveira-SP',
+    tipo:'Moving de rack', tipoCurto:'Moving de rack', horario:'07:30 — 12:00',
+    prioridade:'Prioridade alta', status:'Em andamento', tecnico:'Rafael Souza', contrato:'CT-2026/031',
+    contato:'Juliana Prado', contatoCargo:'Supervisora de Operações', contatoTel:'(19) 99640-2277',
+    contatoEmail:'juliana.prado@magazineluiza.com.br', contatoIni:'JP',
+    descricao:'Remanejamento de 6 módulos de porta-pallet do corredor F para o corredor J, com remontagem, nivelamento e reaprumo conforme projeto de layout revisão 4.',
+    acesso:'Liberação de área com o time de segurança, isolamento do corredor e empilhadeira do cliente reservada.', kind:'moving'},
+  1044: {num:1044, cliente:'Shopee', slug:'shopee', unidade:'CD Cajamar-SP · Bloco A, vestiário',
+    endereco:'Rod. dos Bandeirantes, km 44 — Cajamar-SP',
+    tipo:'Reparo hidráulico', tipoCurto:'Hidráulica corretiva', horario:'13:00 — 15:00',
+    prioridade:'Urgente — SLA 4h', status:'Pendente', tecnico:'Carlos Silva', contrato:'CT-2026/058',
+    contato:'Diego Ferraz', contatoCargo:'Facilities', contatoTel:'(11) 98122-7739',
+    contatoEmail:'diego.ferraz@shopee.com', contatoIni:'DF',
+    descricao:'Vazamento na coluna de alimentação dos chuveiros do vestiário masculino, com infiltração no forro do corredor de acesso às docas.',
+    acesso:'Fechamento programado do registro geral às 13h com aviso ao turno da tarde.', kind:'hidraulica'}
+};
+
+const CHECKS = {
+  eletrica:[
+    {id:'e1', label:'Quadro geral QGBT-02 inspecionado', obs:'Sem sinais de aquecimento ou oxidação nos barramentos.'},
+    {id:'e2', label:'Disjuntores testados (curva e atuação)', obs:'Disjuntor do circuito de esteiras substituído — atuava em 48A.'},
+    {id:'e3', label:'Aterramento verificado', obs:'Resistência de terra 3,8 Ω — dentro do limite de 10 Ω.'},
+    {id:'e4', label:'Reaperto de conexões com torquímetro', obs:''},
+    {id:'e5', label:'Termografia dos barramentos', obs:'Maior ponto 41,2 °C no barramento de fase B.'},
+    {id:'e6', label:'Sinalização, EPIs e bloqueio conferidos', obs:''}
+  ],
+  moving:[
+    {id:'m1', label:'Mapeamento das posições de origem e destino', obs:''},
+    {id:'m2', label:'Desmontagem e proteção dos módulos', obs:''},
+    {id:'m3', label:'Transporte interno com empilhadeira', obs:''},
+    {id:'m4', label:'Remontagem, nivelamento e aprumo', obs:''},
+    {id:'m5', label:'Fixação com chumbadores e torque conferido', obs:''},
+    {id:'m6', label:'Teste de carga e liberação da área', obs:''}
+  ],
+  hidraulica:[
+    {id:'h1', label:'Identificação do ponto de vazamento', obs:''},
+    {id:'h2', label:'Fechamento do registro e drenagem', obs:''},
+    {id:'h3', label:'Troca da conexão danificada', obs:''},
+    {id:'h4', label:'Teste de pressão da coluna', obs:''},
+    {id:'h5', label:'Limpeza e secagem da área', obs:''}
+  ]
+};
+
+const MAT_OPTS = [
+  {n:'Disjuntor tripolar 63A curva C', cod:'ELE-0631', saldo:4, u:'un'},
+  {n:'Terminal de compressão 16mm²', cod:'ELE-1602', saldo:40, u:'un'},
+  {n:'Fita isolante autofusão 19mm', cod:'ELE-0099', saldo:8, u:'rl'},
+  {n:'Cabo flexível 6mm² preto', cod:'ELE-0605', saldo:120, u:'m'}
+];
+
+const PAINEL = [
+  {num:1042, cliente:'Mercado Livre', unidade:'CD Limeira-SP', tipo:'Manutenção elétrica preventiva', horario:'08:00 — 10:00', tecnico:'Carlos Silva', status:'Em andamento'},
+  {num:1043, cliente:'Magazine Luiza', unidade:'CD Louveira-SP', tipo:'Moving de rack', horario:'07:30 — 12:00', tecnico:'Rafael Souza', status:'Em andamento'},
+  {num:1044, cliente:'Shopee', unidade:'CD Cajamar-SP', tipo:'Reparo hidráulico', horario:'13:00 — 15:00', tecnico:'Carlos Silva', status:'Pendente'},
+  {num:1041, cliente:'Via Varejo', unidade:'CD Jundiaí-SP', tipo:'Serralheria', horario:'06:00 — 07:00', tecnico:'Edson Lima', status:'Concluída'},
+  {num:1040, cliente:'Mercado Livre', unidade:'CD Cajamar-SP', tipo:'Energia fotovoltaica', horario:'07:00 — 09:00', tecnico:'Tiago Nunes', status:'Atrasada'},
+  {num:1038, cliente:'Shopee', unidade:'CD Guarulhos-SP', tipo:'Manutenção civil', horario:'09:00 — 11:30', tecnico:'Edson Lima', status:'Atrasada'},
+  {num:1037, cliente:'Magazine Luiza', unidade:'CD Ribeirão Preto-SP', tipo:'Manutenção elétrica preventiva', horario:'08:30 — 10:00', tecnico:'Rafael Souza', status:'Concluída'}
+];
+
+const BADGE_BASE = 'font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:4px 8px;justify-self:start;';
+const BADGE = {
+  'Pendente': BADGE_BASE + 'background:#F2F2F2;color:#1F1F1F;border:2px solid #8A8A8A',
+  'Em andamento': BADGE_BASE + 'background:#FFF4DC;color:#8A6100;border:2px solid #E8A100',
+  'Atrasada': BADGE_BASE + 'background:#E8A100;color:#1F1F1F;border:2px solid #E8A100',
+  'Concluída': BADGE_BASE + 'background:#E6F4EA;color:#14632b;border:2px solid #1E8E3E'
+};
+const parseStyle = (s) => {
+  const o = {};
+  s.split(';').filter(Boolean).forEach(d => {
+    const i = d.indexOf(':'); if (i < 0) return;
+    const k = d.slice(0, i).trim().replace(/-([a-z])/g, (m, c) => c.toUpperCase());
+    o[k] = d.slice(i + 1).trim();
+  });
+  return o;
+};
+
+class Component extends DCLogic {
+  state = {
+    view: 'app', screen: 'login', osId: 1042,
+    email: 'carlos.silva@fdengenharia.com.br', senha: '••••••••',
+    started: false, secs: 4800,
+    checks: {e1:true, e2:true, e3:true, e5:true, m1:true, m2:true, h1:true},
+    obsOpen: {}, obs: {},
+    antes: [
+      {id:1, hora:'07:54', cap:'Quadro QGBT-02 fechado, painel com poeira', pdfCap:'Quadro QGBT-02 antes da intervenção'},
+      {id:2, hora:'07:58', cap:'Barramento com oxidação no terminal B', pdfCap:'Terminal da fase B com oxidação'}
+    ],
+    depois: [
+      {id:3, hora:'09:02', cap:'Quadro limpo e disjuntor substituído', pdfCap:'Quadro após limpeza e troca do disjuntor'},
+      {id:4, hora:'09:05', cap:'Conexões reapertadas e identificadas', pdfCap:'Conexões reapertadas com torque conferido'}
+    ],
+    materials: [
+      {id:1, n:'Disjuntor tripolar 63A curva C', cod:'ELE-0631', u:'un', q:1},
+      {id:2, n:'Cabo flexível 6mm² preto', cod:'ELE-0605', u:'m', q:12}
+    ],
+    adding: false,
+    sigName: 'Marcos Antunes', sigRole: 'Coordenador de Manutenção · Mercado Livre',
+    signed: true, sent: false,
+    fCliente: 'Todos os clientes', fTipo: 'Todos os serviços'
+  };
+
+  componentDidMount() {
+    this._t = setInterval(() => {
+      if (this.state.started) this.setState(s => ({secs: s.secs + 1}));
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  go = (screen) => this.setState({screen});
+
+  sigRef = (el) => {
+    if (!el || el === this._sig) return;
+    this._sig = el;
+    const ctx = el.getContext('2d');
+    ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#1F1F1F';
+    if (this.state.signed) {
+      ctx.beginPath();
+      ctx.moveTo(40, 250);
+      ctx.bezierCurveTo(120, 120, 170, 300, 240, 180);
+      ctx.bezierCurveTo(300, 80, 340, 300, 420, 200);
+      ctx.bezierCurveTo(480, 120, 520, 280, 590, 210);
+      ctx.stroke();
+    }
+    let drawing = false;
+    const pos = (e) => {
+      const r = el.getBoundingClientRect();
+      return [(e.clientX - r.left) * (el.width / r.width), (e.clientY - r.top) * (el.height / r.height)];
+    };
+    el.addEventListener('pointerdown', (e) => {
+      drawing = true; el.setPointerCapture(e.pointerId);
+      const [x, y] = pos(e); ctx.beginPath(); ctx.moveTo(x, y);
+      if (!this.state.signed) this.setState({signed: true});
+    });
+    el.addEventListener('pointermove', (e) => {
+      if (!drawing) return;
+      const [x, y] = pos(e); ctx.lineTo(x, y); ctx.stroke();
+    });
+    el.addEventListener('pointerup', () => { drawing = false; });
+    el.addEventListener('pointerleave', () => { drawing = false; });
+  };
+
+  clearSig = () => {
+    if (this._sig) {
+      const c = this._sig;
+      c.getContext('2d').clearRect(0, 0, c.width, c.height);
+    }
+    this.setState({signed: false});
+  };
+
+  renderVals() {
+    const s = this.state;
+    const os = OSS[s.osId];
+    const items = CHECKS[os.kind];
+
+    const checklist = items.map(it => {
+      const done = !!s.checks[it.id];
+      const obs = s.obs[it.id] !== undefined ? s.obs[it.id] : it.obs;
+      const open = !!s.obsOpen[it.id];
+      return {
+        id: it.id, label: it.label, done, pending: !done, obs,
+        hasObs: !!obs && !open, obsOpen: open,
+        obsLabel: open ? 'Fechar observação' : (obs ? 'Editar observação' : '+ Observação'),
+        toggle: () => this.setState(st => ({checks: {...st.checks, [it.id]: !st.checks[it.id]}})),
+        toggleObs: () => this.setState(st => ({obsOpen: {...st.obsOpen, [it.id]: !st.obsOpen[it.id]}})),
+        setObs: (e) => this.setState(st => ({obs: {...st.obs, [it.id]: e.target.value}}))
+      };
+    });
+    const checkDone = checklist.filter(c => c.done).length;
+
+    const photo = (arr, key) => arr.map(p => ({
+      ...p,
+      setCap: (e) => this.setState(st => ({[key]: st[key].map(x => x.id === p.id ? {...x, cap: e.target.value, pdfCap: e.target.value} : x)}))
+    }));
+
+    const materials = s.materials.map(m => ({
+      ...m,
+      inc: () => this.setState(st => ({materials: st.materials.map(x => x.id === m.id ? {...x, q: x.q + 1} : x)})),
+      dec: () => this.setState(st => ({materials: st.materials.map(x => x.id === m.id ? {...x, q: Math.max(0, x.q - 1)} : x).filter(x => x.q > 0)}))
+    }));
+
+    const rows = PAINEL.filter(r =>
+      (s.fCliente === 'Todos os clientes' || r.cliente === s.fCliente) &&
+      (s.fTipo === 'Todos os serviços' || r.tipo === s.fTipo)
+    ).map(r => ({...r, badgeStyle: parseStyle(BADGE[r.status])}));
+
+    const fLabel = s.fCliente === 'Todos os clientes' && s.fTipo === 'Todos os serviços'
+      ? 'Hoje' : [s.fCliente, s.fTipo].filter(x => !x.startsWith('Todos')).join(' · ');
+
+    const mm = String(Math.floor(s.secs / 3600)).padStart(2, '0');
+    const ss = String(Math.floor((s.secs % 3600) / 60)).padStart(2, '0');
+
+    return {
+      view: s.view,
+      isApp: s.view === 'app', isGestor: s.view === 'gestor', isPdf: s.view === 'pdf',
+      viewLabel: s.view === 'app' ? 'Protótipo mobile · 390 × 812' : s.view === 'gestor' ? 'Web · gestor FD' : 'Modelo de relatório',
+      showApp: () => this.setState({view: 'app'}),
+      showGestor: () => this.setState({view: 'gestor'}),
+      showPdf: () => this.setState({view: 'pdf'}),
+      backToApp: () => this.setState({view: 'app'}),
+
+      scLogin: s.screen === 'login', scHome: s.screen === 'home', scDetail: s.screen === 'detail',
+      scCheck: s.screen === 'check', scPhotos: s.screen === 'photos', scMat: s.screen === 'mat',
+      scSign: s.screen === 'sign', scDone: s.screen === 'done',
+      toHome: () => this.go('home'), toDetail: () => this.go('detail'), toCheck: () => this.go('check'),
+      toPhotos: () => this.go('photos'), toMat: () => this.go('mat'), toSign: () => this.go('sign'),
+      toDone: () => this.go('done'),
+      startAtend: () => this.setState({screen: 'check', started: true}),
+
+      email: s.email, senha: s.senha,
+      setEmail: (e) => this.setState({email: e.target.value}),
+      setSenha: (e) => this.setState({senha: e.target.value}),
+
+      os,
+      cards: [1042, 1043, 1044].map(id => ({
+        ...OSS[id],
+        badgeStyle: parseStyle(BADGE[OSS[id].status]),
+        open: () => this.setState({osId: id, screen: 'detail', started: false, secs: 4800})
+      })),
+
+      checklist, checkDone, checkTotal: items.length,
+      pdfChecklist: checklist.filter(c => c.done).map(c => ({
+        label: c.label, obs: c.obs, hasObs: !!c.obs, tag: 'Conforme',
+        markStyle: parseStyle('background:#1E8E3E;display:flex;align-items:center;justify-content:center;width:20px;height:20px;flex:none;margin-top:1px')
+      })),
+
+      antes: photo(s.antes, 'antes'), depois: photo(s.depois, 'depois'),
+      nAntes: s.antes.length, nDepois: s.depois.length, nFotos: s.antes.length + s.depois.length,
+      addAntes: () => this.setState(st => ({antes: [...st.antes, {id: Date.now(), hora: '08:1' + st.antes.length, cap: '', pdfCap: 'Registro adicional (antes)'}]})),
+      addDepois: () => this.setState(st => ({depois: [...st.depois, {id: Date.now(), hora: '09:0' + (st.depois.length + 5), cap: '', pdfCap: 'Registro adicional (depois)'}]})),
+
+      materials, nMateriais: s.materials.length, adding: s.adding,
+      toggleAdd: () => this.setState(st => ({adding: !st.adding})),
+      matOptions: MAT_OPTS.map(o => ({
+        ...o,
+        add: () => this.setState(st => ({
+          adding: false,
+          materials: st.materials.some(x => x.cod === o.cod)
+            ? st.materials.map(x => x.cod === o.cod ? {...x, q: x.q + 1} : x)
+            : [...st.materials, {id: Date.now(), n: o.n, cod: o.cod, u: o.u, q: 1}]
+        }))
+      })),
+
+      sigName: s.sigName, sigRole: s.sigRole, signed: s.signed, unsigned: !s.signed, notSigned: !s.signed,
+      setSigName: (e) => this.setState({sigName: e.target.value}),
+      setSigRole: (e) => this.setState({sigRole: e.target.value}),
+      sigRef: this.sigRef, clearSig: this.clearSig,
+
+      sent: s.sent, sendLabel: s.sent ? 'Reenviar ao cliente' : 'Enviar ao cliente',
+      send: () => this.setState({sent: true}),
+      elapsed: mm + ':' + ss,
+
+      rows, nRows: rows.length, fLabel,
+      fCliente: s.fCliente, fTipo: s.fTipo,
+      setFCliente: (e) => this.setState({fCliente: e.target.value}),
+      setFTipo: (e) => this.setState({fTipo: e.target.value}),
+      clientes: ['Todos os clientes', 'Mercado Livre', 'Magazine Luiza', 'Shopee', 'Via Varejo'],
+      tipos: ['Todos os serviços', 'Manutenção elétrica preventiva', 'Reparo hidráulico', 'Manutenção civil', 'Serralheria', 'Moving de rack', 'Energia fotovoltaica'],
+      tecnicos: [
+        {ini:'CS', nome:'Carlos Silva', onde:'CD Limeira-SP · em atendimento', dotStyle: parseStyle('background:#1E8E3E;width:10px;height:10px;flex:none')},
+        {ini:'RS', nome:'Rafael Souza', onde:'CD Louveira-SP · em atendimento', dotStyle: parseStyle('background:#1E8E3E;width:10px;height:10px;flex:none')},
+        {ini:'TN', nome:'Tiago Nunes', onde:'CD Cajamar-SP · SLA vencido', dotStyle: parseStyle('background:#E8A100;width:10px;height:10px;flex:none')},
+        {ini:'EL', nome:'Edson Lima', onde:'Deslocamento para Guarulhos-SP', dotStyle: parseStyle('background:#8A8A8A;width:10px;height:10px;flex:none')}
+      ],
+      preventivas: [
+        {cliente:'Mercado Livre', unidade:'CD Limeira-SP', tipo:'Elétrica — QGBT trimestral', dia:'SEG 15'},
+        {cliente:'Shopee', unidade:'CD Cajamar-SP', tipo:'Fotovoltaica — limpeza de módulos', dia:'TER 16'},
+        {cliente:'Magazine Luiza', unidade:'CD Louveira-SP', tipo:'Civil — inspeção de docas', dia:'QUA 17'},
+        {cliente:'Via Varejo', unidade:'CD Jundiaí-SP', tipo:'Hidráulica — caixas e bombas', dia:'SEX 19'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
