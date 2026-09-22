@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Painel interno | Samps Projetos</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+    <meta name="theme-color" content="#08080A" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!--
+      Página privada. Fora do sitemap, bloqueada no robots.txt e com CSP
+      própria no vercel.json. O acesso é autenticado no servidor (Supabase
+      Auth) e os dados são filtrados por Row Level Security no Postgres.
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/entries/admin.jsx"></script>
+  </body>
+</html>

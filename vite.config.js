@@ -2,8 +2,9 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Site multipágina: a home e a página do aplicativo B2B são entradas
-// independentes, cada uma com o seu próprio HTML e metadados de SEO.
+// Site multipágina: cada entrada tem o seu próprio HTML e bundle. O painel
+// interno é uma entrada separada de propósito — assim o código dele (e o
+// cliente do Supabase) não entra no bundle das páginas públicas.
 export default defineConfig({
   plugins: [react()],
   build: {
@@ -11,6 +12,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         appB2B: resolve(__dirname, "aplicativo-b2b/index.html"),
+        admin: resolve(__dirname, "admin/index.html"),
       },
     },
   },

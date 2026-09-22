@@ -31,7 +31,7 @@
       ]
     },
     {
-      "source": "/((?!prototipos/).*)",
+      "source": "/((?!prototipos/|admin/?$|admin/).*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
@@ -49,6 +49,23 @@
         {
           "key": "X-Robots-Tag",
           "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/admin/:path*",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://stbprwobloelftaglntp.supabase.co wss://stbprwobloelftaglntp.supabase.co; form-action 'none'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
         }
       ]
     }

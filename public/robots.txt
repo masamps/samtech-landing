@@ -4,4 +4,7 @@ Allow: /
 # Protótipos de clientes: páginas privadas, acessíveis só por link direto.
 Disallow: /prototipos/
 
+# Painel interno.
+Disallow: /admin/
+
 Sitemap: https://www.sampsprojetos.com.br/sitemap.xml
