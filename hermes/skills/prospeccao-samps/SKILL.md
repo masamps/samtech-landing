@@ -3,7 +3,6 @@ name: prospeccao-samps
 description: Encontra e qualifica leads B2B para a Samps Projetos (Sorocaba-SP), cadastra no CRM como "Não contatado" com rascunho da primeira mensagem, e lista follow-ups vencidos. Nunca contata ninguém.
 version: 1.0.0
 author: Matheus Sampaio
-platforms: [linux, macos]
 metadata:
   hermes:
     tags: [Vendas, Prospecção, CRM, B2B]
@@ -73,8 +72,22 @@ pode ser do estado de SP inteiro.
 
 ## Ferramenta do CRM
 
-Script em `scripts/crm.py` (Python, sem dependências). Rode pelo terminal a
-partir da pasta desta skill:
+Script em `scripts/crm.py` (Python 3.9+, sem dependências). Rode pelo
+terminal a partir da pasta desta skill.
+
+**Python:** na primeira vez, descubra qual comando funciona e use sempre ele:
+`python3 --version`, senão `python --version`, senão `py -3 --version`
+(Windows). Se nenhum funcionar, pare e avise o Matheus para instalar o Python.
+Os exemplos abaixo usam `python3`; troque pelo que funcionou.
+
+Para mandar o lead, use heredoc no terminal (funciona no Git Bash do Windows):
+
+```bash
+python3 scripts/crm.py inserir <<'JSON'
+{"empresa": "...", "trilha": "B"}
+JSON
+```
+
 
 | Comando | O que faz |
 |---|---|

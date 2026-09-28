@@ -14,9 +14,10 @@ Uso:
   crm.py inserir < lead.json    cadastra um lead (JSON no stdin)
   crm.py followups              follow-ups vencidos até hoje
 
-Variáveis de ambiente (em ~/.hermes/.env):
+Variáveis (no .env do Hermes: ~/.hermes/.env ou %LOCALAPPDATA%\\hermes\\.env):
   SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY,
   CRM_AGENTE_EMAIL, CRM_AGENTE_SENHA, CRM_DONO_ID
+Se não vierem do ambiente, o script lê direto desse .env.
 """
 
 import datetime
@@ -65,10 +66,44 @@ def falhar(msg, codigo=1):
     sys.exit(codigo)
 
 
+def _arquivos_env():
+    if os.environ.get("HERMES_HOME"):
+        yield os.path.join(os.environ["HERMES_HOME"], ".env")
+    if os.environ.get("LOCALAPPDATA"):
+        yield os.path.join(os.environ["LOCALAPPDATA"], "hermes", ".env")
+    yield os.path.join(os.path.expanduser("~"), ".hermes", ".env")
+
+
+def _ler_env_hermes():
+    # Fallback para rodar o script à mão, fora do Hermes.
+    valores = {}
+    for caminho in _arquivos_env():
+        if not os.path.isfile(caminho):
+            continue
+        with open(caminho, encoding="utf-8-sig") as arquivo:
+            for linha in arquivo:
+                linha = linha.strip()
+                if not linha or linha.startswith("#") or "=" not in linha:
+                    continue
+                chave, valor = linha.split("=", 1)
+                chave = chave.strip().removeprefix("export ").strip()
+                valores.setdefault(chave, valor.strip().strip('"').strip("'"))
+        break
+    return valores
+
+
+_ENV_ARQUIVO = None
+
+
 def env(nome):
+    global _ENV_ARQUIVO
     valor = os.environ.get(nome, "").strip()
     if not valor:
-        falhar(f"variável {nome} não definida em ~/.hermes/.env")
+        if _ENV_ARQUIVO is None:
+            _ENV_ARQUIVO = _ler_env_hermes()
+        valor = _ENV_ARQUIVO.get(nome, "").strip()
+    if not valor:
+        falhar(f"variável {nome} não definida no .env do Hermes")
     return valor
 
 
@@ -206,6 +241,10 @@ class Crm:
 
 
 def main():
+    # Console do Windows usa cp1252 por padrão; acentos não podem derrubar o script.
+    for fluxo in (sys.stdout, sys.stderr):
+        if hasattr(fluxo, "reconfigure"):
+            fluxo.reconfigure(encoding="utf-8", errors="replace")
     if len(sys.argv) < 2:
         falhar("comando faltando: resumo | listar | existe | inserir | followups")
     comando = sys.argv[1]

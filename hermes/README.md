@@ -26,6 +26,8 @@ Você ──revisa no /admin──> envia pelo seu WhatsApp ──> muda status
 
 ## Passo a passo
 
+> **Windows / Hermes Desktop:** siga [WINDOWS.md](WINDOWS.md).
+
 ### 1. Onde rodar
 
 O Hermes precisa de uma máquina ligada para o cron rodar. Escolha uma:
@@ -130,7 +132,7 @@ inteiro, inclusive o outro aplicativo.
 ### 7. Instalar a skill
 
 ```bash
-git clone https://github.com/masamps/samtech-landing.git ~/samtech-landing
+git clone -b claude/wizardly-babbage-qwh3o4 https://github.com/masamps/samtech-landing.git ~/samtech-landing
 mkdir -p ~/.hermes/skills
 cp -r ~/samtech-landing/hermes/skills/prospeccao-samps ~/.hermes/skills/
 ```
