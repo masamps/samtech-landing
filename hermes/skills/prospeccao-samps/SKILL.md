@@ -96,6 +96,8 @@ JSON
 | `python3 scripts/crm.py existe "Nome"` | Checa duplicata |
 | `python3 scripts/crm.py inserir < lead.json` | Cadastra um lead |
 | `python3 scripts/crm.py followups` | Follow-ups vencidos até hoje |
+| `python3 scripts/crm.py pendentes 10` | Leads ainda não contatados |
+| `python3 scripts/crm.py whatsapp "<nº>" <<'MSG' … MSG` | Link wa.me com a mensagem |
 
 O banco só permite ao agente **ler e inserir como "Não contatado"**. Não tente
 atualizar, apagar ou mudar status — vai falhar, e é de propósito. Código de
@@ -139,8 +141,9 @@ A ou B. Não mande `status`, datas nem `vale_prototipo` — o script cuida.
 5. Aplique a qualificação. Reprovou → descarte sem cadastrar e anote o motivo
    no relatório.
 6. `existe` → se não existe, monte o JSON e `inserir`.
-7. Escreva o rascunho seguindo `references/mensagens.md`. O rascunho vai em
-   `observacoes`, depois de `RASCUNHO:`.
+7. Escreva a mensagem final seguindo `references/mensagens.md` (sem
+   placeholder). Ela vai em `observacoes`, depois de `RASCUNHO:`, e também na
+   ficha do relatório.
 8. Termine com o relatório (formato abaixo).
 
 ## Qualificação
@@ -182,21 +185,64 @@ Descarte:
 
 ## Relatório (resposta final)
 
-Curto, em português, para ler no celular:
+O relatório é a **ficha de envio do dia**: o Matheus lê no celular, toca no
+link e manda. Ele não deve precisar abrir o /admin nem editar nada.
+
+Antes de escrever:
+
+1. `python3 scripts/crm.py pendentes 10` — leads "Não contatado", incluindo os
+   de rodadas anteriores. Entram na ficha os novos de hoje **e** os antigos
+   ainda não enviados, até **5 no total** (os mais antigos primeiro).
+2. Para cada um, escreva a mensagem **final** (regras em
+   `references/mensagens.md`): sem `{placeholder}`, com o nome real ou sem
+   nome, com um fato específico da empresa. Rascunhos antigos no CRM podem
+   ter `{saudacao}` — reescreva, não copie.
+3. Se o canal for WhatsApp, gere o link:
+
+   ```bash
+   python3 scripts/crm.py whatsapp "(11) 99999-9999" <<'MSG'
+   <mensagem final>
+   MSG
+   ```
+
+   Use o `link` devolvido **sem alterar nada**. Se vier `aviso` ou erro, não
+   ponha link: diga "confirmar WhatsApp" e dê o e-mail como alternativa.
+4. Para os follow-ups vencidos (`followups`), faça o mesmo: mensagem final +
+   link.
+
+Formato (texto simples, sem tabela — tabela quebra no Telegram):
 
 ```
-Prospecção — <data>
-Novos no CRM: <n> (A: <n> · B: <n>)
-• <Empresa> — <cidade> — <segmento> — <1 sinal de porte>
-...
-Descartados: <n> (<motivo principal>)
-Follow-ups vencidos: <n>
-• <Empresa> — <rascunho do follow-up>
-Funil: <total> na lista · <contatados> contatados
-Próximo: revisar rascunhos no /admin e enviar.
+PROSPECÇÃO — <dia/mês>
+<n> para enviar hoje · <n> follow-ups · funil: <total> na lista, <contatados> contatados
+
+━━ 1/<n> · <Empresa> (Trilha <A|B>) ━━
+Quem: <nome> — <cargo> (ou "sem nome: falar com o comercial")
+Por quê: <1 linha com o fato que torna o lead bom>
+Fonte: <url>
+Canal: WhatsApp <número>
+Mensagem:
+<mensagem final exatamente como deve ser enviada>
+Enviar: <link wa.me>
+
+━━ 2/<n> · <Empresa> ━━
+Canal: E-mail <endereço>
+Assunto: <assunto curto, até 6 palavras, sem vender>
+Mensagem:
+<mensagem final>
+
+━━ FOLLOW-UP · <Empresa> (1º contato em <data>) ━━
+Mensagem:
+<mensagem>
+Enviar: <link>
+
+Depois de enviar, no /admin: status "Contatado", data de hoje,
+follow-up daqui a 6 dias.
+Descartados hoje: <n> (<motivo principal>)
 ```
 
-Sem rascunhos de primeira mensagem no relatório — eles estão no /admin.
+Uma mensagem por lead, pronta. Nada de "revise o rascunho" — se você não tem
+certeza de algo (nome, canal), diga exatamente o que conferir naquele lead.
 
 ## Armadilhas
 

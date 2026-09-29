@@ -15,37 +15,48 @@ mandar sem editar.
   apresentar", "tem interesse", "podemos marcar uma call".
 - Sem preço, sem link, sem anexo, sem protótipo.
 - Até ~350 caracteres. WhatsApp: tom direto, sem formalidade de e-mail.
-- Use `{saudacao}` (Bom dia/Boa tarde) — o Matheus escolhe na hora de enviar.
-- Se tiver o nome do contato, use. Se não, comece por "{saudacao}!".
+- **Mensagem final, sem placeholder.** Nada de `{saudacao}`, `{nome}`,
+  `{empresa}` no texto entregue: o Matheus envia do jeito que está.
+- Abra com "Oi, <nome>!" (serve para qualquer hora do dia). Sem nome
+  confiável, só "Oi! Aqui é o Matheus…" — nunca "tudo bem?".
+- **O fato concreto tem que ser específico.** "Vi a X vendendo no Mercado
+  Livre" é genérico demais. Use o que só vale para ela: as marcas que revende,
+  o tipo de cliente que atende, o documento que emite, a cidade, o volume.
+  Ex.: "Vi que a Enjoy Pets revende Royal Canin e outras marcas no Mercado
+  Livre".
+- E-mail: mesma mensagem, mais um assunto curto e neutro (ex.: "Conferência
+  de notas na Enjoy Pets"), e assinatura "Matheus Sampaio — Samps Projetos —
+  (15) 98177-7690".
 
 ## Primeira mensagem — modelos
 
-Adapte ao fato concreto da empresa. Não copie literal se não encaixar.
+Os `{campos}` abaixo são só do modelo — na mensagem entregue, todos
+substituídos. Troque o fato genérico por um específico da empresa.
 
 **PMOC / ar-condicionado**
-> {saudacao}, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
+> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
 > {empresa} faz PMOC para empresas — hoje o relatório de cada visita sai pronto
 > do celular do técnico ou alguém monta depois no escritório?
 
 **Controle de pragas**
-> {saudacao}, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
+> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
 > {empresa} entrega laudo técnico depois de cada aplicação — hoje esse laudo sai
 > pronto na hora ou alguém monta depois no escritório?
 
 **Elevadores**
-> {saudacao}, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
+> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
 > {empresa} faz manutenção de elevadores em condomínios — o relatório de cada
 > visita hoje é feito no papel ou já sai do celular do técnico?
 
 **Solar (O&M) / manutenção industrial**
-> {saudacao}, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
+> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
 > {empresa} faz preventiva em {usinas|indústrias} da região — hoje o relatório
 > com as fotos de cada visita sai pronto do celular ou alguém monta depois?
 
 **Trilha A — seller de marketplace**
-> {saudacao}, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi a
-> {empresa} vendendo no {marketplace} — hoje alguém confere pedido por pedido
-> contra a nota fiscal, ou a divergência só aparece depois?
+> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
+> {empresa} revende {marcas} no {marketplace} — hoje alguém confere pedido por
+> pedido contra a nota fiscal, ou a divergência só aparece depois?
 
 ## Follow-up (só um, 5 a 7 dias depois)
 

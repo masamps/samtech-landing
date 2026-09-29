@@ -13,6 +13,9 @@ Uso:
   crm.py existe "Nome Ltda"     diz se a empresa já está no CRM
   crm.py inserir < lead.json    cadastra um lead (JSON no stdin)
   crm.py followups              follow-ups vencidos até hoje
+  crm.py pendentes [n]          leads "Não contatado" mais antigos (padrão 10)
+  crm.py whatsapp "<número>" < msg.txt
+                                link wa.me com a mensagem já preenchida
 
 Variáveis (no .env do Hermes: ~/.hermes/.env ou %LOCALAPPDATA%\\hermes\\.env):
   SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY,
@@ -224,6 +227,16 @@ class Crm:
         ])
         return self._rest("GET", consulta) or []
 
+    def pendentes(self, limite=10):
+        consulta = "?" + urllib.parse.urlencode([
+            ("select", "empresa,trilha,cidade,contato,cargo,canal,fonte,proxima_acao,observacoes,created_at"),
+            ("user_id", f"eq.{self.dono}"),
+            ("status", "eq.Não contatado"),
+            ("order", "created_at.asc"),
+            ("limit", str(limite)),
+        ])
+        return self._rest("GET", consulta) or []
+
     def resumo(self):
         linhas = self.todos("status,trilha,data_primeiro_contato")
         por_status = {s: 0 for s in STATUS}
@@ -240,14 +253,39 @@ class Crm:
         }
 
 
+def link_whatsapp(numero, texto):
+    """Monta o link wa.me. Não precisa de login: é só texto."""
+    digitos = re.sub(r"\D", "", numero or "")
+    if digitos.startswith("55") and len(digitos) in (12, 13):
+        digitos = digitos[2:]
+    if digitos.startswith("0"):
+        falhar(f"{numero!r} é 0800/0300 — não existe WhatsApp nesse número")
+    if len(digitos) not in (10, 11):
+        falhar(f"número inválido: {numero!r} (use DDD + número)")
+    celular = len(digitos) == 11 and digitos[2] == "9"
+    return {
+        "link": f"https://wa.me/55{digitos}?text={urllib.parse.quote(texto.strip())}",
+        "celular": celular,
+        "aviso": None if celular else "não parece celular — confirme se tem WhatsApp",
+    }
+
+
 def main():
     # Console do Windows usa cp1252 por padrão; acentos não podem derrubar o script.
     for fluxo in (sys.stdout, sys.stderr):
         if hasattr(fluxo, "reconfigure"):
             fluxo.reconfigure(encoding="utf-8", errors="replace")
     if len(sys.argv) < 2:
-        falhar("comando faltando: resumo | listar | existe | inserir | followups")
+        falhar("comando faltando: resumo | listar | existe | inserir | followups | pendentes | whatsapp")
     comando = sys.argv[1]
+    if comando == "whatsapp":
+        if len(sys.argv) < 3:
+            falhar('uso: crm.py whatsapp "(15) 99999-9999" < mensagem.txt')
+        texto = sys.stdin.read()
+        if not texto.strip():
+            falhar("mande a mensagem no stdin")
+        print(json.dumps(link_whatsapp(sys.argv[2], texto), ensure_ascii=False))
+        return
     crm = Crm()
     if comando == "resumo":
         print(json.dumps(crm.resumo(), ensure_ascii=False, indent=2))
@@ -267,6 +305,9 @@ def main():
         if not isinstance(lead, dict):
             falhar("mande um objeto JSON, um lead por vez")
         crm.inserir(lead)
+    elif comando == "pendentes":
+        limite = int(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2].isdigit() else 10
+        print(json.dumps(crm.pendentes(min(limite, 30)), ensure_ascii=False, indent=2))
     elif comando == "followups":
         print(json.dumps(crm.followups(), ensure_ascii=False, indent=2))
     else:
