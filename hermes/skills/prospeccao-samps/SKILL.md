@@ -150,17 +150,25 @@ Cadastre só se passar em **todos**:
 - Atua na região (B) ou vende em marketplace com CNPJ (A).
 - Empresa ativa: site, rede ou avaliação com sinal de vida nos últimos 12 meses.
 - Tem canal comercial público para o Matheus mandar a mensagem.
+  `canal` = "WhatsApp" **só** com link `wa.me`/`api.whatsapp.com` no site ou
+  Instagram, ou celular (DDD + 9 dígitos começando com 9). 0800 e fixo
+  (DDD + 8 dígitos) são "Telefone". Na dúvida, prefira "E-mail" se houver
+  e-mail comercial.
 - Tem pelo menos **um** sinal de porte:
   - B: 3+ técnicos ou equipes, frota, atende indústria/condomínio/rede,
     contrato de manutenção recorrente, "PMOC"/"laudo"/"relatório" citado no site,
     atende várias cidades, 5+ anos.
-  - A: loja oficial ou MercadoLíder, centenas+ de vendas, catálogo grande,
+  - A: o marketplace é canal relevante da empresa (não só vitrine de loja
+    física ou distribuidora B2B), e: loja oficial ou MercadoLíder, centenas+ de vendas, catálogo grande,
     marca própria ou revenda com vários fornecedores.
 
 Descarte:
 
 - Autônomo de uma pessoa só ou só instalação residencial avulsa.
 - Franquia/rede nacional (decisão fica na matriz).
+- Rede com várias lojas/CDs e ERP próprio provável (capital alto, várias
+  filiais): só cadastre se achar quem decide o e-commerce; o CNPJ de filial
+  não é quem decide. Anote a cidade da matriz.
 - Já usa sistema de campo visível (Auvo, Field Control, Produttivo, Nomus,
   Fieldy) — anote no relatório, não cadastre.
 - Empresa com CNPJ baixado/inapto.
@@ -194,6 +202,9 @@ Sem rascunhos de primeira mensagem no relatório — eles estão no /admin.
 
 - **Duplicata com nome diferente** ("Clima Azul" x "Clima Azul Ar
   Condicionado Ltda"). Sempre `existe` antes de inserir; o script também checa.
+- **Contato do QSA não é quem decide.** Sócio da Receita pode estar longe da
+  operação. Se usar, preencha `cargo` com a qualificação do QSA (ex.:
+  "Sócio-Administrador (QSA)"); nunca deixe `cargo` vazio tendo a informação.
 - **Telefone de outra empresa** em diretórios (guias, listas). Use o número do
   site ou do Instagram oficial; se só achou em diretório, diga isso nas
   observações.
