@@ -161,14 +161,23 @@ Cadastre só se passar em **todos**:
   - B: 3+ técnicos ou equipes, frota, atende indústria/condomínio/rede,
     contrato de manutenção recorrente, "PMOC"/"laudo"/"relatório" citado no site,
     atende várias cidades, 5+ anos.
-  - A: o marketplace é canal relevante da empresa (não só vitrine de loja
-    física ou distribuidora B2B), e: loja oficial ou MercadoLíder, centenas+ de vendas, catálogo grande,
-    marca própria ou revenda com vários fornecedores.
+  - A: **seller médio-pequeno** (faixa-alvo em `references/perfil-cliente.md`):
+    o marketplace é canal principal; revende várias marcas/fornecedores;
+    MercadoLíder ou centenas+ de vendas; CNPJ ME ou EPP; uma operação só.
+    Grande demais é descarte, não "bom sinal".
 
 Descarte:
 
 - Autônomo de uma pessoa só ou só instalação residencial avulsa.
 - Franquia/rede nacional (decisão fica na matriz).
+- **Trilha A grande demais** (qualquer um): porte "DEMAIS" na Receita ou
+  capital social acima de R$ 1 milhão; investimento de fundo/VC; várias lojas
+  físicas ou CDs; e-commerce próprio em plataforma robusta (Nuvemshop, VTEX,
+  Tray, Shopify) com catálogo grande e marca forte; ERP citado (Bling, Tiny,
+  Omie, TOTVS, Sankhya) com integração de compras; mais de 30 funcionários no
+  LinkedIn. Esses já têm conferência ou estrutura para isso.
+- **Trilha A pequena demais:** menos de ~100 vendas no perfil, catálogo com
+  poucos anúncios, MEI.
 - Rede com várias lojas/CDs e ERP próprio provável (capital alto, várias
   filiais): só cadastre se achar quem decide o e-commerce; o CNPJ de filial
   não é quem decide. Anote a cidade da matriz.

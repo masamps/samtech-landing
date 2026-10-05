@@ -10,20 +10,35 @@ custos. Roda hoje para um seller do Mercado Livre.
 confere pedido por pedido à mão perde tempo e deixa passar erro que vira
 prejuízo ou problema fiscal.
 
-**Quem é:**
-- Seller com CNPJ no Mercado Livre, Shopee, Amazon ou Magalu.
-- Volume médio: dezenas a centenas de pedidos por dia, várias notas por dia.
-- Compra de vários fornecedores (revenda) ou tem operação com mais de uma pessoa
-  no financeiro/estoque.
-- Não é gigante (varejista grande já tem ERP com conferência).
+**Quem é — faixa-alvo: seller médio-pequeno.** Grande já resolveu com ERP
+e equipe; pequeno demais não sente a dor. O alvo é o meio:
 
-**Sinais de porte:** MercadoLíder (Gold/Platinum), loja oficial, milhares de
-vendas no perfil, catálogo com centenas de anúncios, marca própria com site,
-vaga aberta de "assistente de e-commerce" ou "faturamento".
+- CNPJ **ME ou EPP**, capital social até ~R$ 1 milhão, aberto há 2+ anos.
+- **3 a 30 pessoas** (o dono ainda olha o financeiro ou está perto de quem olha).
+- **Marketplace é o canal principal** — não é loja física com vitrine online.
+- **Revende várias marcas** compradas de vários fornecedores (é aí que nasce a
+  divergência pedido × nota). Marca própria com 1–2 fornecedores encaixa mal.
+- Volume: dezenas de pedidos por dia, várias notas de fornecedor por semana.
+- Uma operação só: um endereço, sem rede de lojas nem CDs.
+
+**Bons sinais:** MercadoLíder ou MercadoLíder Gold (Platinum já é grande),
+milhares de vendas no perfil, catálogo com centenas de anúncios de **várias
+marcas**, WhatsApp atendido pelo dono ou sócio, vaga para "auxiliar de
+e-commerce/estoque".
+
+**Sinais de grande demais (descarte):** porte "DEMAIS" na Receita, capital
+acima de R$ 1 milhão, investimento de fundo/VC, várias lojas ou CDs, loja
+oficial de marca conhecida, e-commerce próprio robusto (Nuvemshop, VTEX,
+Tray, Shopify) com marca forte, ERP de compras citado (Bling, Tiny, Omie,
+TOTVS, Sankhya), 30+ funcionários no LinkedIn.
+
+**Sinais de pequeno demais (descarte):** MEI, menos de ~100 vendas, poucos
+anúncios, vende só um tipo de produto de um fornecedor.
 
 **Consultas úteis:**
-- `"loja oficial" mercado livre <segmento> Sorocaba`
-- `site:mercadolivre.com.br/pagina <segmento>` e depois o nome da loja no Google
+- `mercadolíder <segmento> Sorocaba` / `vendedor mercado livre <segmento> Sorocaba`
+- `site:mercadolivre.com.br/perfil <segmento>` e depois o nome da loja no Google
+- Evite partir de "loja oficial": costuma ser marca grande.
 - `e-commerce <segmento> Sorocaba CNPJ` / `distribuidora <segmento> vende no mercado livre`
 - `vaga "assistente de e-commerce" Sorocaba` (quem contrata tem volume)
 - Instagram: `<segmento> "compre no mercado livre" Sorocaba`
