@@ -40,7 +40,7 @@ STATUS = [
     "Proposta enviada", "Fechado", "Descartado",
 ]
 CANAIS = ["WhatsApp", "E-mail", "Instagram", "LinkedIn", "Telefone"]
-TRILHAS = ["A", "B"]
+TRILHAS = ["A", "B", "C"]
 AVALIACOES = ["Sim", "Não", "Avaliar"]
 
 # Mesmos limites do formulário do /admin (src/components/admin/FormProspect.jsx).

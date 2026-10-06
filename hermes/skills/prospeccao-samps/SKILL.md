@@ -1,6 +1,6 @@
 ---
 name: prospeccao-samps
-description: Encontra e qualifica leads B2B para a Samps Projetos (Sorocaba-SP), cadastra no CRM como "Não contatado" com rascunho da primeira mensagem, e lista follow-ups vencidos. Nunca contata ninguém.
+description: Encontra e qualifica leads B2B para a Samps Projetos (Sorocaba-SP) — contadores que atendem sellers (Trilha C) e sellers médio-pequenos de marketplace (Trilha A) —, cadastra no CRM como "Não contatado" com a mensagem pronta, e lista follow-ups vencidos. Nunca contata ninguém.
 version: 1.0.0
 author: Matheus Sampaio
 metadata:
@@ -58,13 +58,15 @@ com o prospect é o Matheus, sempre.**
 
 Leia `references/perfil-cliente.md` antes de buscar. Resumo:
 
-- **Trilha A — produto pronto (prioridade).** Sellers de marketplace
-  (Mercado Livre, Shopee, Amazon) com CNPJ e volume, que conferem pedido de
-  compra contra nota fiscal à mão. O sistema já existe.
-- **Trilha B — serviço em campo.** Empresas cujo técnico emite relatório a
-  cada visita, de preferência obrigatório por norma: PMOC (ar-condicionado),
-  laudo de controle de pragas, relatório de inspeção de elevadores, e também
-  preventiva de solar e manutenção industrial/predial.
+- **Trilha C — contadores de e-commerce (prioridade 1).** Escritórios de
+  contabilidade que atendem sellers de marketplace. Não são o cliente final:
+  são o canal. Um contador fala com dezenas de sellers e vê a divergência
+  entre nota e pedido todo mês. Um "sim" de contador vale por 10 sellers.
+- **Trilha A — seller médio-pequeno (prioridade 2).** Sellers de marketplace
+  que revendem várias marcas e conferem pedido de compra contra nota fiscal à
+  mão. O sistema já existe.
+- **Trilha B — serviço em campo: PAUSADA.** Não busque leads novos da B.
+  Os que já estão no CRM continuam (follow-ups normais).
 
 Região: Sorocaba e até ~100 km (Votorantim, Itu, Salto, Tatuí, Boituva,
 Itapetininga, Porto Feliz, Mairinque, São Roque, Indaiatuba, Jundiaí). Trilha A
@@ -128,8 +130,7 @@ A ou B. Não mande `status`, datas nem `vale_prototipo` — o script cuida.
 1. `python3 scripts/crm.py resumo` e `listar`. Guarde a lista para não
    repetir empresa. Se o Supabase estiver pausado, pare e avise o Matheus.
 2. **Meta da rodada: 5 leads novos qualificados** (ou o número pedido; nunca
-   mais que 10). Se a Trilha A tiver menos de 10 empresas no CRM, pelo menos
-   metade da rodada é Trilha A.
+   mais que 10): **3 da Trilha C e 2 da Trilha A**. Nenhum da Trilha B.
 3. Escolha um segmento e uma cidade que ainda não estão bem cobertos. Busque
    com `web_search` (ver consultas em `references/perfil-cliente.md`).
 4. Para cada candidato, abra o site e as redes com `web_extract`:
@@ -148,7 +149,19 @@ A ou B. Não mande `status`, datas nem `vale_prototipo` — o script cuida.
 
 ## Qualificação
 
-Cadastre só se passar em **todos**:
+**Trilha C (contador)** — cadastre se:
+
+- Escritório contábil com site, Instagram ou Google Meu Negócio ativo.
+- **Cita e-commerce, marketplace, Mercado Livre, Shopee ou "vendedores
+  online"** entre os nichos atendidos (é o filtro principal).
+- 2 a 40 pessoas. Rede nacional de contabilidade online grande não entra
+  (Contabilizei, Agilize e afins): decisão longe, não indica.
+- Canal comercial público (WhatsApp, e-mail) e, se achar, o nome do sócio
+  ou contador responsável (CRC no site, LinkedIn, Instagram).
+- Região: Sorocaba e até ~100 km primeiro; depois estado de SP, se for
+  escritório **especializado** em e-commerce.
+
+**Trilhas A e B** — cadastre só se passar em **todos**:
 
 - Atua na região (B) ou vende em marketplace com CNPJ (A).
 - Empresa ativa: site, rede ou avaliação com sinal de vida nos últimos 12 meses.
@@ -225,7 +238,7 @@ Formato (texto simples, sem tabela — tabela quebra no Telegram):
 PROSPECÇÃO — <dia/mês>
 <n> para enviar hoje · <n> follow-ups · funil: <total> na lista, <contatados> contatados
 
-━━ 1/<n> · <Empresa> (Trilha <A|B>) ━━
+━━ 1/<n> · <Empresa> (Trilha <A|B|C>) ━━
 Quem: <nome> — <cargo> (ou "sem nome: falar com o comercial")
 Por quê: <1 linha com o fato que torna o lead bom>
 Fonte: <url>

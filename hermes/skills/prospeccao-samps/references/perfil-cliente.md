@@ -1,5 +1,31 @@
 # Perfil de cliente e onde procurar
 
+## Trilha C — contadores que atendem sellers (prioridade 1)
+
+**Por que:** abordar seller um por um é lento e cai no atendimento. O contador
+já é de confiança do seller, recebe as notas todo mês e sofre com a mesma
+divergência (retrabalho na escrituração, nota que não bate com o pedido). Se
+ele gostar, indica — e a indicação chega no dono.
+
+**Quem é:**
+- Escritório de contabilidade de 2 a 40 pessoas.
+- Anuncia atender **e-commerce / marketplace / Mercado Livre / Shopee /
+  vendedores online** (site, Instagram, Google Meu Negócio, blog).
+- Melhor ainda: tem página ou post específico sobre "contabilidade para
+  e-commerce", "MEI que vende no Mercado Livre", "nota fiscal no marketplace".
+
+**Consultas úteis:**
+- `contabilidade e-commerce Sorocaba` / `contador para vendedor mercado livre Sorocaba`
+- `escritório contábil marketplace <cidade>` (cidades da região)
+- `contabilidade para e-commerce` + `SP` (escritórios especializados no estado)
+- Instagram: `contador e-commerce Sorocaba`, `contabilidade marketplace`
+
+**Não entra:** contabilidade online nacional grande (Contabilizei, Agilize,
+Conube e similares), escritório sem nenhum sinal de atender e-commerce.
+
+**O que anotar em `sinal_porte`:** onde ele cita e-commerce (URL), tamanho
+(equipe no site/LinkedIn), há quanto tempo atua, nome do sócio/CRC se houver.
+
 ## Trilha A — conferência de pedido × nota fiscal (prioridade)
 
 **O que já existe:** sistema que lê o PDF do pedido de compra, cruza com a nota

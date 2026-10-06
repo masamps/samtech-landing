@@ -33,7 +33,20 @@ mandar sem editar.
 Os `{campos}` abaixo são só do modelo — na mensagem entregue, todos
 substituídos. Troque o fato genérico por um específico da empresa.
 
-**PMOC / ar-condicionado**
+**Trilha C — contador (prioridade)**
+> Oi, {nome}! Sou o Matheus, de Sorocaba. Vi que o {escritório} atende quem
+> vende no Mercado Livre. Seus clientes costumam ter nota de fornecedor que não
+> bate com o pedido de compra?
+
+Se não tiver nome: "Oi! Sou o Matheus, de Sorocaba. Vi que vocês atendem quem
+vende no Mercado Livre. Seus clientes costumam ter nota de fornecedor que não
+bate com o pedido de compra?"
+
+Se responder que sim: aí entra o caso real ("fiz um sistema que cruza o PDF do
+pedido com a nota e acusa a divergência; roda hoje num seller do ML") e a
+pergunta seguinte é se ele conhece 1 ou 2 clientes que sofrem com isso.
+
+**PMOC / ar-condicionado** (Trilha B — pausada)
 > Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
 > {empresa} faz PMOC para empresas — hoje o relatório de cada visita sai pronto
 > do celular do técnico ou alguém monta depois no escritório?
@@ -68,6 +81,10 @@ substituídos. Troque o fato genérico por um específico da empresa.
 **Modelo B**
 > {nome}, pergunto de outro jeito: quantas visitas com relatório vocês fazem
 > por semana, mais ou menos? Se não fizer sentido para vocês, sem problema.
+
+**Modelo C**
+> {nome}, pergunto de outro jeito: algum cliente seu reclama de conferir nota
+> contra pedido? Se não for o caso, sem problema.
 
 **Modelo A**
 > {nome}, pergunto de outro jeito: quantas notas de fornecedor vocês conferem

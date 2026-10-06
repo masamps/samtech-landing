@@ -38,5 +38,6 @@ export const CANAIS = ["WhatsApp", "E-mail", "Instagram", "LinkedIn", "Telefone"
 export const TRILHAS = [
   { valor: "A", rotulo: "A — Conferência de documentos" },
   { valor: "B", rotulo: "B — Serviço em campo" },
+  { valor: "C", rotulo: "C — Contador (indicação)" },
 ];
 export const AVALIACOES = ["Sim", "Não", "Avaliar"];
