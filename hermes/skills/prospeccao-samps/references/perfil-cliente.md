@@ -1,32 +1,42 @@
 # Perfil de cliente e onde procurar
 
-## Trilha C — contadores que atendem sellers (prioridade 1)
+## Trilha C — escritório contábil pequeno, cliente de automação (prioridade 1)
 
-**Por que:** abordar seller um por um é lento e cai no atendimento. O contador
-já é de confiança do seller, recebe as notas todo mês e sofre com a mesma
-divergência (retrabalho na escrituração, nota que não bate com o pedido). Se
-ele gostar, indica — e a indicação chega no dono.
+**Por que:** a dor é do próprio escritório. Contador pequeno cobra mensalidade
+fixa por cliente e gasta horas da equipe em tarefa repetitiva. Cada hora
+economizada vira margem. O dono decide sozinho e rápido. Encaixa no produto
+de Automação (R$ 6.000) da Samps.
+
+**Tarefas manuais típicas (a dor que buscamos):**
+- Baixar XML/PDF de notas dos clientes (SEFAZ, prefeitura, e-mail) um por um.
+- Cobrar documento de cliente todo mês (extrato, notas, folha) por WhatsApp.
+- Mandar guia (DAS, DARF, FGTS) para cada cliente, um por um.
+- Conciliar extrato bancário com lançamentos.
+- Conferir nota de entrada contra o que o cliente informou.
 
 **Quem é:**
 - **Escritório pequeno: 1 a 15 pessoas, uma unidade só.** O sócio atende ou
-  está perto de quem atende o WhatsApp. Escritório com várias unidades,
-  décadas de mercado e equipe grande não responde a desconhecido: descarte.
-- Anuncia atender **e-commerce / marketplace / Mercado Livre / Shopee /
-  vendedores online** (site, Instagram, Google Meu Negócio, blog).
-- Melhor ainda: tem página ou post específico sobre "contabilidade para
-  e-commerce", "MEI que vende no Mercado Livre", "nota fiscal no marketplace".
+  está perto de quem atende o WhatsApp.
+- Atende MEI, Simples Nacional, comércio e serviços (muitos clientes pequenos
+  = muito trabalho repetitivo).
+- Bom sinal: site simples, Instagram com post de "lembrete de prazo",
+  "envie seus documentos até dia X", atendimento pelo WhatsApp do sócio.
+- Sinal de que já resolveu: "contabilidade 100% digital", app próprio para o
+  cliente, portal do cliente robusto. Não descarta, mas vai para o fim da fila.
 
 **Consultas úteis:**
-- `contabilidade e-commerce Sorocaba` / `contador para vendedor mercado livre Sorocaba`
-- `escritório contábil marketplace <cidade>` (cidades da região)
-- `contabilidade para e-commerce` + `SP` (escritórios especializados no estado)
-- Instagram: `contador e-commerce Sorocaba`, `contabilidade marketplace`
+- `escritório de contabilidade <cidade>` / `contador <bairro> Sorocaba`
+- `contabilidade MEI Simples Nacional <cidade>`
+- Instagram: `contabilidade <cidade>`, `contador <cidade>`
+- Guias locais (Sorocaba Fácil, Solutudo, Google Meu Negócio).
 
-**Não entra:** contabilidade online nacional grande (Contabilizei, Agilize,
-Conube e similares), escritório sem nenhum sinal de atender e-commerce.
+**Não entra:** rede nacional de contabilidade online (Contabilizei, Agilize,
+Conube e afins), escritório com várias unidades ou décadas de mercado e
+equipe grande, BPO financeiro grande.
 
-**O que anotar em `sinal_porte`:** onde ele cita e-commerce (URL), tamanho
-(equipe no site/LinkedIn), há quanto tempo atua, nome do sócio/CRC se houver.
+**O que anotar em `sinal_porte`:** tamanho (equipe no site/LinkedIn/Instagram),
+há quanto tempo atua, perfil de clientes (MEI, Simples, comércio), sinais de
+trabalho manual, nome do sócio/CRC se houver.
 
 ## Trilha A — conferência de pedido × nota fiscal (prioridade)
 

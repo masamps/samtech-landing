@@ -1,6 +1,6 @@
 ---
 name: prospeccao-samps
-description: Encontra e qualifica leads B2B para a Samps Projetos (Sorocaba-SP) — contadores que atendem sellers (Trilha C) e sellers médio-pequenos de marketplace (Trilha A) —, cadastra no CRM como "Não contatado" com a mensagem pronta, e lista follow-ups vencidos. Nunca contata ninguém.
+description: Encontra e qualifica leads B2B para a Samps Projetos (Sorocaba-SP) — escritórios contábeis pequenos como clientes de automação (Trilha C) e sellers médio-pequenos de marketplace (Trilha A) —, cadastra no CRM como "Não contatado" com a mensagem pronta, e lista follow-ups vencidos. Nunca contata ninguém.
 version: 1.0.0
 author: Matheus Sampaio
 metadata:
@@ -58,10 +58,10 @@ com o prospect é o Matheus, sempre.**
 
 Leia `references/perfil-cliente.md` antes de buscar. Resumo:
 
-- **Trilha C — contadores de e-commerce (prioridade 1).** Escritórios de
-  contabilidade que atendem sellers de marketplace. Não são o cliente final:
-  são o canal. Um contador fala com dezenas de sellers e vê a divergência
-  entre nota e pedido todo mês. Um "sim" de contador vale por 10 sellers.
+- **Trilha C — escritório contábil pequeno (prioridade 1).** Cliente de
+  **automação**: a dor é do próprio escritório (baixar XML, cobrar documento,
+  mandar guia, conciliar extrato, tudo na mão). Não é canal de indicação do
+  sistema de conferência: quem confere nota contra pedido é o seller.
 - **Trilha A — seller médio-pequeno (prioridade 2).** Sellers de marketplace
   que revendem várias marcas e conferem pedido de compra contra nota fiscal à
   mão. O sistema já existe.
@@ -152,14 +152,12 @@ A ou B. Não mande `status`, datas nem `vale_prototipo` — o script cuida.
 **Trilha C (contador)** — cadastre se:
 
 - Escritório contábil com site, Instagram ou Google Meu Negócio ativo.
-- **Cita e-commerce, marketplace, Mercado Livre, Shopee ou "vendedores
-  online"** entre os nichos atendidos (é o filtro principal).
 - **Pequeno: 1 a 15 pessoas, uma unidade.** Várias unidades, equipe grande
   ou rede nacional (Contabilizei, Agilize e afins) é descarte.
+- Atende MEI/Simples/comércio/serviços (muito cliente pequeno).
 - Canal comercial público (WhatsApp, e-mail) e, se achar, o nome do sócio
-  ou contador responsável (CRC no site, LinkedIn, Instagram).
-- Região: Sorocaba e até ~100 km primeiro; depois estado de SP, se for
-  escritório **especializado** em e-commerce.
+  (CRC no site, LinkedIn, Instagram).
+- Região: Sorocaba e até ~100 km.
 
 **Trilhas A e B** — cadastre só se passar em **todos**:
 
