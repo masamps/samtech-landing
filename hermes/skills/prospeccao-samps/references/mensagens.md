@@ -1,94 +1,85 @@
 # Como escrever as mensagens
 
-O Matheus revisa e envia. Seu trabalho é deixar a mensagem pronta para ele
-mandar sem editar.
+O Matheus envia do jeito que você entregar. A mensagem tem que soar como ele
+digitando no celular, não como texto de marketing nem de IA.
 
-## Regras (vieram do que já funcionou)
+## Soar como gente (o mais importante)
 
-- **Uma pergunta por mensagem.** Nunca duas.
-- **Saudação e pergunta no mesmo balão.** Sem "tudo bem?" separado competindo
-  com a pergunta real.
-- Diga quem é e de onde: "aqui é o Matheus, da Samps Projetos, de Sorocaba".
-- Cite **um fato concreto** da empresa que prove que não é disparo em massa
-  (o serviço que ela anuncia, a cidade, o documento que ela emite).
-- Pergunta fácil de responder, sobre como eles fazem hoje. Nada de "posso te
-  apresentar", "tem interesse", "podemos marcar uma call".
-- Sem preço, sem link, sem anexo, sem protótipo.
-- Até ~350 caracteres. WhatsApp: tom direto, sem formalidade de e-mail.
-- **Mensagem final, sem placeholder.** Nada de `{saudacao}`, `{nome}`,
-  `{empresa}` no texto entregue: o Matheus envia do jeito que está.
-- Abra com "Oi, <nome>!" (serve para qualquer hora do dia). Sem nome
-  confiável, só "Oi! Aqui é o Matheus…" — nunca "tudo bem?".
-- **O fato concreto tem que ser específico.** "Vi a X vendendo no Mercado
-  Livre" é genérico demais. Use o que só vale para ela: as marcas que revende,
-  o tipo de cliente que atende, o documento que emite, a cidade, o volume.
-  Ex.: "Vi que a Enjoy Pets revende Royal Canin e outras marcas no Mercado
-  Livre".
-- E-mail: mesma mensagem, mais um assunto curto e neutro (ex.: "Conferência
-  de notas na Enjoy Pets"), e assinatura "Matheus Sampaio — Samps Projetos —
-  (15) 98177-7690".
+Mensagem que "parece IA" é ignorada. Sinais que entregam, e que você **nunca**
+usa:
 
-## Primeira mensagem — modelos
+- Travessão (—). Use vírgula, ponto ou nada.
+- A fórmula "Vi que a {empresa} faz X — hoje Y ou Z?". Ela virou assinatura de
+  disparo automático.
+- Pergunta com duas alternativas certinhas ("sai pronto ou alguém monta
+  depois?").
+- Palavras de folder: "solução", "otimizar", "processos", "eficiência",
+  "parceria", "agregar valor".
+- Tudo perfeito demais: capitalização impecável, pontuação de redação, frase
+  longa e simétrica.
 
-Os `{campos}` abaixo são só do modelo — na mensagem entregue, todos
-substituídos. Troque o fato genérico por um específico da empresa.
+Como o Matheus escreve:
 
-**Trilha C — contador (prioridade)**
-> Oi, {nome}! Sou o Matheus, de Sorocaba. Vi que o {escritório} atende quem
-> vende no Mercado Livre. Seus clientes costumam ter nota de fornecedor que não
-> bate com o pedido de compra?
+- Português falado: "pra", "tá", "tava", "vocês", "aqui de Sorocaba também".
+- **Motivo real para estar perguntando.** Ele não está "prospectando", está
+  curioso por causa de um caso que viveu: fez um sistema pra um cliente que
+  vende no Mercado Livre e vivia recebendo nota de fornecedor diferente do
+  pedido.
+- **Um detalhe que só quem olhou de verdade saberia.** Um post do Instagram,
+  o nome do sócio, um serviço específico do site, o bairro. Se você não achou
+  nada específico, diga isso na ficha em vez de inventar.
+- Curta: 2 a 3 frases, até ~250 caracteres.
+- Uma pergunta só, aberta e fácil ("isso é comum aí?", "vocês veem muito
+  isso?").
+- Sem emoji, sem link, sem preço, sem anexo, sem protótipo.
+- Abre com "Oi, {nome}" ou só "Oi". Nunca "tudo bem?" sozinho.
+- **Varie.** Duas mensagens do mesmo dia não podem ter a mesma estrutura.
 
-Se não tiver nome: "Oi! Sou o Matheus, de Sorocaba. Vi que vocês atendem quem
-vende no Mercado Livre. Seus clientes costumam ter nota de fornecedor que não
-bate com o pedido de compra?"
+## Primeira mensagem, exemplos
 
-Se responder que sim: aí entra o caso real ("fiz um sistema que cruza o PDF do
-pedido com a nota e acusa a divergência; roda hoje num seller do ML") e a
-pergunta seguinte é se ele conhece 1 ou 2 clientes que sofrem com isso.
+Use como referência de tom, não como molde. Troque o detalhe específico e
+mexa na ordem das frases a cada lead.
 
-**PMOC / ar-condicionado** (Trilha B — pausada)
-> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
-> {empresa} faz PMOC para empresas — hoje o relatório de cada visita sai pronto
-> do celular do técnico ou alguém monta depois no escritório?
+**Trilha C, contador (prioridade)**
+> Oi, Fernanda. Matheus aqui, de Sorocaba. Fiz um sistema pra um cliente que
+> vende no Mercado Livre porque a nota do fornecedor vivia vindo diferente do
+> pedido e ele só via depois. Vi o post de vocês sobre MEI no marketplace e
+> fiquei curioso: isso aparece muito nos clientes de vocês?
 
-**Controle de pragas**
-> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
-> {empresa} entrega laudo técnico depois de cada aplicação — hoje esse laudo sai
-> pronto na hora ou alguém monta depois no escritório?
+> Oi! Sou o Matheus, desenvolvo sistemas aqui na região de Sorocaba. Tô
+> conversando com contadores que atendem quem vende no Mercado Livre, porque um
+> cliente meu tinha um problemão com nota de fornecedor que não batia com o
+> pedido. Vocês veem muito isso por aí?
 
-**Elevadores**
-> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
-> {empresa} faz manutenção de elevadores em condomínios — o relatório de cada
-> visita hoje é feito no papel ou já sai do celular do técnico?
+Se responder que sim: o Matheus conta o caso (o sistema lê o PDF do pedido,
+cruza com a nota e avisa a divergência; roda hoje num seller) e pergunta se
+ele lembra de 1 ou 2 clientes que sofrem com isso.
 
-**Solar (O&M) / manutenção industrial**
-> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
-> {empresa} faz preventiva em {usinas|indústrias} da região — hoje o relatório
-> com as fotos de cada visita sai pronto do celular ou alguém monta depois?
+**Trilha A, seller médio-pequeno**
+> Oi, Rafael. Matheus, de Sorocaba. Tenho um cliente que vende peça no Mercado
+> Livre e perdia dinheiro com nota de fornecedor vindo diferente do pedido.
+> Vi que vocês trabalham com umas 5 marcas diferentes, imagino que chegue muita
+> nota. Isso acontece aí também?
 
-**Trilha A — seller de marketplace**
-> Oi, {nome}! Aqui é o Matheus, da Samps Projetos, de Sorocaba. Vi que a
-> {empresa} revende {marcas} no {marketplace} — hoje alguém confere pedido por
-> pedido contra a nota fiscal, ou a divergência só aparece depois?
+**Trilha B (pausada, só para follow-up de quem já está no CRM)**
+> Oi! Matheus, de Sorocaba. Tô conversando com empresas que fazem PMOC aqui na
+> região pra entender como o relatório das visitas é feito. Como vocês fazem
+> hoje?
 
 ## Follow-up (só um, 5 a 7 dias depois)
 
 - Nunca "viu minha mensagem?", "conseguiu ver?", "só reforçando".
-- Ângulo novo, pergunta ainda mais fácil, com saída explícita.
-- Depois dele, nada. Sem resposta = o Matheus marca Descartado ou volta em 3
+- Ângulo novo, mais curto ainda, com saída fácil.
+- Depois dele, nada. Sem resposta, o Matheus marca Descartado ou volta em 3
   meses.
 
-**Modelo B**
-> {nome}, pergunto de outro jeito: quantas visitas com relatório vocês fazem
-> por semana, mais ou menos? Se não fizer sentido para vocês, sem problema.
+Exemplos:
 
-**Modelo C**
-> {nome}, pergunto de outro jeito: algum cliente seu reclama de conferir nota
-> contra pedido? Se não for o caso, sem problema.
+> Oi, Fernanda, sei que o mês é corrido pra contador. Só queria saber se esse
+> problema de nota x pedido aparece aí ou se é coisa rara mesmo.
 
-**Modelo A**
-> {nome}, pergunto de outro jeito: quantas notas de fornecedor vocês conferem
-> por semana, mais ou menos? Se não fizer sentido para vocês, sem problema.
+> Oi! Pergunta rápida: alguém aí cuida da conferência de nota de fornecedor
+> ou cada um se vira? Se não fizer sentido, tranquilo.
 
 ## O que o Matheus quer descobrir na conversa (não pergunte na primeira)
 
@@ -97,9 +88,16 @@ pergunta seguinte é se ele conhece 1 ou 2 clientes que sofrem com isso.
 3. O que acontece quando passa um erro.
 4. Se já usam algum sistema.
 
-Isso guia a conversa depois da resposta; não vai na primeira mensagem.
+Contador: quantos clientes vendem em marketplace, e se ele indicaria.
 
 ## Sinais de leitura (para o relatório, não para a mensagem)
 
 - Elogio ("que top", "legal") não é sinal de compra.
 - Sinal real: resposta com número, dor, ou pergunta sobre preço/prazo.
+- Contador que diz "tenho cliente assim" é ouro: peça o contato na hora.
+
+## E-mail
+
+Mesmo tom. Assunto curto e humano, como um e-mail entre conhecidos (ex.:
+"nota x pedido nos seus clientes"), sem maiúscula de título. Assinatura:
+"Matheus Sampaio, Samps Projetos, (15) 98177-7690".
