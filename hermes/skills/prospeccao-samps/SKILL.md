@@ -154,8 +154,8 @@ A ou B. Não mande `status`, datas nem `vale_prototipo` — o script cuida.
 - Escritório contábil com site, Instagram ou Google Meu Negócio ativo.
 - **Cita e-commerce, marketplace, Mercado Livre, Shopee ou "vendedores
   online"** entre os nichos atendidos (é o filtro principal).
-- 2 a 40 pessoas. Rede nacional de contabilidade online grande não entra
-  (Contabilizei, Agilize e afins): decisão longe, não indica.
+- **Pequeno: 1 a 15 pessoas, uma unidade.** Várias unidades, equipe grande
+  ou rede nacional (Contabilizei, Agilize e afins) é descarte.
 - Canal comercial público (WhatsApp, e-mail) e, se achar, o nome do sócio
   ou contador responsável (CRC no site, LinkedIn, Instagram).
 - Região: Sorocaba e até ~100 km primeiro; depois estado de SP, se for

@@ -8,7 +8,9 @@ divergência (retrabalho na escrituração, nota que não bate com o pedido). Se
 ele gostar, indica — e a indicação chega no dono.
 
 **Quem é:**
-- Escritório de contabilidade de 2 a 40 pessoas.
+- **Escritório pequeno: 1 a 15 pessoas, uma unidade só.** O sócio atende ou
+  está perto de quem atende o WhatsApp. Escritório com várias unidades,
+  décadas de mercado e equipe grande não responde a desconhecido: descarte.
 - Anuncia atender **e-commerce / marketplace / Mercado Livre / Shopee /
   vendedores online** (site, Instagram, Google Meu Negócio, blog).
 - Melhor ainda: tem página ou post específico sobre "contabilidade para

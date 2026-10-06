@@ -28,43 +28,37 @@ Como o Matheus escreve:
 - **Um detalhe que só quem olhou de verdade saberia.** Um post do Instagram,
   o nome do sócio, um serviço específico do site, o bairro. Se você não achou
   nada específico, diga isso na ficha em vez de inventar.
-- Curta: 2 a 3 frases, até ~250 caracteres.
+- **Primeira mensagem: uma frase de apresentação e uma pergunta. Até ~100
+  caracteres.** Nada de explicar o motivo na primeira.
 - Uma pergunta só, aberta e fácil ("isso é comum aí?", "vocês veem muito
   isso?").
 - Sem emoji, sem link, sem preço, sem anexo, sem protótipo.
 - Abre com "Oi, {nome}" ou só "Oi". Nunca "tudo bem?" sozinho.
 - **Varie.** Duas mensagens do mesmo dia não podem ter a mesma estrutura.
 
-## Primeira mensagem, exemplos
+## Conversa em dois passos (padrão escolhido pelo Matheus)
 
-Use como referência de tom, não como molde. Troque o detalhe específico e
-mexa na ordem das frases a cada lead.
+A primeira mensagem **não conta história nem fala do sistema**. É uma pergunta
+curtíssima, que se responde com "sim". O caso real só entra depois que a
+pessoa responder.
 
-**Trilha C, contador (prioridade)**
-> Oi, Fernanda. Matheus aqui, de Sorocaba. Fiz um sistema pra um cliente que
-> vende no Mercado Livre porque a nota do fornecedor vivia vindo diferente do
-> pedido e ele só via depois. Vi o post de vocês sobre MEI no marketplace e
-> fiquei curioso: isso aparece muito nos clientes de vocês?
+**Passo 1, primeira mensagem (Trilha C, contador)**, sempre esta, sem enfeite:
+> Oi! Sou o Matheus, de Sorocaba. Vocês atendem bastante gente que vende no Mercado Livre?
 
-> Oi! Sou o Matheus, desenvolvo sistemas aqui na região de Sorocaba. Tô
-> conversando com contadores que atendem quem vende no Mercado Livre, porque um
-> cliente meu tinha um problemão com nota de fornecedor que não batia com o
-> pedido. Vocês veem muito isso por aí?
+Para escritório fora de Sorocaba, mantenha "de Sorocaba" (é verdade e gera
+proximidade na região).
 
-Se responder que sim: o Matheus conta o caso (o sistema lê o PDF do pedido,
-cruza com a nota e avisa a divergência; roda hoje num seller) e pergunta se
-ele lembra de 1 ou 2 clientes que sofrem com isso.
+**Passo 1, Trilha A (seller)**, mesma ideia:
+> Oi! Sou o Matheus, de Sorocaba. Vocês compram de muitos fornecedores diferentes?
 
-**Trilha A, seller médio-pequeno**
-> Oi, Rafael. Matheus, de Sorocaba. Tenho um cliente que vende peça no Mercado
-> Livre e perdia dinheiro com nota de fornecedor vindo diferente do pedido.
-> Vi que vocês trabalham com umas 5 marcas diferentes, imagino que chegue muita
-> nota. Isso acontece aí também?
+**Passo 2, depois que responderem "sim"** (o Matheus manda, você só sugere na
+ficha se a resposta chegar até você):
+> Legal! Pergunto porque fiz um sistema pra um cliente que vende no ML e vivia
+> recebendo nota de fornecedor diferente do pedido. Isso aparece nos clientes
+> de vocês também?
 
-**Trilha B (pausada, só para follow-up de quem já está no CRM)**
-> Oi! Matheus, de Sorocaba. Tô conversando com empresas que fazem PMOC aqui na
-> região pra entender como o relatório das visitas é feito. Como vocês fazem
-> hoje?
+Se a resposta do passo 2 for "sim": perguntar se ele lembra de 1 ou 2
+clientes que sofrem com isso.
 
 ## Follow-up (só um, 5 a 7 dias depois)
 
