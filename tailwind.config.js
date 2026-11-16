@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  // Protótipos de clientes têm configuração própria (tailwind.prototipos.config.js):
+  // sem a exclusão, as classes deles iriam parar no CSS das páginas públicas.
+  content: ["./index.html", "./src/**/*.{js,jsx}", "!./src/prototipos/**"],
   theme: {
     extend: {
       colors: {

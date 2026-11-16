@@ -13,6 +13,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         appB2B: resolve(__dirname, "aplicativo-b2b/index.html"),
         admin: resolve(__dirname, "admin/index.html"),
+        prototipoReprice: resolve(__dirname, "prototipos/reprice/index.html"),
       },
     },
   },
