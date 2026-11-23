@@ -14,9 +14,13 @@ export const company = {
   serviceArea: "São Paulo e todo o Brasil",
 };
 
-export const whatsappLink = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
+/** Link de WhatsApp com a mensagem já escrita (cada página diz de onde veio). */
+export const linkWhatsApp = (mensagem) =>
+  `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+export const whatsappLink = linkWhatsApp(
   "Olá! Vim pelo site da Samps Projetos e gostaria de conversar sobre um projeto."
-)}`;
+);
 
 export const navLinks = [
   { label: "Como funciona", href: "/#como-funciona" },
@@ -73,6 +77,14 @@ export const services = [
       "Integração com a sua plataforma web",
     ],
   },
+];
+
+// Soluções prontas por nicho: páginas próprias, com link em todo o site para
+// o Google encontrar e para o visitante chegar nelas de qualquer página.
+export const solucoesProntas = [
+  { href: "/aplicativo-b2b/", titulo: "Aplicativo de pedidos B2B" },
+  { href: "/sistema-para-remarcadora/", titulo: "Sistema de laudos para remarcadoras" },
+  { href: "/conferencia-de-nota-fiscal/", titulo: "Conferência de nota fiscal x pedido" },
 ];
 
 // Plano de manutenção — receita recorrente após a entrega.
@@ -137,6 +149,7 @@ export const cases = [
     result:
       "A conferência que era manual virou automática, e o erro que gerava prejuízo passou a ser identificado antes do pagamento.",
     tags: ["Automação", "Leitura de PDF", "Conferência fiscal", "Relatórios"],
+    link: { href: "/conferencia-de-nota-fiscal/", rotulo: "Conhecer a conferência automática" },
   },
   {
     client: "Escritório de advocacia securitária",

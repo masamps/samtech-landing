@@ -26,6 +26,20 @@ import {
   TestTube2,
   LockKeyhole,
   Store,
+  FileCheck2,
+  Hash,
+  ScanLine,
+  FileSearch,
+  Scale,
+  Receipt,
+  History,
+  FileUp,
+  ListChecks,
+  Printer,
+  Camera,
+  Building2,
+  ClipboardCheck,
+  MapPin,
 } from "lucide-react";
 
 const icons = {
@@ -56,6 +70,20 @@ const icons = {
   TestTube2,
   LockKeyhole,
   Store,
+  FileCheck2,
+  Hash,
+  ScanLine,
+  FileSearch,
+  Scale,
+  Receipt,
+  History,
+  FileUp,
+  ListChecks,
+  Printer,
+  Camera,
+  Building2,
+  ClipboardCheck,
+  MapPin,
 };
 
 export default function Icon({ name, ...props }) {

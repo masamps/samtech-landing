@@ -3,7 +3,8 @@ import { MessageCircle } from "lucide-react";
 import { whatsappLink } from "../data/site.js";
 import { trackConversion } from "../lib/analytics.js";
 
-export default function FloatingWhatsApp() {
+// `href` permite que cada página mande a sua própria mensagem pronta.
+export default function FloatingWhatsApp({ href = whatsappLink }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function FloatingWhatsApp() {
 
   return (
     <a
-      href={whatsappLink}
+      href={href}
       target="_blank"
       rel="noopener"
       onClick={() => trackConversion("clique_whatsapp_flutuante")}

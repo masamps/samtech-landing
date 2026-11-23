@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeading.jsx";
 import Icon from "./Icon.jsx";
 import Button from "./Button.jsx";
 import { stagger, fadeUp } from "../lib/motion.js";
-import { services, maintenance } from "../data/site.js";
+import { services, maintenance, solucoesProntas } from "../data/site.js";
 
 export default function ServicesSection() {
   return (
@@ -165,6 +165,24 @@ export default function ServicesSection() {
             />
           </span>
         </motion.a>
+
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          {solucoesProntas
+            .filter((s) => s.href !== "/aplicativo-b2b/")
+            .map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                className="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface/40 px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/60"
+              >
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-wide text-brand-300">Solução pronta</span>
+                  <span className="mt-0.5 block font-semibold text-white">{s.titulo}</span>
+                </span>
+                <ArrowRight size={16} className="shrink-0 text-mist transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
+              </a>
+            ))}
+        </div>
 
         <p className="mt-6 text-center text-sm text-mist">
           Valores de referência. O preço final é fechado na proposta, depois do

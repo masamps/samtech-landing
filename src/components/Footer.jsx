@@ -1,7 +1,7 @@
 import { Mail, MapPin, MessageCircle } from "lucide-react";
 import Container from "./Container.jsx";
 import Logo from "./Logo.jsx";
-import { company, navLinks, services, whatsappLink } from "../data/site.js";
+import { company, navLinks, services, whatsappLink, solucoesProntas } from "../data/site.js";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -47,6 +47,16 @@ export default function Footer() {
                     className="inline-flex min-h-[40px] items-center text-sm text-mist transition-colors hover:text-white"
                   >
                     {s.title}
+                  </a>
+                </li>
+              ))}
+              {solucoesProntas.map((s) => (
+                <li key={s.href}>
+                  <a
+                    href={s.href}
+                    className="inline-flex min-h-[40px] items-center text-sm text-mist transition-colors hover:text-white"
+                  >
+                    {s.titulo}
                   </a>
                 </li>
               ))}

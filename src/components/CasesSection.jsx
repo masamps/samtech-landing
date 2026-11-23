@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Container from "./Container.jsx";
 import SectionHeading from "./SectionHeading.jsx";
 import Icon from "./Icon.jsx";
@@ -75,6 +75,16 @@ export default function CasesSection() {
                   </span>
                 ))}
               </div>
+
+              {c.link && (
+                <a
+                  href={c.link.href}
+                  className="group mt-5 inline-flex min-h-[40px] items-center gap-2 text-sm font-semibold text-brand-300 transition-colors hover:text-white"
+                >
+                  {c.link.rotulo}
+                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                </a>
+              )}
             </motion.article>
           ))}
         </motion.div>
