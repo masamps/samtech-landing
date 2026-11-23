@@ -8,48 +8,48 @@
 
 const SITE = "https://www.sampsprojetos.com.br";
 
-export const remarcadora = {
-  id: "remarcadora",
-  slug: "/sistema-para-remarcadora/",
-  nome: "Sistema de laudo técnico para remarcadoras",
-  badge: "Para remarcadoras de chassi e motor",
+export const laudoTecnico = {
+  id: "laudo-tecnico",
+  slug: "/laudo-tecnico-de-remarcacao/",
+  nome: "Sistema de laudo técnico de remarcação",
+  badge: "Para empresas credenciadas de marcação e remarcação",
   titulo: "Sistema de laudo técnico",
-  tituloDestaque: "para remarcadora de chassi e motor",
+  tituloDestaque: "de remarcação veicular",
   subtitulo:
     "Chega de montar laudo no Word. Preencha direto no laudo, anexe as fotos pelo celular ou arrastando o arquivo e imprima no formato que você já usa — com numeração automática e o cadastro de clientes e veículos sempre à mão.",
-  whatsapp: "Olá! Tenho uma remarcadora e quero conhecer o sistema de laudos.",
-  preco: { implantacao: "R$ 6.000", minimo: "6000", mensal: "R$ 300", prazo: "cerca de 4 semanas" },
-  resumoPreco: "Implantação a partir de R$ 6.000 · mensalidade a partir de R$ 300",
+  whatsapp: "Olá! Quero conhecer o sistema de laudo técnico de remarcação.",
+  chamada: "Proposta sob medida · implantação em cerca de 4 semanas",
+  implantacao: "Montamos o sistema com o seu modelo de laudo, a sua marca e a sua numeração atual.",
   publico: [
-    { icone: "ScanLine", rotulo: "Remarcação de chassi" },
+    { icone: "ClipboardCheck", rotulo: "Fixação de etiqueta ETA" },
     { icone: "Wrench", rotulo: "Remarcação de motor" },
-    { icone: "ClipboardCheck", rotulo: "Etiqueta ETA" },
+    { icone: "ScanLine", rotulo: "Remarcação de chassi" },
   ],
 
   galeria: {
     titulo: "O laudo é o próprio formulário",
     descricao: "Você digita nas células do laudo e vê o documento pronto enquanto preenche.",
     principal: {
-      src: "/solucoes/remarcadora/editor.webp",
+      src: "/solucoes/laudo-tecnico/editor.webp",
       largura: 1600,
       altura: 1000,
       legenda: "Editor do laudo: digite direto nas células; ao lado, a conferência do que falta e o código da etiqueta ETA calculado do chassi.",
     },
     secundarias: [
       {
-        src: "/solucoes/remarcadora/laudo.webp",
+        src: "/solucoes/laudo-tecnico/laudo.webp",
         largura: 900,
         altura: 1277,
         legenda: "Sai no formato do seu laudo, pronto para imprimir ou salvar em PDF.",
       },
       {
-        src: "/solucoes/remarcadora/celular.webp",
+        src: "/solucoes/laudo-tecnico/celular.webp",
         largura: 560,
         altura: 1212,
         legenda: "No celular: toque no campo, preencha e fotografe na hora.",
       },
       {
-        src: "/solucoes/remarcadora/livro.webp",
+        src: "/solucoes/laudo-tecnico/livro.webp",
         largura: 1600,
         altura: 911,
         legenda: "Livro de laudos com busca por placa, chassi ou CPF.",
@@ -84,7 +84,7 @@ export const remarcadora = {
   passos: [
     {
       titulo: "Escolha o serviço",
-      texto: "Etiqueta ETA, remarcação de chassi ou de motor: cada serviço tem o seu modelo de laudo, com os campos e as fotos que ele exige.",
+      texto: "Cada serviço autorizado — etiqueta ETA, remarcação de motor ou de chassi — tem o seu modelo de laudo, com os campos e as fotos que ele exige.",
     },
     {
       titulo: "Preencha direto no laudo",
@@ -146,9 +146,14 @@ export const remarcadora = {
         "Sim. O sistema é montado a partir do laudo que vocês já emitem hoje: as mesmas seções, na mesma ordem, com o seu logo e os dados da empresa. Se vocês emitem mais de um tipo de laudo, como etiqueta ETA, remarcação de chassi e de motor, cada um vira um modelo próprio, com os campos e as fotos que ele exige.",
     },
     {
-      question: "Quanto custa um sistema de laudo para remarcadora?",
+      question: "Para quem é o sistema?",
       answer:
-        "A implantação parte de R$ 6.000 e a mensalidade parte de R$ 300, cobrindo hospedagem, cópia de segurança diária, suporte e ajustes. O valor final depende de quantos modelos de laudo e de quantas pessoas vão usar. Também dá para começar com um modelo só e acrescentar os outros depois.",
+        "Para empresas credenciadas de marcação e remarcação veicular, que emitem laudo técnico de serviços autorizados pelo DETRAN: fixação de etiqueta ETA, remarcação de motor e de chassi. Cada laudo registra a CIRETRAN, o número da autorização e o responsável por ela, como pede a portaria.",
+    },
+    {
+      question: "Quanto custa um sistema de laudo técnico?",
+      answer:
+        "Depende de quantos modelos de laudo vocês emitem e de quantas pessoas vão usar. O investimento tem duas partes: a implantação, paga uma vez, e uma mensalidade que cobre hospedagem, cópia de segurança diária, suporte e ajustes. Mande um exemplo do laudo que vocês usam hoje e enviamos a proposta com o valor fechado. Também dá para começar com um modelo só e acrescentar os outros depois.",
     },
     {
       question: "Precisa instalar alguma coisa?",
@@ -184,10 +189,10 @@ export const remarcadora = {
 
   seo: {
     descricao:
-      "Sistema de laudo técnico para remarcadoras de chassi e motor: preencha direto no laudo, anexe fotos pelo celular, numeração automática e cadastro de clientes e veículos. Etiqueta ETA, remarcação de chassi e de motor.",
+      "Sistema de laudo técnico para empresas credenciadas de remarcação: preencha direto no laudo, anexe fotos pelo celular, numeração automática e cadastro de clientes e veículos.",
     recursos: [
-      "Laudo no modelo da remarcadora",
-      "Etiqueta ETA, remarcação de chassi e de motor",
+      "Laudo no modelo da empresa",
+      "Etiqueta ETA, remarcação de motor e de chassi",
       "Numeração automática sem buracos",
       "Fotos pelo celular ou arrastando o arquivo",
       "Conferência de CPF, CNPJ e chassi",
@@ -207,8 +212,8 @@ export const notaFiscal = {
   subtitulo:
     "Envie o PDF do pedido e o da nota fiscal: o sistema compara os dois e aponta onde estão as divergências. Para quem vende no Mercado Livre, mostra também os custos por regional.",
   whatsapp: "Olá! Quero conhecer a conferência automática de nota fiscal com pedido de compra.",
-  preco: { implantacao: "R$ 4.000", minimo: "4000", mensal: "R$ 300", prazo: "2 a 3 semanas" },
-  resumoPreco: "Implantação a partir de R$ 4.000 · mensalidade a partir de R$ 300",
+  chamada: "Proposta sob medida · implantação em 2 a 3 semanas",
+  implantacao: "Ajustamos a leitura aos pedidos e notas dos seus principais fornecedores.",
   publico: [
     { icone: "Store", rotulo: "Vendedores de marketplace" },
     { icone: "Truck", rotulo: "Distribuidoras e atacados" },
@@ -311,7 +316,7 @@ export const notaFiscal = {
     {
       question: "Quanto custa?",
       answer:
-        "A implantação parte de R$ 4.000 e a mensalidade parte de R$ 300, cobrindo hospedagem, suporte e ajustes. O valor final depende de quantos fornecedores têm layouts diferentes de pedido e do volume de conferências. Como o sistema já existe e está em uso, a implantação é bem menor que desenvolver do zero.",
+        "Depende de quantos fornecedores têm layouts diferentes de pedido e do volume de conferências. Como o sistema já existe e está em uso, a implantação sai bem menor que desenvolver do zero. Mande um pedido e a nota correspondente e enviamos a proposta com o valor fechado.",
     },
     {
       question: "Funciona com qualquer fornecedor?",
@@ -353,7 +358,7 @@ export const notaFiscal = {
   },
 };
 
-export const solucoes = [remarcadora, notaFiscal];
+export const solucoes = [laudoTecnico, notaFiscal];
 
 /** Dados estruturados (JSON-LD) da página, gerados no build. */
 export function dadosEstruturados(s) {
@@ -374,13 +379,6 @@ export function dadosEstruturados(s) {
       ...(imagens ? { screenshot: imagens } : {}),
       featureList: s.seo.recursos,
       author: { "@type": "Organization", name: "Samps Projetos", url: `${SITE}/` },
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "BRL",
-        price: s.preco.minimo,
-        priceSpecification: { "@type": "PriceSpecification", priceCurrency: "BRL", minPrice: s.preco.minimo },
-        description: s.resumoPreco,
-      },
     },
     {
       "@context": "https://schema.org",

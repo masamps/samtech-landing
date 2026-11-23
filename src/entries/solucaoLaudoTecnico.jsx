@@ -6,14 +6,14 @@ import "@fontsource-variable/sora";
 import "@fontsource-variable/manrope";
 import "../index.css";
 import SolucaoPage from "../pages/SolucaoPage.jsx";
-import { remarcadora } from "../data/solucoes.js";
+import { laudoTecnico } from "../data/solucoes.js";
 import { initAnalytics } from "../lib/analytics.js";
 
 initAnalytics();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <SolucaoPage solucao={remarcadora} />
+    <SolucaoPage solucao={laudoTecnico} />
     <Analytics />
     <SpeedInsights />
   </React.StrictMode>

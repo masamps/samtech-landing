@@ -83,7 +83,7 @@ export const services = [
 // o Google encontrar e para o visitante chegar nelas de qualquer página.
 export const solucoesProntas = [
   { href: "/aplicativo-b2b/", titulo: "Aplicativo de pedidos B2B" },
-  { href: "/sistema-para-remarcadora/", titulo: "Sistema de laudos para remarcadoras" },
+  { href: "/laudo-tecnico-de-remarcacao/", titulo: "Sistema de laudo técnico de remarcação" },
   { href: "/conferencia-de-nota-fiscal/", titulo: "Conferência de nota fiscal x pedido" },
 ];
 

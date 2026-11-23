@@ -103,7 +103,7 @@ export default function SolucaoPage({ solucao: s }) {
               </motion.div>
 
               <motion.p variants={fadeUp} className="mt-5 text-sm text-mist/80">
-                {s.resumoPreco} · {s.preco.prazo}
+                {s.chamada}
               </motion.p>
 
               <motion.ul variants={fadeUp} className="mt-8 flex flex-wrap justify-center gap-2">
@@ -252,23 +252,25 @@ export default function SolucaoPage({ solucao: s }) {
           </Container>
         </section>
 
-        {/* Investimento */}
-        <section id="investimento" className="scroll-mt-28 py-20 sm:py-24">
+        {/* Proposta: sem preço na página — o valor sai depois de entender o caso */}
+        <section id="proposta" className="scroll-mt-28 py-20 sm:py-24">
           <Container>
-            <SectionHeading eyebrow="Investimento" title="Quanto custa" description="O valor final é fechado na proposta, depois de ver como vocês trabalham hoje." />
-            <Reveal className="mx-auto mt-12 max-w-2xl rounded-3xl border border-brand-400/50 bg-surface/70 p-7 shadow-glow sm:p-9">
-              <div className="grid gap-6 sm:grid-cols-2">
+            <SectionHeading
+              eyebrow="Investimento"
+              title="Proposta sob medida"
+              description="O valor depende de como vocês trabalham hoje. Conversamos, entendemos o caso e enviamos a proposta com o valor fechado."
+            />
+            <Reveal className="mx-auto mt-12 max-w-3xl rounded-3xl border border-brand-400/50 bg-surface/70 p-7 shadow-glow sm:p-9">
+              <div className="grid gap-7 sm:grid-cols-2">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-300">Implantação</p>
-                  <p className="mt-2 text-sm text-mist">a partir de</p>
-                  <p className="text-3xl font-bold text-gradient">{s.preco.implantacao}</p>
-                  <p className="mt-1 text-sm text-mist">pago uma vez · {s.preco.prazo}</p>
+                  <p className="mt-2 leading-relaxed text-white">{s.implantacao}</p>
+                  <p className="mt-2 text-sm text-mist">Paga uma vez.</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-300">Mensalidade</p>
-                  <p className="mt-2 text-sm text-mist">a partir de</p>
-                  <p className="text-3xl font-bold text-gradient">{s.preco.mensal}</p>
-                  <p className="mt-1 text-sm text-mist">hospedagem, cópia de segurança, suporte e ajustes</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-300">Acompanhamento mensal</p>
+                  <p className="mt-2 leading-relaxed text-white">Hospedagem, cópia de segurança, suporte e ajustes.</p>
+                  <p className="mt-2 text-sm text-mist">O sistema continua funcionando e evoluindo.</p>
                 </div>
               </div>
               <div className="mt-7 border-t border-line pt-6">

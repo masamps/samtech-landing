@@ -37,7 +37,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         appB2B: resolve(__dirname, "aplicativo-b2b/index.html"),
-        solucaoRemarcadora: resolve(__dirname, "sistema-para-remarcadora/index.html"),
+        solucaoLaudoTecnico: resolve(__dirname, "laudo-tecnico-de-remarcacao/index.html"),
         solucaoNotaFiscal: resolve(__dirname, "conferencia-de-nota-fiscal/index.html"),
         admin: resolve(__dirname, "admin/index.html"),
         prototipoReprice: resolve(__dirname, "prototipos/reprice/index.html"),
