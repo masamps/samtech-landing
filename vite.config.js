@@ -30,9 +30,11 @@ function dadosEstruturadosDasSolucoes() {
 // Site multipágina: cada entrada tem o seu próprio HTML e bundle. O painel
 // interno é uma entrada separada de propósito — assim o código dele (e o
 // cliente do Supabase) não entra no bundle das páginas públicas.
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), dadosEstruturadosDasSolucoes()],
-  build: {
+  // No build SSR (pré-renderização) a entrada é src/ssr.jsx, passada na linha
+  // de comando; as entradas HTML abaixo são só do build do navegador.
+  build: isSsrBuild ? {} : {
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
@@ -44,4 +46,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

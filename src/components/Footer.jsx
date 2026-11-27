@@ -96,7 +96,9 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-line pt-6 text-sm text-mist sm:flex-row">
           <p>
-            © {year} {company.name}. Todos os direitos reservados.
+            {/* O HTML é gerado no build; numa virada de ano o visitante pode ver
+                outro ano — diferença esperada, não erro. */}
+            © <span suppressHydrationWarning>{year}</span> {company.name}. Todos os direitos reservados.
           </p>
           <a
             href="/politica-de-privacidade.html"

@@ -1,20 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import "@fontsource-variable/sora";
 import "@fontsource-variable/manrope";
 import "../index.css";
-import SolucaoPage from "../pages/SolucaoPage.jsx";
-import { notaFiscal } from "../data/solucoes.js";
+import Raiz from "../raizes/notaFiscal.jsx";
+import { montarPagina } from "../lib/montar.jsx";
 import { initAnalytics } from "../lib/analytics.js";
 
 initAnalytics();
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <SolucaoPage solucao={notaFiscal} />
-    <Analytics />
-    <SpeedInsights />
-  </React.StrictMode>
-);
+montarPagina(Raiz);

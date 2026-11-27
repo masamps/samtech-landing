@@ -1,5 +1,7 @@
 node_modules
 dist
+# build da pré-renderização (temporário, apagado ao fim do build)
+.ssr
 .DS_Store
 
 .vercel
